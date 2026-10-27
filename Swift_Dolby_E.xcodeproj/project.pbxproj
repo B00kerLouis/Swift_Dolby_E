@@ -1,0 +1,1816 @@
+// !$*UTF8*$!
+{
+	"classes" = {
+	};
+	"objectVersion" = "56";
+	"archiveVersion" = "1";
+	"objects" = {
+		"B8A7C4C7C43B9A2F11EEEA63" = {
+			"isa" = "PBXGroup";
+			"name" = "Shared";
+			"children" = (
+				"CFC887C7F0D938AD421DDD38",
+				"0F908E60DA0408D175BFA622",
+				"886815B68B20D6BD2D372A43",
+				"DAB43D39BB7809153DBD03BA",
+				"A95A8D968C998AC3EB380729",
+				"53B06A3F26A54A8FDFB15305",
+				"50549124B22635A7DA9B40F2",
+				"3E98862D09E97A4AF7B8BA88",
+				"797A5109A32F29CD1DE4B059",
+				"8C146798CB5445A652D001DF",
+				"E8363F0F88BA6EEA094720AC",
+				"9A6875D95DD3323BF34BACDB",
+				"4D07CA2E3347DF039514D85B",
+				"D8F48443A2176C960EF28935",
+				"577DAC3D47EA49B88DE1F581",
+				"B87E03B9D002F234CC26503D",
+				"AB83363AC24B2871E234849D",
+				"505D5CA76C3E52F1839930FD",
+				"8EFD64B27E900C395BA1348D",
+				"B029C0EE314F1E08681318BF",
+				"7A43BBA087A6596BE72C9C66",
+				"3CAC3309D68E5D2E8E51E7B3",
+				"2616CFA4EDBB00056B9E7523",
+				"7BA0958DD199777E222A3FB3",
+				"4928AFA9E7178473E1E1F382",
+				"501E5574A568022567C7053F",
+				"B221AC056B08D51D690B59B1",
+				"434299EF4C0202748091C33F",
+				"87798DF6F9C433438F7610C1",
+				"B1B5C6720AAD068A7E4F1BF7",
+				"72737C881DBCBCC23CAA52A7",
+			);
+			"sourceTree" = "<group>";
+		};
+		"227E95968243CB7A91AF2032" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "FFB658BAFC73894234D3C865";
+		};
+		"3C2C87B973C997D7FC8B8EE7" = {
+			"path" = "Swift_Dolby_E/Encoder/DolbyEOfflineLoudnessPreparation.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"609A1EC4BCD8100826A6D171" = {
+			"fileRef" = "70DCFCEA9EDB7FB6C5213577";
+			"isa" = "PBXBuildFile";
+		};
+		"0899CEE966FEAF11B39C8ADB" = {
+			"fileRef" = "1E0E181F640288428DB79BF3";
+			"isa" = "PBXBuildFile";
+		};
+		"24307D249BA43EB13D41A392" = {
+			"isa" = "XCBuildConfiguration";
+			"buildSettings" = {
+				"DEBUG_INFORMATION_FORMAT" = "dwarf-with-dsym";
+				"SWIFT_INSTALL_OBJC_HEADER" = "YES";
+				"DEFINES_MODULE" = "YES";
+				"SKIP_INSTALL" = "NO";
+				"DYLIB_COMPATIBILITY_VERSION" = "1";
+				"MACOSX_DEPLOYMENT_TARGET" = "14.0";
+				"CODE_SIGNING_ALLOWED" = "NO";
+				"INSTALL_PATH" = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				"GENERATE_INFOPLIST_FILE" = "YES";
+				"BUILD_LIBRARY_FOR_DISTRIBUTION" = "YES";
+				"SWIFT_COMPILATION_MODE" = "wholemodule";
+				"SWIFT_OPTIMIZATION_LEVEL" = "-O";
+				"PRODUCT_NAME" = "DolbyEEncoder";
+				"MACH_O_TYPE" = "staticlib";
+				"DYLIB_CURRENT_VERSION" = "1";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "com.B00kerLouis.DolbyEEncoder";
+				"SWIFT_VERSION" = "6.0";
+			};
+			"name" = "Release";
+		};
+		"3CAC3309D68E5D2E8E51E7B3" = {
+			"path" = "Swift_Dolby_E/Shared/DolbyEWaveWriter.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"501E5574A568022567C7053F" = {
+			"path" = "Swift_Dolby_E/Shared/DolbyECosineTransform.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"4F283E276873C1ACDDF1C01B" = {
+			"buildConfigurationList" = "52AB4CF9FCDA1F954D7E1F56";
+			"productReference" = "4F33C7AA71BB5AE017FA5697";
+			"productType" = "com.apple.product-type.tool";
+			"productName" = "dolbye-decode";
+			"isa" = "PBXNativeTarget";
+			"buildPhases" = (
+				"EB87953A8F705648D53796CF",
+				"A2C9D5435744B0EC9E2A1AD4",
+			);
+			"dependencies" = (
+				"9BE57CA97F4C312D537C238D",
+				"F681D099637204287A1F62E8",
+			);
+			"name" = "DolbyEDecoderCLI";
+			"buildRules" = (
+			);
+		};
+		"E3790366C87362D7C46835F2" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "53B06A3F26A54A8FDFB15305";
+		};
+		"AA0596BBDB4DCC95D5D4F10C" = {
+			"isa" = "PBXGroup";
+			"sourceTree" = "<group>";
+			"children" = (
+				"B8A7C4C7C43B9A2F11EEEA63",
+				"76D4AEB4EE11589FD04C0627",
+				"5A7E31A324668F3598350D46",
+				"18B380750B890871AAA7495C",
+				"AE7805B56D1DCAFAA071416F",
+			);
+		};
+		"F1C9A13AE1E962203AF5F255" = {
+			"fileRef" = "3806608C26A137C786382421";
+			"isa" = "PBXBuildFile";
+		};
+		"CFC887C7F0D938AD421DDD38" = {
+			"path" = "Swift_Dolby_E/Shared/DolbyEOfflineLoudness.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"5608CD8785BAD16146713B40" = {
+			"fileRef" = "B4FCEFC35A2BD92982DD4445";
+			"isa" = "PBXBuildFile";
+		};
+		"F681D099637204287A1F62E8" = {
+			"isa" = "PBXTargetDependency";
+			"target" = "897BA171436B0D2E47188461";
+			"targetProxy" = "854D697BEA3D438CF7978FFF";
+		};
+		"0B2035252597C91EEE042DBD" = {
+			"fileRef" = "434299EF4C0202748091C33F";
+			"isa" = "PBXBuildFile";
+		};
+		"B51DFEEC6A748128BA312F68" = {
+			"fileRef" = "577DAC3D47EA49B88DE1F581";
+			"isa" = "PBXBuildFile";
+		};
+		"377E87D3156390DE3454A92B" = {
+			"defaultConfigurationIsVisible" = "0";
+			"defaultConfigurationName" = "Release";
+			"isa" = "XCConfigurationList";
+			"buildConfigurations" = (
+				"75DE6B7DFB73CBE9BE5E1C7E",
+				"24307D249BA43EB13D41A392",
+			);
+		};
+		"D25DED527CEB729E09AE0BA3" = {
+			"isa" = "XCBuildConfiguration";
+			"buildSettings" = {
+				"GENERATE_INFOPLIST_FILE" = "YES";
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "$(inherited) ENCODER_CLI";
+				"CODE_SIGNING_ALLOWED" = "NO";
+				"DEBUG_INFORMATION_FORMAT" = "dwarf-with-dsym";
+				"SWIFT_COMPILATION_MODE" = "wholemodule";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "com.B00kerLouis.DolbyEEncoderCLI";
+				"MACOSX_DEPLOYMENT_TARGET" = "14.0";
+				"SWIFT_OPTIMIZATION_LEVEL" = "-O";
+				"SWIFT_VERSION" = "6.0";
+				"PRODUCT_NAME" = "dolbye-encode";
+			};
+			"name" = "Release";
+		};
+		"B221AC056B08D51D690B59B1" = {
+			"path" = "Swift_Dolby_E/Shared/DolbyEMXF.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"DBBB055C973E129272A29AD5" = {
+			"path" = "Swift_Dolby_E/Encoder/DolbyEAnalysisBank.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"D80B54C9BB842FB44525AC06" = {
+			"fileRef" = "BA0815157B5F17FBFD29E88D";
+			"isa" = "PBXBuildFile";
+		};
+		"61C6B55D49E50C58E2D6738C" = {
+			"fileRef" = "0DACAE2CF5358798F72EFCEC";
+			"isa" = "PBXBuildFile";
+		};
+		"3806608C26A137C786382421" = {
+			"path" = "Swift_Dolby_E/Decoder/DolbyESynthesisGains.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"C903142B2BF4E539D9D536FD" = {
+			"fileRef" = "D78C34629B23F420EBCE28E5";
+			"isa" = "PBXBuildFile";
+		};
+		"244210E48437B6556980A702" = {
+			"buildConfigurationList" = "9F6B1A7BCFF26D263B843F95";
+			"targets" = (
+				"4D6EB8A46CE8C76DBFA0A2FA",
+				"ED5C76D0F720978EB9C4CAF3",
+				"C473F165BA5BA0C7B9711E19",
+				"4F283E276873C1ACDDF1C01B",
+				"897BA171436B0D2E47188461",
+			);
+			"developmentRegion" = "en";
+			"knownRegions" = (
+				"en",
+				"Base",
+			);
+			"isa" = "PBXProject";
+			"compatibilityVersion" = "Xcode 14.0";
+			"productRefGroup" = "AE7805B56D1DCAFAA071416F";
+			"projectDirPath" = "";
+			"attributes" = {
+				"LastUpgradeCheck" = "2630";
+				"BuildIndependentTargetsInParallel" = "YES";
+			};
+			"hasScannedForEncodings" = "0";
+			"projectRoot" = "";
+			"mainGroup" = "AA0596BBDB4DCC95D5D4F10C";
+		};
+		"F1642422A54B529202A8D374" = {
+			"fileRef" = "02DA401D88699907F4B93D8A";
+			"isa" = "PBXBuildFile";
+		};
+		"854D697BEA3D438CF7978FFF" = {
+			"isa" = "PBXContainerItemProxy";
+			"containerPortal" = "244210E48437B6556980A702";
+			"remoteGlobalIDString" = "897BA171436B0D2E47188461";
+			"remoteInfo" = "DolbyEPlayer";
+			"proxyType" = "1";
+		};
+		"587BA38786A69D00AB582C95" = {
+			"fileRef" = "4FFF8F4586951C649B75B7BE";
+			"isa" = "PBXBuildFile";
+		};
+		"8346F259E441EB4C91143945" = {
+			"fileRef" = "EAC76D40D2A93089EBF3ECD6";
+			"isa" = "PBXBuildFile";
+		};
+		"1D08044464D3EC4B3B5A5BBC" = {
+			"isa" = "XCBuildConfiguration";
+			"buildSettings" = {
+				"GENERATE_INFOPLIST_FILE" = "YES";
+				"ONLY_ACTIVE_ARCH" = "YES";
+				"CODE_SIGNING_ALLOWED" = "NO";
+				"DEBUG_INFORMATION_FORMAT" = "dwarf";
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "$(inherited) DEBUG DECODER_CLI";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "com.B00kerLouis.DolbyEDecoderCLI";
+				"MACOSX_DEPLOYMENT_TARGET" = "14.0";
+				"SWIFT_OPTIMIZATION_LEVEL" = "-Onone";
+				"ENABLE_TESTABILITY" = "YES";
+				"SWIFT_VERSION" = "6.0";
+				"PRODUCT_NAME" = "dolbye-decode";
+			};
+			"name" = "Debug";
+		};
+		"8E8EFE0279718748F054CE92" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "E8363F0F88BA6EEA094720AC";
+		};
+		"606D6B2D46660A973CCB89E5" = {
+			"path" = "Swift_Dolby_E/CLI/Encoder/main.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"398ED8DA279F6B24E639391D" = {
+			"fileRef" = "D8F48443A2176C960EF28935";
+			"isa" = "PBXBuildFile";
+		};
+		"87798DF6F9C433438F7610C1" = {
+			"path" = "Swift_Dolby_E/Shared/DolbyEMediaWriter.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"9BACDE023A33FEA2BACEF218" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "318FA5AF13C66C0DAEB69ACB";
+		};
+		"438056F266D2D54E340CBB0C" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "52D99E204355EF9C585555B0";
+		};
+		"5A7E31A324668F3598350D46" = {
+			"isa" = "PBXGroup";
+			"name" = "Decoder";
+			"children" = (
+				"13B25A98E04EBBB83C72FD91",
+				"79541D5F221367DF78475C94",
+				"9148DA6E00D019925431E376",
+				"D2E3C2B85E8105233F244A59",
+				"C8A0488C3D9DA5DE16A38815",
+				"6749CA17202A1A44AE16B932",
+				"02DA401D88699907F4B93D8A",
+				"B5400E053780D9AA0280E3E4",
+				"623BDF79798A4AC662691790",
+				"3CC53C088B63A3B067BCB43B",
+				"7066F10B3781F7FC236D5AA2",
+				"A9B32B63C746832409DE993E",
+				"C56B84A4B38E71F94774FCA6",
+				"3806608C26A137C786382421",
+				"1E0E181F640288428DB79BF3",
+				"62C5B42E1764E48DC21D5960",
+				"53E140D53A64CE1151217E19",
+				"E1B3233B74409C0A482386C6",
+				"BA0815157B5F17FBFD29E88D",
+				"29E4F4B5F2C4F024ABED29D2",
+				"C9E01E33E7EC6C96DF802A0C",
+			);
+			"sourceTree" = "<group>";
+		};
+		"13FCD69AF3912F7146A22A0C" = {
+			"isa" = "PBXTargetDependency";
+			"target" = "4D6EB8A46CE8C76DBFA0A2FA";
+			"targetProxy" = "31B67D89DB894EF07E9007C2";
+		};
+		"787477C10B8BBB8C84BF2026" = {
+			"path" = "Swift_Dolby_E/CLI/Decoder/GUI/PlayerAppMain.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"4D6EB8A46CE8C76DBFA0A2FA" = {
+			"buildConfigurationList" = "377E87D3156390DE3454A92B";
+			"productReference" = "9216A565C4C0935B9156A12D";
+			"productType" = "com.apple.product-type.framework";
+			"productName" = "DolbyEEncoder.framework";
+			"isa" = "PBXNativeTarget";
+			"buildPhases" = (
+				"A0CDAA2446A9E070E312AA05",
+				"5DC4B3B16ED571D3AD398B06",
+			);
+			"dependencies" = (
+			);
+			"name" = "DolbyEEncoder";
+			"buildRules" = (
+			);
+		};
+		"0F908E60DA0408D175BFA622" = {
+			"path" = "Swift_Dolby_E/Shared/DolbyED2PresentationRenderer.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"55A8901225634D6779AD8E8B" = {
+			"fileRef" = "7ABE30866B9140708771CA47";
+			"isa" = "PBXBuildFile";
+		};
+		"9A6875D95DD3323BF34BACDB" = {
+			"path" = "Swift_Dolby_E/Shared/BinaryIO.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"D1D99B58A6F72A37E39D8DE7" = {
+			"isa" = "XCBuildConfiguration";
+			"buildSettings" = {
+				"GENERATE_INFOPLIST_FILE" = "YES";
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "$(inherited) DECODER_CLI";
+				"CODE_SIGNING_ALLOWED" = "NO";
+				"DEBUG_INFORMATION_FORMAT" = "dwarf-with-dsym";
+				"SWIFT_COMPILATION_MODE" = "wholemodule";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "com.B00kerLouis.DolbyEDecoderCLI";
+				"MACOSX_DEPLOYMENT_TARGET" = "14.0";
+				"SWIFT_OPTIMIZATION_LEVEL" = "-O";
+				"SWIFT_VERSION" = "6.0";
+				"PRODUCT_NAME" = "dolbye-decode";
+			};
+			"name" = "Release";
+		};
+		"9276D8340985055A35708C9A" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "DAB43D39BB7809153DBD03BA";
+		};
+		"12355117779889FB08B3D6FC" = {
+			"fileRef" = "BF04AEA69A9DCA1649D2D088";
+			"isa" = "PBXBuildFile";
+		};
+		"1CCEC4A5794600684697A5CC" = {
+			"fileRef" = "9A6875D95DD3323BF34BACDB";
+			"isa" = "PBXBuildFile";
+		};
+		"E8363F0F88BA6EEA094720AC" = {
+			"path" = "Swift_Dolby_E/Shared/DolbyED2Metadata.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"359581C1511987E992A9DD38" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "CFC887C7F0D938AD421DDD38";
+		};
+		"60A328D3B5AF214D9E1E279A" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "886815B68B20D6BD2D372A43";
+		};
+		"1BBDCB4696763CEC16E96A68" = {
+			"fileRef" = "9E60A376FE5D9C6082DFEE02";
+			"isa" = "PBXBuildFile";
+		};
+		"7975E28F65A8E39A82BB1813" = {
+			"fileRef" = "B1B5C6720AAD068A7E4F1BF7";
+			"isa" = "PBXBuildFile";
+		};
+		"13B25A98E04EBBB83C72FD91" = {
+			"path" = "Swift_Dolby_E/Decoder/DolbyED2DecodeFile.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"56C931C9259F8ABEE48288BB" = {
+			"fileRef" = "20E5849631AC3CA80E9F6C9E";
+			"isa" = "PBXBuildFile";
+		};
+		"191C030AB0932BA6F77D22AF" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "9148DA6E00D019925431E376";
+		};
+		"AC5D793EE429B84BCCA7608B" = {
+			"fileRef" = "53E140D53A64CE1151217E19";
+			"isa" = "PBXBuildFile";
+		};
+		"31B67D89DB894EF07E9007C2" = {
+			"isa" = "PBXContainerItemProxy";
+			"containerPortal" = "244210E48437B6556980A702";
+			"remoteGlobalIDString" = "4D6EB8A46CE8C76DBFA0A2FA";
+			"remoteInfo" = "DolbyEEncoder";
+			"proxyType" = "1";
+		};
+		"CB20E235B7F4A8CBE4ED0FD4" = {
+			"isa" = "PBXTargetDependency";
+			"target" = "ED5C76D0F720978EB9C4CAF3";
+			"targetProxy" = "DF431CECEFACCA563C9E81EC";
+		};
+		"7BA0958DD199777E222A3FB3" = {
+			"path" = "Swift_Dolby_E/Shared/Models.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"18A5CE4786382F45EC7D66D6" = {
+			"fileRef" = "25B548B0DD79B51544E9B647";
+			"isa" = "PBXBuildFile";
+		};
+		"FFB658BAFC73894234D3C865" = {
+			"path" = "Swift_Dolby_E/Encoder/DolbyERealtimeEncoder.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"30464E270B8F5A93CB94CC8E" = {
+			"fileRef" = "B1B5C6720AAD068A7E4F1BF7";
+			"isa" = "PBXBuildFile";
+		};
+		"9216A565C4C0935B9156A12D" = {
+			"path" = "DolbyEEncoder.framework";
+			"isa" = "PBXFileReference";
+			"includeInIndex" = "0";
+			"explicitFileType" = "wrapper.framework";
+			"sourceTree" = "BUILT_PRODUCTS_DIR";
+		};
+		"2BEB8923D6E7E4114121806C" = {
+			"path" = "Dolby E QC.app";
+			"isa" = "PBXFileReference";
+			"includeInIndex" = "0";
+			"explicitFileType" = "wrapper.application";
+			"sourceTree" = "BUILT_PRODUCTS_DIR";
+		};
+		"403A7241EA37619619CB8259" = {
+			"buildActionMask" = "2147483647";
+			"isa" = "PBXSourcesBuildPhase";
+			"files" = (
+				"618890FC54583E68A165C661",
+				"5F28D6422815FB41FFE24D4F",
+			);
+			"runOnlyForDeploymentPostprocessing" = "0";
+		};
+		"5DC4B3B16ED571D3AD398B06" = {
+			"buildActionMask" = "2147483647";
+			"isa" = "PBXFrameworksBuildPhase";
+			"files" = (
+			);
+			"runOnlyForDeploymentPostprocessing" = "0";
+		};
+		"76D4AEB4EE11589FD04C0627" = {
+			"isa" = "PBXGroup";
+			"name" = "Encoder";
+			"children" = (
+				"3C2C87B973C997D7FC8B8EE7",
+				"66FCF7D2C9BA2D36FAE5A2B3",
+				"FFB658BAFC73894234D3C865",
+				"D7547F89D43306444D62BB0C",
+				"7D2C17DEAFCABCBDEB465931",
+				"318FA5AF13C66C0DAEB69ACB",
+				"52D99E204355EF9C585555B0",
+				"6B4B8766E4AD8F9E13C69817",
+				"DBBB055C973E129272A29AD5",
+				"20E5849631AC3CA80E9F6C9E",
+				"7E209D8146C6B82E2C009475",
+				"CA4DC11AB91007184D72FA72",
+				"0DACAE2CF5358798F72EFCEC",
+				"4FFF8F4586951C649B75B7BE",
+				"D78C34629B23F420EBCE28E5",
+				"246F5AA5D579E86BF8BE2C85",
+				"CABF9639F4D4CFBAD9CD9628",
+				"4A1AC0DBB72A653305EFB155",
+				"249B88B73AF3AF80152956EA",
+				"B4FCEFC35A2BD92982DD4445",
+				"9E60A376FE5D9C6082DFEE02",
+				"25B548B0DD79B51544E9B647",
+				"951697AB42EB42A08D6ADB8E",
+				"EC722F6191B6E6132F270DDB",
+				"7ABE30866B9140708771CA47",
+				"AE3A20F7834051A0958E52A5",
+				"552282153AB33BC14D1A76B4",
+			);
+			"sourceTree" = "<group>";
+		};
+		"DC86242237F431FF9314EEA9" = {
+			"fileRef" = "8EFD64B27E900C395BA1348D";
+			"isa" = "PBXBuildFile";
+		};
+		"5F28D6422815FB41FFE24D4F" = {
+			"fileRef" = "606D6B2D46660A973CCB89E5";
+			"isa" = "PBXBuildFile";
+		};
+		"0030D115DBBA18574A762F2D" = {
+			"fileRef" = "623BDF79798A4AC662691790";
+			"isa" = "PBXBuildFile";
+		};
+		"66FCF7D2C9BA2D36FAE5A2B3" = {
+			"path" = "Swift_Dolby_E/Encoder/DolbyESpectralProfiler.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"246F61142F8AB5A6FA165E8C" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "8C146798CB5445A652D001DF";
+		};
+		"1F81FD2137540D66204CF89C" = {
+			"fileRef" = "7066F10B3781F7FC236D5AA2";
+			"isa" = "PBXBuildFile";
+		};
+		"0C38AA68993FC8E037412CB1" = {
+			"fileRef" = "501E5574A568022567C7053F";
+			"isa" = "PBXBuildFile";
+		};
+		"45D349EA7C39A80FA9809F54" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "79541D5F221367DF78475C94";
+		};
+		"F4B6338916845D5A8692932F" = {
+			"fileRef" = "505D5CA76C3E52F1839930FD";
+			"isa" = "PBXBuildFile";
+		};
+		"951697AB42EB42A08D6ADB8E" = {
+			"path" = "Swift_Dolby_E/Encoder/DolbyECAFReader.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"20E5849631AC3CA80E9F6C9E" = {
+			"path" = "Swift_Dolby_E/Encoder/DolbyEAnalysisTables.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"D8F48443A2176C960EF28935" = {
+			"path" = "Swift_Dolby_E/Shared/DolbyEFileJobs.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"A0CDAA2446A9E070E312AA05" = {
+			"buildActionMask" = "2147483647";
+			"isa" = "PBXSourcesBuildPhase";
+			"files" = (
+				"82D7015C9A9F94D2A038FFE7",
+				"359581C1511987E992A9DD38",
+				"C9F13335A9F729D2D294E104",
+				"938153D472F476E5DC4C6D71",
+				"EF15EFA3E62C7784E2585995",
+				"9399452230FA8915BF493556",
+				"B7F8E8B810EF05859C32B035",
+				"227E95968243CB7A91AF2032",
+				"253DFF2E4731DB2240990948",
+				"E3790366C87362D7C46835F2",
+				"362B7B0BA153B941021E7C9E",
+				"1A1F673EAE6EFB5A7EF529FB",
+				"E33E9998D3A10F2178D4C141",
+				"9BACDE023A33FEA2BACEF218",
+				"438056F266D2D54E340CBB0C",
+				"D7BAF09398DC05D72E12FAB3",
+				"246F61142F8AB5A6FA165E8C",
+				"8E8EFE0279718748F054CE92",
+				"8CFB179649A6A9322583ABEC",
+				"56C931C9259F8ABEE48288BB",
+				"F78E455657997523444E4E06",
+				"FCCDCEEF76A18F8C474463B8",
+				"61C6B55D49E50C58E2D6738C",
+				"587BA38786A69D00AB582C95",
+				"C903142B2BF4E539D9D536FD",
+				"66AEFDB0819479702AB3E1D3",
+				"E385C48A974D19A466CF0A6D",
+				"37457D035D0BA7D43FBD01FF",
+				"8613A51B02295670D68F8898",
+				"5608CD8785BAD16146713B40",
+				"2325FF0C68E4784D926ECC7F",
+				"CCAB466F6A05ECAD34CC32E9",
+				"398ED8DA279F6B24E639391D",
+				"0156F50AEA939DDF07046F3C",
+				"F08ABD5DA99B71D9904833BD",
+				"03401E5AAFB454C4E43AD6E3",
+				"73700B67A6EBA1B67FA02F5A",
+				"06F27964869B3870CC5CD4A9",
+				"E79B42D7ABAF578D721B94ED",
+				"58C04C4419ADDBE72B064BD4",
+				"A98942A341B58A2EBB6CB2A5",
+				"F7E573AC96F2ACB7F7F00CF2",
+				"198419B3B031B0F083379E33",
+				"18404880D0EBFB953DBF016E",
+				"FAF6134A874BA3F56DD06E51",
+				"43723A8B53FA1808FAF5D9DA",
+				"9E5641945FE5B3910E9E028C",
+				"552BB967097813E1BF8B12D2",
+				"1BBDCB4696763CEC16E96A68",
+				"18A5CE4786382F45EC7D66D6",
+				"A388862FCCA07B2F3A2EFC8D",
+				"A2E92B8A01918940A10B3AA7",
+				"55A8901225634D6779AD8E8B",
+				"AB1A193ACA6A3FDCDA3740FB",
+				"8B39A348F880AE5588D2F087",
+				"30464E270B8F5A93CB94CC8E",
+				"314E550B63FF2F6E610D8DA7",
+				"984A07F29D6069D2B32AD4B3",
+			);
+			"runOnlyForDeploymentPostprocessing" = "0";
+		};
+		"4928AFA9E7178473E1E1F382" = {
+			"path" = "Swift_Dolby_E/Shared/WavePCMReader.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"8F43664A32CB5566FF6BA330" = {
+			"fileRef" = "4928AFA9E7178473E1E1F382";
+			"isa" = "PBXBuildFile";
+		};
+		"F7E573AC96F2ACB7F7F00CF2" = {
+			"fileRef" = "2616CFA4EDBB00056B9E7523";
+			"isa" = "PBXBuildFile";
+		};
+		"184B519F8E1416CCE38CFFD7" = {
+			"isa" = "XCBuildConfiguration";
+			"buildSettings" = {
+				"ONLY_ACTIVE_ARCH" = "YES";
+				"DEBUG_INFORMATION_FORMAT" = "dwarf";
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "$(inherited) DEBUG";
+				"CLANG_ENABLE_MODULES" = "YES";
+				"GCC_WARN_UNUSED_VARIABLE" = "YES";
+				"MACOSX_DEPLOYMENT_TARGET" = "14.0";
+				"CODE_SIGNING_ALLOWED" = "NO";
+				"ENABLE_TESTABILITY" = "YES";
+				"ENABLE_USER_SCRIPT_SANDBOXING" = "YES";
+				"SWIFT_OPTIMIZATION_LEVEL" = "-Onone";
+				"ALWAYS_SEARCH_USER_PATHS" = "NO";
+				"SWIFT_STRICT_CONCURRENCY" = "complete";
+				"SDKROOT" = "macosx";
+				"SWIFT_VERSION" = "6.0";
+				"SWIFT_TREAT_WARNINGS_AS_ERRORS" = "YES";
+			};
+			"name" = "Debug";
+		};
+		"A4E7680246045A76659F79F2" = {
+			"fileRef" = "29E4F4B5F2C4F024ABED29D2";
+			"isa" = "PBXBuildFile";
+		};
+		"EC722F6191B6E6132F270DDB" = {
+			"path" = "Swift_Dolby_E/Encoder/DolbyEInputSource.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"F78E455657997523444E4E06" = {
+			"fileRef" = "7E209D8146C6B82E2C009475";
+			"isa" = "PBXBuildFile";
+		};
+		"B4FCEFC35A2BD92982DD4445" = {
+			"path" = "Swift_Dolby_E/Encoder/DolbyEPrimaryMetadata.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"618890FC54583E68A165C661" = {
+			"fileRef" = "70DCFCEA9EDB7FB6C5213577";
+			"isa" = "PBXBuildFile";
+		};
+		"2325FF0C68E4784D926ECC7F" = {
+			"fileRef" = "9A6875D95DD3323BF34BACDB";
+			"isa" = "PBXBuildFile";
+		};
+		"4FFF8F4586951C649B75B7BE" = {
+			"path" = "Swift_Dolby_E/Encoder/DolbyEChannelAnalysis.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"62C5B42E1764E48DC21D5960" = {
+			"path" = "Swift_Dolby_E/Decoder/DolbyESynthesisTables.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"253DFF2E4731DB2240990948" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "D7547F89D43306444D62BB0C";
+		};
+		"E385C48A974D19A466CF0A6D" = {
+			"fileRef" = "CABF9639F4D4CFBAD9CD9628";
+			"isa" = "PBXBuildFile";
+		};
+		"BF04AEA69A9DCA1649D2D088" = {
+			"path" = "DolbyEDecoder.framework";
+			"isa" = "PBXFileReference";
+			"includeInIndex" = "0";
+			"explicitFileType" = "wrapper.framework";
+			"sourceTree" = "BUILT_PRODUCTS_DIR";
+		};
+		"249B88B73AF3AF80152956EA" = {
+			"path" = "Swift_Dolby_E/Encoder/DolbyEPCMRouter.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"453738472D256B4034178D9A" = {
+			"isa" = "XCBuildConfiguration";
+			"buildSettings" = {
+				"ONLY_ACTIVE_ARCH" = "YES";
+				"DEBUG_INFORMATION_FORMAT" = "dwarf";
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "$(inherited) DEBUG";
+				"SWIFT_INSTALL_OBJC_HEADER" = "YES";
+				"DEFINES_MODULE" = "YES";
+				"SKIP_INSTALL" = "NO";
+				"DYLIB_COMPATIBILITY_VERSION" = "1";
+				"INSTALL_PATH" = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				"CODE_SIGNING_ALLOWED" = "NO";
+				"MACOSX_DEPLOYMENT_TARGET" = "14.0";
+				"GENERATE_INFOPLIST_FILE" = "YES";
+				"ENABLE_TESTABILITY" = "YES";
+				"BUILD_LIBRARY_FOR_DISTRIBUTION" = "YES";
+				"SWIFT_OPTIMIZATION_LEVEL" = "-O";
+				"PRODUCT_NAME" = "DolbyEDecoder";
+				"MACH_O_TYPE" = "staticlib";
+				"DYLIB_CURRENT_VERSION" = "1";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "com.B00kerLouis.DolbyEDecoder";
+				"SWIFT_VERSION" = "6.0";
+			};
+			"name" = "Debug";
+		};
+		"246F5AA5D579E86BF8BE2C85" = {
+			"path" = "Swift_Dolby_E/Encoder/DolbyEEncoder.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"967BD22296AC4A397B62684C" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "CFC887C7F0D938AD421DDD38";
+		};
+		"25B548B0DD79B51544E9B647" = {
+			"path" = "Swift_Dolby_E/Encoder/DolbyEAtmosScene.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"66AEFDB0819479702AB3E1D3" = {
+			"fileRef" = "246F5AA5D579E86BF8BE2C85";
+			"isa" = "PBXBuildFile";
+		};
+		"192DE4228F7B4201BCDC7E88" = {
+			"isa" = "XCBuildConfiguration";
+			"buildSettings" = {
+				"GENERATE_INFOPLIST_FILE" = "YES";
+				"ONLY_ACTIVE_ARCH" = "YES";
+				"CODE_SIGNING_ALLOWED" = "NO";
+				"DEBUG_INFORMATION_FORMAT" = "dwarf";
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "$(inherited) DEBUG ENCODER_CLI";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "com.B00kerLouis.DolbyEEncoderCLI";
+				"MACOSX_DEPLOYMENT_TARGET" = "14.0";
+				"SWIFT_OPTIMIZATION_LEVEL" = "-Onone";
+				"ENABLE_TESTABILITY" = "YES";
+				"SWIFT_VERSION" = "6.0";
+				"PRODUCT_NAME" = "dolbye-encode";
+			};
+			"name" = "Debug";
+		};
+		"362B7B0BA153B941021E7C9E" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "50549124B22635A7DA9B40F2";
+		};
+		"CCAB466F6A05ECAD34CC32E9" = {
+			"fileRef" = "4D07CA2E3347DF039514D85B";
+			"isa" = "PBXBuildFile";
+		};
+		"2091694C69D88A06DF6C75DA" = {
+			"isa" = "XCBuildConfiguration";
+			"buildSettings" = {
+				"DEBUG_INFORMATION_FORMAT" = "dwarf-with-dsym";
+				"SWIFT_INSTALL_OBJC_HEADER" = "YES";
+				"DEFINES_MODULE" = "YES";
+				"SKIP_INSTALL" = "NO";
+				"DYLIB_COMPATIBILITY_VERSION" = "1";
+				"MACOSX_DEPLOYMENT_TARGET" = "14.0";
+				"CODE_SIGNING_ALLOWED" = "NO";
+				"INSTALL_PATH" = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				"GENERATE_INFOPLIST_FILE" = "YES";
+				"BUILD_LIBRARY_FOR_DISTRIBUTION" = "YES";
+				"SWIFT_COMPILATION_MODE" = "wholemodule";
+				"SWIFT_OPTIMIZATION_LEVEL" = "-O";
+				"PRODUCT_NAME" = "DolbyEDecoder";
+				"MACH_O_TYPE" = "staticlib";
+				"DYLIB_CURRENT_VERSION" = "1";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "com.B00kerLouis.DolbyEDecoder";
+				"SWIFT_VERSION" = "6.0";
+			};
+			"name" = "Release";
+		};
+		"2616CFA4EDBB00056B9E7523" = {
+			"path" = "Swift_Dolby_E/Shared/MasterProbe.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"D2E3C2B85E8105233F244A59" = {
+			"path" = "Swift_Dolby_E/Decoder/DolbyED2CarrierReader.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"DAB43D39BB7809153DBD03BA" = {
+			"path" = "Swift_Dolby_E/Shared/DolbyELoudnessMeter.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"198419B3B031B0F083379E33" = {
+			"fileRef" = "7BA0958DD199777E222A3FB3";
+			"isa" = "PBXBuildFile";
+		};
+		"A388862FCCA07B2F3A2EFC8D" = {
+			"fileRef" = "951697AB42EB42A08D6ADB8E";
+			"isa" = "PBXBuildFile";
+		};
+		"8C146798CB5445A652D001DF" = {
+			"path" = "Swift_Dolby_E/Shared/DolbyED2MediaWriter.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"18B380750B890871AAA7495C" = {
+			"isa" = "PBXGroup";
+			"name" = "CLI";
+			"children" = (
+				"70DCFCEA9EDB7FB6C5213577",
+				"7F1029451EF1C2E6E1F51038",
+				"606D6B2D46660A973CCB89E5",
+				"EAC76D40D2A93089EBF3ECD6",
+				"787477C10B8BBB8C84BF2026",
+			);
+			"sourceTree" = "<group>";
+		};
+		"82D7015C9A9F94D2A038FFE7" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "3C2C87B973C997D7FC8B8EE7";
+		};
+		"29E4F4B5F2C4F024ABED29D2" = {
+			"path" = "Swift_Dolby_E/Decoder/DolbyEPlayback.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"DCF88805280BB58E8798B7CB" = {
+			"isa" = "XCBuildConfiguration";
+			"buildSettings" = {
+				"DEBUG_INFORMATION_FORMAT" = "dwarf-with-dsym";
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "$(inherited) DECODER_CLI PLAYER_APP";
+				"SKIP_INSTALL" = "NO";
+				"MACOSX_DEPLOYMENT_TARGET" = "14.0";
+				"CODE_SIGNING_ALLOWED" = "NO";
+				"GENERATE_INFOPLIST_FILE" = "YES";
+				"SWIFT_COMPILATION_MODE" = "wholemodule";
+				"SWIFT_OPTIMIZATION_LEVEL" = "-O";
+				"INFOPLIST_KEY_CFBundleDisplayName" = "Dolby E QC";
+				"INFOPLIST_KEY_NSPrincipalClass" = "NSApplication";
+				"PRODUCT_NAME" = "Dolby E QC";
+				"SWIFT_VERSION" = "6.0";
+				"INFOPLIST_KEY_LSApplicationCategoryType" = "public.app-category.music";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "com.B00kerLouis.SwiftDolbyE.QC";
+				"INFOPLIST_KEY_NSHighResolutionCapable" = "YES";
+			};
+			"name" = "Release";
+		};
+		"E318BE547C55ED10B80F0CAF" = {
+			"fileRef" = "D8F48443A2176C960EF28935";
+			"isa" = "PBXBuildFile";
+		};
+		"314E550B63FF2F6E610D8DA7" = {
+			"fileRef" = "3E98862D09E97A4AF7B8BA88";
+			"isa" = "PBXBuildFile";
+		};
+		"1BC0270735C9BDB4CEF5300A" = {
+			"fileRef" = "E1B3233B74409C0A482386C6";
+			"isa" = "PBXBuildFile";
+		};
+		"C9F13335A9F729D2D294E104" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "0F908E60DA0408D175BFA622";
+		};
+		"4A1AC0DBB72A653305EFB155" = {
+			"path" = "Swift_Dolby_E/Encoder/DolbyEPCMFrameEncoder.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"AE3A20F7834051A0958E52A5" = {
+			"path" = "Swift_Dolby_E/Encoder/DolbyEIABReader.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"B5400E053780D9AA0280E3E4" = {
+			"path" = "Swift_Dolby_E/Decoder/DolbyEChannelSynthesis.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"EB9783D952EBBB8A8FABFF20" = {
+			"fileRef" = "AB83363AC24B2871E234849D";
+			"isa" = "PBXBuildFile";
+		};
+		"9F6B1A7BCFF26D263B843F95" = {
+			"defaultConfigurationIsVisible" = "0";
+			"defaultConfigurationName" = "Release";
+			"isa" = "XCConfigurationList";
+			"buildConfigurations" = (
+				"184B519F8E1416CCE38CFFD7",
+				"A824290273A346217D9BE6F4",
+			);
+		};
+		"7ABE30866B9140708771CA47" = {
+			"path" = "Swift_Dolby_E/Encoder/DolbyEIABFrame.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"505D5CA76C3E52F1839930FD" = {
+			"path" = "Swift_Dolby_E/Shared/DolbyEMeterCoding.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"434299EF4C0202748091C33F" = {
+			"path" = "Swift_Dolby_E/Shared/DolbyEMXFPropertyLabels.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"9E5641945FE5B3910E9E028C" = {
+			"fileRef" = "434299EF4C0202748091C33F";
+			"isa" = "PBXBuildFile";
+		};
+		"B1B5C6720AAD068A7E4F1BF7" = {
+			"path" = "Swift_Dolby_E/Shared/DolbyEAC3Metadata.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"EF15EFA3E62C7784E2585995" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "DAB43D39BB7809153DBD03BA";
+		};
+		"6733564A652BB0F7DBC7E458" = {
+			"fileRef" = "A9B32B63C746832409DE993E";
+			"isa" = "PBXBuildFile";
+		};
+		"EDB5332A9A71AE111BC8B3B2" = {
+			"fileRef" = "72737C881DBCBCC23CAA52A7";
+			"isa" = "PBXBuildFile";
+		};
+		"9BE57CA97F4C312D537C238D" = {
+			"isa" = "PBXTargetDependency";
+			"target" = "ED5C76D0F720978EB9C4CAF3";
+			"targetProxy" = "C04F714938E7D5EE33DF7E0D";
+		};
+		"4F33C7AA71BB5AE017FA5697" = {
+			"path" = "dolbye-decode";
+			"isa" = "PBXFileReference";
+			"includeInIndex" = "0";
+			"explicitFileType" = "compiled.mach-o.executable";
+			"sourceTree" = "BUILT_PRODUCTS_DIR";
+		};
+		"9775C303148FB637C44AAFCE" = {
+			"defaultConfigurationIsVisible" = "0";
+			"defaultConfigurationName" = "Release";
+			"isa" = "XCConfigurationList";
+			"buildConfigurations" = (
+				"453738472D256B4034178D9A",
+				"2091694C69D88A06DF6C75DA",
+			);
+		};
+		"97132595A9FE14A049993F68" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "3E98862D09E97A4AF7B8BA88";
+		};
+		"B2C97AA9C7F9A171535D6C6C" = {
+			"fileRef" = "BF04AEA69A9DCA1649D2D088";
+			"isa" = "PBXBuildFile";
+		};
+		"B87E03B9D002F234CC26503D" = {
+			"path" = "Swift_Dolby_E/Shared/DolbyEIntegrity.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"3C6BD80C1D56E0F1B76BAE66" = {
+			"isa" = "XCBuildConfiguration";
+			"buildSettings" = {
+				"ONLY_ACTIVE_ARCH" = "YES";
+				"DEBUG_INFORMATION_FORMAT" = "dwarf";
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "$(inherited) DEBUG DECODER_CLI PLAYER_APP";
+				"SKIP_INSTALL" = "NO";
+				"MACOSX_DEPLOYMENT_TARGET" = "14.0";
+				"CODE_SIGNING_ALLOWED" = "NO";
+				"ENABLE_TESTABILITY" = "YES";
+				"GENERATE_INFOPLIST_FILE" = "YES";
+				"SWIFT_OPTIMIZATION_LEVEL" = "-Onone";
+				"INFOPLIST_KEY_CFBundleDisplayName" = "Dolby E QC";
+				"INFOPLIST_KEY_NSPrincipalClass" = "NSApplication";
+				"PRODUCT_NAME" = "Dolby E QC";
+				"SWIFT_VERSION" = "6.0";
+				"INFOPLIST_KEY_LSApplicationCategoryType" = "public.app-category.music";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "com.B00kerLouis.SwiftDolbyE.QC";
+				"INFOPLIST_KEY_NSHighResolutionCapable" = "YES";
+			};
+			"name" = "Debug";
+		};
+		"06F27964869B3870CC5CD4A9" = {
+			"fileRef" = "8EFD64B27E900C395BA1348D";
+			"isa" = "PBXBuildFile";
+		};
+		"F08ABD5DA99B71D9904833BD" = {
+			"fileRef" = "B87E03B9D002F234CC26503D";
+			"isa" = "PBXBuildFile";
+		};
+		"72737C881DBCBCC23CAA52A7" = {
+			"path" = "Swift_Dolby_E/Shared/DolbyEMetadataStream.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"6B4B8766E4AD8F9E13C69817" = {
+			"path" = "Swift_Dolby_E/Encoder/DolbyED2SceneRouter.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"31A5DDD40CB2C5F316E51954" = {
+			"buildActionMask" = "2147483647";
+			"isa" = "PBXFrameworksBuildPhase";
+			"files" = (
+			);
+			"runOnlyForDeploymentPostprocessing" = "0";
+		};
+		"DDDDDF743B25717C0F7048BC" = {
+			"fileRef" = "C56B84A4B38E71F94774FCA6";
+			"isa" = "PBXBuildFile";
+		};
+		"53E140D53A64CE1151217E19" = {
+			"path" = "Swift_Dolby_E/Decoder/DolbyEWaveCarrierReader.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"D78C34629B23F420EBCE28E5" = {
+			"path" = "Swift_Dolby_E/Encoder/DolbyEEncodeFile.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"49F98F86B972BFB27FF7A51E" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "13B25A98E04EBBB83C72FD91";
+		};
+		"552282153AB33BC14D1A76B4" = {
+			"path" = "Swift_Dolby_E/Encoder/DolbyESpatialProcessing.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"75A4CF039BA0541FCF144DB8" = {
+			"fileRef" = "3CC53C088B63A3B067BCB43B";
+			"isa" = "PBXBuildFile";
+		};
+		"A9B32B63C746832409DE993E" = {
+			"path" = "Swift_Dolby_E/Decoder/DolbyEPCMFrameDecoder.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"FE9AFBF34E9D91805416F889" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "0F908E60DA0408D175BFA622";
+		};
+		"52D99E204355EF9C585555B0" = {
+			"path" = "Swift_Dolby_E/Encoder/DolbyED2PCMFrameEncoder.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"BF3CD727FE219820EB831F88" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "8C146798CB5445A652D001DF";
+		};
+		"938153D472F476E5DC4C6D71" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "886815B68B20D6BD2D372A43";
+		};
+		"7E209D8146C6B82E2C009475" = {
+			"path" = "Swift_Dolby_E/Encoder/DolbyEAnalysisTransform.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"B18E9C774F5C27FF71C7D715" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "D2E3C2B85E8105233F244A59";
+		};
+		"AE7805B56D1DCAFAA071416F" = {
+			"isa" = "PBXGroup";
+			"name" = "Products";
+			"children" = (
+				"9216A565C4C0935B9156A12D",
+				"BF04AEA69A9DCA1649D2D088",
+				"46408B820AB3EF498A52CE4D",
+				"4F33C7AA71BB5AE017FA5697",
+				"2BEB8923D6E7E4114121806C",
+			);
+			"sourceTree" = "<group>";
+		};
+		"9E60A376FE5D9C6082DFEE02" = {
+			"path" = "Swift_Dolby_E/Encoder/DolbyEAtmosMetadata.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"318FA5AF13C66C0DAEB69ACB" = {
+			"path" = "Swift_Dolby_E/Encoder/DolbyED2EncodeFile.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"9399452230FA8915BF493556" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "A95A8D968C998AC3EB380729";
+		};
+		"E33E9998D3A10F2178D4C141" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "7D2C17DEAFCABCBDEB465931";
+		};
+		"18404880D0EBFB953DBF016E" = {
+			"fileRef" = "4928AFA9E7178473E1E1F382";
+			"isa" = "PBXBuildFile";
+		};
+		"ABEFD009F4301A09536DBC48" = {
+			"fileRef" = "C8A0488C3D9DA5DE16A38815";
+			"isa" = "PBXBuildFile";
+		};
+		"1E0E181F640288428DB79BF3" = {
+			"path" = "Swift_Dolby_E/Decoder/DolbyESynthesisResampler.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"EAC76D40D2A93089EBF3ECD6" = {
+			"path" = "Swift_Dolby_E/CLI/Decoder/PlayerWindow.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"AB1A193ACA6A3FDCDA3740FB" = {
+			"fileRef" = "AE3A20F7834051A0958E52A5";
+			"isa" = "PBXBuildFile";
+		};
+		"623BDF79798A4AC662691790" = {
+			"path" = "Swift_Dolby_E/Decoder/DolbyEDecodeFile.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"A2C9D5435744B0EC9E2A1AD4" = {
+			"buildActionMask" = "2147483647";
+			"isa" = "PBXFrameworksBuildPhase";
+			"files" = (
+				"12355117779889FB08B3D6FC",
+			);
+			"runOnlyForDeploymentPostprocessing" = "0";
+		};
+		"99721A8575D9B73080BEC4CD" = {
+			"fileRef" = "6749CA17202A1A44AE16B932";
+			"isa" = "PBXBuildFile";
+		};
+		"EB87953A8F705648D53796CF" = {
+			"buildActionMask" = "2147483647";
+			"isa" = "PBXSourcesBuildPhase";
+			"files" = (
+				"D1C62690DFE144D193BB45A2",
+				"BFB93F652CC386A4CFC57C95",
+				"6BADEF94C0A2B95F27AFE97E",
+			);
+			"runOnlyForDeploymentPostprocessing" = "0";
+		};
+		"D7BAF09398DC05D72E12FAB3" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "6B4B8766E4AD8F9E13C69817";
+		};
+		"1A1F673EAE6EFB5A7EF529FB" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "797A5109A32F29CD1DE4B059";
+		};
+		"0DACAE2CF5358798F72EFCEC" = {
+			"path" = "Swift_Dolby_E/Encoder/DolbyEBitWriter.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"46B90A56FFC1777533A0935C" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "797A5109A32F29CD1DE4B059";
+		};
+		"FCCDCEEF76A18F8C474463B8" = {
+			"fileRef" = "CA4DC11AB91007184D72FA72";
+			"isa" = "PBXBuildFile";
+		};
+		"A2E92B8A01918940A10B3AA7" = {
+			"fileRef" = "EC722F6191B6E6132F270DDB";
+			"isa" = "PBXBuildFile";
+		};
+		"797A5109A32F29CD1DE4B059" = {
+			"path" = "Swift_Dolby_E/Shared/DolbyED2WavePairWriter.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"B8C3B364E0C91E85ED2FD824" = {
+			"fileRef" = "4D07CA2E3347DF039514D85B";
+			"isa" = "PBXBuildFile";
+		};
+		"E7B0AE717425E6678C18F2C4" = {
+			"buildActionMask" = "2147483647";
+			"isa" = "PBXSourcesBuildPhase";
+			"files" = (
+				"609A1EC4BCD8100826A6D171",
+				"8346F259E441EB4C91143945",
+				"1B955246395BD8753A1AA58B",
+			);
+			"runOnlyForDeploymentPostprocessing" = "0";
+		};
+		"8913A8193B79B16FEE51A4D7" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "A95A8D968C998AC3EB380729";
+		};
+		"2690768405887ECA15F9A10D" = {
+			"fileRef" = "7BA0958DD199777E222A3FB3";
+			"isa" = "PBXBuildFile";
+		};
+		"984A07F29D6069D2B32AD4B3" = {
+			"fileRef" = "72737C881DBCBCC23CAA52A7";
+			"isa" = "PBXBuildFile";
+		};
+		"C9E01E33E7EC6C96DF802A0C" = {
+			"path" = "Swift_Dolby_E/Decoder/DolbyEPlaybackRouting.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"B029C0EE314F1E08681318BF" = {
+			"path" = "Swift_Dolby_E/Shared/DolbyEResamplingTables.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"348BDBF12029018986FA2C1E" = {
+			"defaultConfigurationIsVisible" = "0";
+			"defaultConfigurationName" = "Release";
+			"isa" = "XCConfigurationList";
+			"buildConfigurations" = (
+				"3C6BD80C1D56E0F1B76BAE66",
+				"DCF88805280BB58E8798B7CB",
+			);
+		};
+		"1D64981FFCF659A6F0C1BD4A" = {
+			"buildActionMask" = "2147483647";
+			"isa" = "PBXFrameworksBuildPhase";
+			"files" = (
+				"B2C97AA9C7F9A171535D6C6C",
+			);
+			"runOnlyForDeploymentPostprocessing" = "0";
+		};
+		"AB83363AC24B2871E234849D" = {
+			"path" = "Swift_Dolby_E/Shared/DolbyEMaskingTables.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"1B955246395BD8753A1AA58B" = {
+			"fileRef" = "787477C10B8BBB8C84BF2026";
+			"isa" = "PBXBuildFile";
+		};
+		"43723A8B53FA1808FAF5D9DA" = {
+			"fileRef" = "B221AC056B08D51D690B59B1";
+			"isa" = "PBXBuildFile";
+		};
+		"02DA401D88699907F4B93D8A" = {
+			"path" = "Swift_Dolby_E/Decoder/DolbyECarrierFrame.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"ED5C76D0F720978EB9C4CAF3" = {
+			"buildConfigurationList" = "9775C303148FB637C44AAFCE";
+			"productReference" = "BF04AEA69A9DCA1649D2D088";
+			"productType" = "com.apple.product-type.framework";
+			"productName" = "DolbyEDecoder.framework";
+			"isa" = "PBXNativeTarget";
+			"buildPhases" = (
+				"5F0BCFA1FBCA4B9E72F3740B",
+				"31A5DDD40CB2C5F316E51954",
+			);
+			"dependencies" = (
+			);
+			"name" = "DolbyEDecoder";
+			"buildRules" = (
+			);
+		};
+		"876996C1E0EBB7FC219F4227" = {
+			"fileRef" = "B87E03B9D002F234CC26503D";
+			"isa" = "PBXBuildFile";
+		};
+		"C5E3DB3AC98CBC65D9559B49" = {
+			"fileRef" = "9216A565C4C0935B9156A12D";
+			"isa" = "PBXBuildFile";
+		};
+		"8613A51B02295670D68F8898" = {
+			"fileRef" = "249B88B73AF3AF80152956EA";
+			"isa" = "PBXBuildFile";
+		};
+		"58C04C4419ADDBE72B064BD4" = {
+			"fileRef" = "7A43BBA087A6596BE72C9C66";
+			"isa" = "PBXBuildFile";
+		};
+		"7F1029451EF1C2E6E1F51038" = {
+			"path" = "Swift_Dolby_E/CLI/Decoder/main.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"DF431CECEFACCA563C9E81EC" = {
+			"isa" = "PBXContainerItemProxy";
+			"containerPortal" = "244210E48437B6556980A702";
+			"remoteGlobalIDString" = "ED5C76D0F720978EB9C4CAF3";
+			"remoteInfo" = "DolbyEDecoder";
+			"proxyType" = "1";
+		};
+		"52AB4CF9FCDA1F954D7E1F56" = {
+			"defaultConfigurationIsVisible" = "0";
+			"defaultConfigurationName" = "Release";
+			"isa" = "XCConfigurationList";
+			"buildConfigurations" = (
+				"1D08044464D3EC4B3B5A5BBC",
+				"D1D99B58A6F72A37E39D8DE7",
+			);
+		};
+		"552BB967097813E1BF8B12D2" = {
+			"fileRef" = "87798DF6F9C433438F7610C1";
+			"isa" = "PBXBuildFile";
+		};
+		"E79B42D7ABAF578D721B94ED" = {
+			"fileRef" = "B029C0EE314F1E08681318BF";
+			"isa" = "PBXBuildFile";
+		};
+		"C8A0488C3D9DA5DE16A38815" = {
+			"path" = "Swift_Dolby_E/Decoder/DolbyEAudioSegmentDecoder.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"BE82936476F2375F9AF53422" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "53B06A3F26A54A8FDFB15305";
+		};
+		"59445E1E469A2B811C6E1622" = {
+			"fileRef" = "B029C0EE314F1E08681318BF";
+			"isa" = "PBXBuildFile";
+		};
+		"E4E5A80A726FE34B472642C8" = {
+			"fileRef" = "3CAC3309D68E5D2E8E51E7B3";
+			"isa" = "PBXBuildFile";
+		};
+		"79541D5F221367DF78475C94" = {
+			"path" = "Swift_Dolby_E/Decoder/DolbyED2SceneWriter.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"6749CA17202A1A44AE16B932" = {
+			"path" = "Swift_Dolby_E/Decoder/DolbyEBitReader.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"73700B67A6EBA1B67FA02F5A" = {
+			"fileRef" = "505D5CA76C3E52F1839930FD";
+			"isa" = "PBXBuildFile";
+		};
+		"A824290273A346217D9BE6F4" = {
+			"isa" = "XCBuildConfiguration";
+			"buildSettings" = {
+				"DEBUG_INFORMATION_FORMAT" = "dwarf-with-dsym";
+				"CLANG_ENABLE_MODULES" = "YES";
+				"GCC_WARN_UNUSED_VARIABLE" = "YES";
+				"MACOSX_DEPLOYMENT_TARGET" = "14.0";
+				"CODE_SIGNING_ALLOWED" = "NO";
+				"SWIFT_COMPILATION_MODE" = "wholemodule";
+				"ENABLE_USER_SCRIPT_SANDBOXING" = "YES";
+				"SWIFT_OPTIMIZATION_LEVEL" = "-O";
+				"ALWAYS_SEARCH_USER_PATHS" = "NO";
+				"SWIFT_STRICT_CONCURRENCY" = "complete";
+				"SDKROOT" = "macosx";
+				"SWIFT_VERSION" = "6.0";
+				"SWIFT_TREAT_WARNINGS_AS_ERRORS" = "YES";
+			};
+			"name" = "Release";
+		};
+		"A98942A341B58A2EBB6CB2A5" = {
+			"fileRef" = "3CAC3309D68E5D2E8E51E7B3";
+			"isa" = "PBXBuildFile";
+		};
+		"8EFD64B27E900C395BA1348D" = {
+			"path" = "Swift_Dolby_E/Shared/DolbyEResampler.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"8EF5BF97BDD9DE9D47D39889" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "50549124B22635A7DA9B40F2";
+		};
+		"9148DA6E00D019925431E376" = {
+			"path" = "Swift_Dolby_E/Decoder/DolbyED2PCMFrameDecoder.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"D7547F89D43306444D62BB0C" = {
+			"path" = "Swift_Dolby_E/Encoder/DolbyEAdaptiveMantissa.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"B7F8E8B810EF05859C32B035" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "66FCF7D2C9BA2D36FAE5A2B3";
+		};
+		"C56B84A4B38E71F94774FCA6" = {
+			"path" = "Swift_Dolby_E/Decoder/DolbyESynthesisBank.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"D359DAD184A9F3EB90F51B68" = {
+			"fileRef" = "7A43BBA087A6596BE72C9C66";
+			"isa" = "PBXBuildFile";
+		};
+		"53B06A3F26A54A8FDFB15305" = {
+			"path" = "Swift_Dolby_E/Shared/DolbyEMantissaCodingTables.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"E27B34F490B43BE2C25B98CB" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "E8363F0F88BA6EEA094720AC";
+		};
+		"8B39A348F880AE5588D2F087" = {
+			"fileRef" = "552282153AB33BC14D1A76B4";
+			"isa" = "PBXBuildFile";
+		};
+		"C04F714938E7D5EE33DF7E0D" = {
+			"isa" = "PBXContainerItemProxy";
+			"containerPortal" = "244210E48437B6556980A702";
+			"remoteGlobalIDString" = "ED5C76D0F720978EB9C4CAF3";
+			"remoteInfo" = "DolbyEDecoder";
+			"proxyType" = "1";
+		};
+		"4D07CA2E3347DF039514D85B" = {
+			"path" = "Swift_Dolby_E/Shared/DolbyECodecBands.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"CA4DC11AB91007184D72FA72" = {
+			"path" = "Swift_Dolby_E/Encoder/DolbyEAudioSegment.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"378DA871F5242896306632B0" = {
+			"fileRef" = "87798DF6F9C433438F7610C1";
+			"isa" = "PBXBuildFile";
+		};
+		"50549124B22635A7DA9B40F2" = {
+			"path" = "Swift_Dolby_E/Shared/DolbyESpeakerLayout.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"3CC53C088B63A3B067BCB43B" = {
+			"path" = "Swift_Dolby_E/Decoder/DolbyEDecodingRateTables.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"03401E5AAFB454C4E43AD6E3" = {
+			"fileRef" = "AB83363AC24B2871E234849D";
+			"isa" = "PBXBuildFile";
+		};
+		"0156F50AEA939DDF07046F3C" = {
+			"fileRef" = "577DAC3D47EA49B88DE1F581";
+			"isa" = "PBXBuildFile";
+		};
+		"FAF6134A874BA3F56DD06E51" = {
+			"fileRef" = "501E5574A568022567C7053F";
+			"isa" = "PBXBuildFile";
+		};
+		"20A39239033F276C8101FDFD" = {
+			"fileRef" = "C9E01E33E7EC6C96DF802A0C";
+			"isa" = "PBXBuildFile";
+		};
+		"7A43BBA087A6596BE72C9C66" = {
+			"path" = "Swift_Dolby_E/Shared/DolbyESpectralAllocation.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"8957995191EEE30B7A186E0E" = {
+			"fileRef" = "B5400E053780D9AA0280E3E4";
+			"isa" = "PBXBuildFile";
+		};
+		"C473F165BA5BA0C7B9711E19" = {
+			"buildConfigurationList" = "91B091F2E31DA353916830D9";
+			"productReference" = "46408B820AB3EF498A52CE4D";
+			"productType" = "com.apple.product-type.tool";
+			"productName" = "dolbye-encode";
+			"isa" = "PBXNativeTarget";
+			"buildPhases" = (
+				"403A7241EA37619619CB8259",
+				"8C09A4E05A280CC975E9895A",
+			);
+			"dependencies" = (
+				"13FCD69AF3912F7146A22A0C",
+			);
+			"name" = "DolbyEEncoderCLI";
+			"buildRules" = (
+			);
+		};
+		"70DCFCEA9EDB7FB6C5213577" = {
+			"path" = "Swift_Dolby_E/CLI/CommandLineOptions.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"75DE6B7DFB73CBE9BE5E1C7E" = {
+			"isa" = "XCBuildConfiguration";
+			"buildSettings" = {
+				"ONLY_ACTIVE_ARCH" = "YES";
+				"DEBUG_INFORMATION_FORMAT" = "dwarf";
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "$(inherited) DEBUG";
+				"SWIFT_INSTALL_OBJC_HEADER" = "YES";
+				"DEFINES_MODULE" = "YES";
+				"SKIP_INSTALL" = "NO";
+				"DYLIB_COMPATIBILITY_VERSION" = "1";
+				"INSTALL_PATH" = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				"CODE_SIGNING_ALLOWED" = "NO";
+				"MACOSX_DEPLOYMENT_TARGET" = "14.0";
+				"GENERATE_INFOPLIST_FILE" = "YES";
+				"ENABLE_TESTABILITY" = "YES";
+				"BUILD_LIBRARY_FOR_DISTRIBUTION" = "YES";
+				"SWIFT_OPTIMIZATION_LEVEL" = "-O";
+				"PRODUCT_NAME" = "DolbyEEncoder";
+				"MACH_O_TYPE" = "staticlib";
+				"DYLIB_CURRENT_VERSION" = "1";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "com.B00kerLouis.DolbyEEncoder";
+				"SWIFT_VERSION" = "6.0";
+			};
+			"name" = "Debug";
+		};
+		"CABF9639F4D4CFBAD9CD9628" = {
+			"path" = "Swift_Dolby_E/Encoder/DolbyEFrameEncoder.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"610307E2D45DC7676177BBE6" = {
+			"fileRef" = "2616CFA4EDBB00056B9E7523";
+			"isa" = "PBXBuildFile";
+		};
+		"897BA171436B0D2E47188461" = {
+			"buildConfigurationList" = "348BDBF12029018986FA2C1E";
+			"productReference" = "2BEB8923D6E7E4114121806C";
+			"productType" = "com.apple.product-type.application";
+			"productName" = "Dolby E QC";
+			"isa" = "PBXNativeTarget";
+			"buildPhases" = (
+				"E7B0AE717425E6678C18F2C4",
+				"1D64981FFCF659A6F0C1BD4A",
+			);
+			"dependencies" = (
+				"CB20E235B7F4A8CBE4ED0FD4",
+			);
+			"name" = "DolbyEPlayer";
+			"buildRules" = (
+			);
+		};
+		"8C09A4E05A280CC975E9895A" = {
+			"buildActionMask" = "2147483647";
+			"isa" = "PBXFrameworksBuildPhase";
+			"files" = (
+				"C5E3DB3AC98CBC65D9559B49",
+			);
+			"runOnlyForDeploymentPostprocessing" = "0";
+		};
+		"37457D035D0BA7D43FBD01FF" = {
+			"fileRef" = "4A1AC0DBB72A653305EFB155";
+			"isa" = "PBXBuildFile";
+		};
+		"7D2C17DEAFCABCBDEB465931" = {
+			"path" = "Swift_Dolby_E/Encoder/DolbyED2MetadataClock.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"886815B68B20D6BD2D372A43" = {
+			"path" = "Swift_Dolby_E/Shared/DolbyEProgrammeLoudness.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"C7FF872AE6BA33E569990122" = {
+			"fileRef" = "62C5B42E1764E48DC21D5960";
+			"isa" = "PBXBuildFile";
+		};
+		"6BADEF94C0A2B95F27AFE97E" = {
+			"fileRef" = "EAC76D40D2A93089EBF3ECD6";
+			"isa" = "PBXBuildFile";
+		};
+		"5F0BCFA1FBCA4B9E72F3740B" = {
+			"buildActionMask" = "2147483647";
+			"isa" = "PBXSourcesBuildPhase";
+			"files" = (
+				"967BD22296AC4A397B62684C",
+				"60A328D3B5AF214D9E1E279A",
+				"9276D8340985055A35708C9A",
+				"8913A8193B79B16FEE51A4D7",
+				"BE82936476F2375F9AF53422",
+				"8EF5BF97BDD9DE9D47D39889",
+				"97132595A9FE14A049993F68",
+				"46B90A56FFC1777533A0935C",
+				"FE9AFBF34E9D91805416F889",
+				"49F98F86B972BFB27FF7A51E",
+				"45D349EA7C39A80FA9809F54",
+				"191C030AB0932BA6F77D22AF",
+				"B18E9C774F5C27FF71C7D715",
+				"BF3CD727FE219820EB831F88",
+				"E27B34F490B43BE2C25B98CB",
+				"ABEFD009F4301A09536DBC48",
+				"99721A8575D9B73080BEC4CD",
+				"F1642422A54B529202A8D374",
+				"8957995191EEE30B7A186E0E",
+				"0030D115DBBA18574A762F2D",
+				"75A4CF039BA0541FCF144DB8",
+				"1F81FD2137540D66204CF89C",
+				"6733564A652BB0F7DBC7E458",
+				"DDDDDF743B25717C0F7048BC",
+				"F1C9A13AE1E962203AF5F255",
+				"0899CEE966FEAF11B39C8ADB",
+				"C7FF872AE6BA33E569990122",
+				"AC5D793EE429B84BCCA7608B",
+				"1CCEC4A5794600684697A5CC",
+				"B8C3B364E0C91E85ED2FD824",
+				"E318BE547C55ED10B80F0CAF",
+				"B51DFEEC6A748128BA312F68",
+				"876996C1E0EBB7FC219F4227",
+				"EB9783D952EBBB8A8FABFF20",
+				"F4B6338916845D5A8692932F",
+				"DC86242237F431FF9314EEA9",
+				"59445E1E469A2B811C6E1622",
+				"D359DAD184A9F3EB90F51B68",
+				"E4E5A80A726FE34B472642C8",
+				"610307E2D45DC7676177BBE6",
+				"2690768405887ECA15F9A10D",
+				"8F43664A32CB5566FF6BA330",
+				"0C38AA68993FC8E037412CB1",
+				"30185C12EEFEE25C68525F78",
+				"0B2035252597C91EEE042DBD",
+				"378DA871F5242896306632B0",
+				"1BC0270735C9BDB4CEF5300A",
+				"7975E28F65A8E39A82BB1813",
+				"D80B54C9BB842FB44525AC06",
+				"A4E7680246045A76659F79F2",
+				"20A39239033F276C8101FDFD",
+				"EDB5332A9A71AE111BC8B3B2",
+			);
+			"runOnlyForDeploymentPostprocessing" = "0";
+		};
+		"91B091F2E31DA353916830D9" = {
+			"defaultConfigurationIsVisible" = "0";
+			"defaultConfigurationName" = "Release";
+			"isa" = "XCConfigurationList";
+			"buildConfigurations" = (
+				"192DE4228F7B4201BCDC7E88",
+				"D25DED527CEB729E09AE0BA3",
+			);
+		};
+		"8CFB179649A6A9322583ABEC" = {
+			"fileRef" = "DBBB055C973E129272A29AD5";
+			"isa" = "PBXBuildFile";
+		};
+		"BA0815157B5F17FBFD29E88D" = {
+			"path" = "Swift_Dolby_E/Decoder/DolbyEAudioDevices.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"A95A8D968C998AC3EB380729" = {
+			"path" = "Swift_Dolby_E/Shared/DolbyEParallelWork.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"BFB93F652CC386A4CFC57C95" = {
+			"fileRef" = "7F1029451EF1C2E6E1F51038";
+			"isa" = "PBXBuildFile";
+		};
+		"E1B3233B74409C0A482386C6" = {
+			"path" = "Swift_Dolby_E/Decoder/DolbyEAC3MetadataReader.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"30185C12EEFEE25C68525F78" = {
+			"fileRef" = "B221AC056B08D51D690B59B1";
+			"isa" = "PBXBuildFile";
+		};
+		"D1C62690DFE144D193BB45A2" = {
+			"fileRef" = "70DCFCEA9EDB7FB6C5213577";
+			"isa" = "PBXBuildFile";
+		};
+		"3E98862D09E97A4AF7B8BA88" = {
+			"path" = "Swift_Dolby_E/Shared/DolbyETruePeakLimiter.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"577DAC3D47EA49B88DE1F581" = {
+			"path" = "Swift_Dolby_E/Shared/DolbyEFrameAllocation.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"7066F10B3781F7FC236D5AA2" = {
+			"path" = "Swift_Dolby_E/Decoder/DolbyEMantissaTables.swift";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"sourceTree" = "<group>";
+		};
+		"46408B820AB3EF498A52CE4D" = {
+			"path" = "dolbye-encode";
+			"isa" = "PBXFileReference";
+			"includeInIndex" = "0";
+			"explicitFileType" = "compiled.mach-o.executable";
+			"sourceTree" = "BUILT_PRODUCTS_DIR";
+		};
+	};
+	"rootObject" = "244210E48437B6556980A702";
+}

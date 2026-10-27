@@ -1,0 +1,31 @@
+/Build/
+**/xcuserdata/
+.DS_Store
+*.xcuserstate
+
+# Local-only investigation archives, reference assets and results.
+**/Research/
+/Artifacts/
+*.xcresult/
+*.partial
+*.store
+*.store-shm
+*.store-wal
+*.wav
+*.mxf
+*.caf
+*.atmos
+*.dll
+*.vst
+*.vst3
+*.rar
+*.7z
+*.zip
+*.dmg
+*.p12
+*.mobileprovision
+.env
+.env.*
+
+# Local verification sources are not part of the published library.
+/Swift_Dolby_E/Tests/

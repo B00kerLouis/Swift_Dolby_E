@@ -1,0 +1,47 @@
+# Copyright © 2026 B00kerLouis.
+# SPDX-License-Identifier: LGPL-3.0-or-later
+name: Build
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  macos:
+    name: Xcode 26.3 (${{ matrix.runner }})
+    strategy:
+      fail-fast: false
+      matrix:
+        runner: [macos-26, macos-26-intel]
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 30
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_26.3.app/Contents/Developer
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Verify source inventory and toolchain
+        run: |
+          set -euo pipefail
+          xcodebuild -version
+          test "$(xcodebuild -version | head -n 1)" = "Xcode 26.3"
+          xcrun swift Scripts/CI/CheckRepository.swift
+      - name: Build frameworks, command-line tools and QC
+        run: |
+          set -euo pipefail
+          for scheme in DolbyEEncoder DolbyEDecoder DolbyEEncoderCLI DolbyEDecoderCLI DolbyEPlayer; do
+            xcodebuild -project Swift_Dolby_E.xcodeproj -scheme "$scheme" \
+              -configuration Release -derivedDataPath Build \
+              CODE_SIGNING_ALLOWED=NO SWIFT_TREAT_WARNINGS_AS_ERRORS=YES GCC_TREAT_WARNINGS_AS_ERRORS=YES \
+              build
+          done
