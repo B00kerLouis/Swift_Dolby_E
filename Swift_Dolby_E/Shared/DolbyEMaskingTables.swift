@@ -1,6 +1,6 @@
 // Copyright © 2026 B00kerLouis.
 // SPDX-License-Identifier: LGPL-3.0-or-later
-/// Integer masking and bit-allocation tables retained at their reference precision.
+/// Integer masking and bit-allocation tables retained at their integer precision.
 enum DolbyEMaskingTables {
     static let base = 0x10284f60
     static let values: [Int] = [

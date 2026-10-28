@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: LGPL-3.0-or-later
 import Foundation
 
-/// Reference-derived polynomial division on significant word bits, MSB first.
+/// Polynomial division on significant word bits, MSB first.
 /// Initial remainder is zero; input bits enter at the low bit before reduction.
 /// This is deliberately not a generic CRC-16 preset with an implicit augmentation.
 public enum DolbyEIntegrity {
@@ -43,7 +43,7 @@ public enum DolbyEIntegrity {
         return result
     }
 
-    /// Selects the first unused 10-bit prefix and applies the reference synchronization mask.
+    /// Selects the first unused 10-bit prefix and applies the synchronization mask.
     /// This operation is transport scrambling, with no encryption or license behavior.
     public static func applySynchronization(to words: [UInt32], wordWidth: Int, key: UInt16 = 0) throws
         -> (syncWord: UInt32, words: [UInt32]) {

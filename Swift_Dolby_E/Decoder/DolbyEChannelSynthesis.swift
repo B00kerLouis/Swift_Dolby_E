@@ -23,9 +23,8 @@ public struct DolbyEChannelSynthesis: Codable, Sendable {
         }
         func clipped(_ value: Double) -> Double { max(-1, min(0.9999999899999999, value)) }
         let oldGain = gain
-        // The reference kernel sign-extends the current 16-bit counter and
-        // zero-extends the saved counter before adding one (VA 0x100b4346).
-        // Preserve that comparison, including the high-counter crossfade path.
+        // Sign-extend the current 16-bit counter and zero-extend the saved
+        // counter before adding one, including the high-counter crossfade path.
         let continuous = secondHalf || Int(Int16(bitPattern: frameNumber)) == Int(previousCounter) + 1
         if !secondHalf {
             gain = linear(firstGain)

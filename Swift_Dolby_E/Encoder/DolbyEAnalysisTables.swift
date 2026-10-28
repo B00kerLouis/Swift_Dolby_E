@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: LGPL-3.0-or-later
 import Foundation
 
-/// Analysis windows and transition plans recovered from the supplied reference.
+/// Analysis windows and transition plans.
 /// Integer bit patterns preserve the exact Double coefficient values.
 enum DolbyEAnalysisTables {
     struct Plan: Sendable {

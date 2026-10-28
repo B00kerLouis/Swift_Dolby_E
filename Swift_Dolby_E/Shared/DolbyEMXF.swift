@@ -153,8 +153,8 @@ public final class DolbyEMXFWriter {
     deinit { try? handle.close() }
 
     private func cumulativeSamples(_ index: UInt64) -> UInt64 {
-        // The reference analysis converter consumes floor(N*r) input samples;
-        // its inverse emits ceil(N*r), starting at phase zero. Preserve that
+        // The analysis converter consumes floor(N*r) input samples;
+        // the inverse emits ceil(N*r), starting at phase zero. Preserve that
         // one-sample phase difference instead of dropping a decoded sample.
         let scaled = index * UInt64(48000 * rate.denominator)
         return (scaled + (compressed ? 0 : UInt64(rate.numerator - 1))) / UInt64(rate.numerator)

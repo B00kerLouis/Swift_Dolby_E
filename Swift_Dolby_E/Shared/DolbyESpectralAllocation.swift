@@ -8,7 +8,7 @@ public enum DolbyESpectralAllocation {
         9,9,10,12,13,14,16,18,19,22,24,27,29,32,36,40,44,49,54,60,66,74,82,90,100,
     ]
 
-    /// Computes the reference spreading/masking model for one long block. All math
+    /// Computes the spreading/masking model for one long block. All math
     /// stays in integer log units so encoder and decoder derive identical widths.
     public static func masking(exponents: [Int], lfe: Bool, rate: DolbyEFrameRate)
         throws -> (energy: [Int], mask: [Int]) {

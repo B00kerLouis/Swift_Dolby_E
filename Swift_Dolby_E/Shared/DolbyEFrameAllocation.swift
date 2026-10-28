@@ -12,7 +12,7 @@ public struct DolbyEFrameAllocation: Sendable {
 
     public init(program: DolbyEProgram, rate: DolbyEFrameRate, payloadWords override: Int? = nil,
                 evolution: Bool = false, audioWordCounts: [Int]? = nil) throws {
-        // Historical raw-metadata/reference-vector budgets. A complete carrier
+        // Default raw-metadata budgets. A complete carrier
         // encoder supplies its actual cadence-aware RDD 33 capacity explicitly.
         let payload = override ?? [3644, 3640, 3648, 3040, 3040][rate.referenceCode - 1]
         guard (1024...4095).contains(payload) else { throw DolbyEError.invalidArgument("frame payload word count") }

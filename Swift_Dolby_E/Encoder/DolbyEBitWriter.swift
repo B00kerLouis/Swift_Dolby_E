@@ -4,7 +4,6 @@ import Foundation
 
 /// Packs fields MSB first into left-justified 32-bit storage words.
 /// The significant width is independent of the storage width. Final unused bits are zero.
-/// Verified against the supplied reference encoder's packing routines, not a decoder heuristic.
 public struct DolbyEBitWriter: Sendable {
     public let wordWidth: Int
     public let capacityWords: Int
@@ -39,7 +38,7 @@ public struct DolbyEBitWriter: Sendable {
         }
     }
 
-    /// Returns the complete declared capacity, including reference-style zero padding.
+    /// Returns the complete declared capacity, including zero padding.
     public func finalizedWords() -> [UInt32] { words }
 
     /// Converts left-justified storage to packed 24-bit little-endian carrier samples.

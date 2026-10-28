@@ -1,6 +1,6 @@
 // Copyright © 2026 B00kerLouis.
 // SPDX-License-Identifier: LGPL-3.0-or-later
-/// Exact decoder-side polyphase filters from the reference archive.
+/// Decoder-side polyphase filters for supported frame rates.
 enum DolbyEDecodingRateTables {
     struct Profile: Sendable {
         let interpolation: Int

@@ -2,8 +2,8 @@
 // SPDX-License-Identifier: LGPL-3.0-or-later
 import Foundation
 
-/// Routes discrete PCM by speaker semantics. Home stereo uses the reference
-/// Lo/Ro center/surround levels and its two-phase all-pass output network.
+/// Routes discrete PCM by speaker semantics. Home stereo uses Lo/Ro
+/// center/surround levels and a two-phase all-pass output network.
 public struct DolbyEPCMRouter: Codable, Sendable {
     public let layout: DolbyEInputLayout
     public let program: DolbyEProgram

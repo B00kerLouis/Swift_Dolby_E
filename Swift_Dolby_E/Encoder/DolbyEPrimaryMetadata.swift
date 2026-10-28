@@ -2,9 +2,7 @@
 // SPDX-License-Identifier: LGPL-3.0-or-later
 import Foundation
 
-/// The seven 16-bit metadata words used at the recovered reference encoder interface.
-/// Raw initialization preserves the original low-level oracle interface. Typed
-/// initialization uses the settings verified against the supplied valid stream.
+/// Seven 16-bit program metadata words, initialized directly or from typed AC-3 settings.
 public struct DolbyEProgramMetadata: Codable, Sendable {
     public let rawWords: [UInt16]
     public let ac3: DolbyEAC3Metadata?
@@ -38,7 +36,7 @@ public struct DolbyEMetadataSection: Sendable {
     public let meterWordCount: Int
 }
 
-/// Emits the primary metadata section recovered from command 0x21 of the supplied encoder.
+/// Emits the primary metadata section.
 /// This section is not a complete encoded audio frame and must not be delivered as one.
 public enum DolbyEPrimaryMetadata {
     public static func fiveOnePlusTwo(frameRate: DolbyEFrameRate, timecodeWords: [UInt16],

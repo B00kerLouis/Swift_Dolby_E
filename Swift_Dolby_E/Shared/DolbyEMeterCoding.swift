@@ -3,7 +3,7 @@
 import Foundation
 
 public enum DolbyEMeterCoding {
-    /// Reference logarithmic meter quantization; zero denotes no measurable signal.
+    /// Logarithmic meter quantization; zero denotes no measurable signal.
     public static func code(amplitude: Double) throws -> UInt16 {
         guard amplitude.isFinite, amplitude >= 0 else {
             throw DolbyEError.invalidArgument("meter amplitude must be finite and nonnegative")

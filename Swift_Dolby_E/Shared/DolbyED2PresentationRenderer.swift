@@ -5,7 +5,7 @@ import Foundation
 /// Renders the actual two-substream element PCM described by ED2 metadata.
 /// Each call consumes one metadata frame; update offsets are relative to its
 /// first sample. Histories include unfinished ramps and stereo phase delays.
-/// This renderer uses room coordinates and makes no proprietary-renderer equivalence claim.
+/// This renderer uses room coordinates.
 public struct DolbyED2PresentationRenderer: Codable, Sendable {
     public let layout: DolbyEPlaybackLayout
     public let downmixMode: DolbyEDownmixMode

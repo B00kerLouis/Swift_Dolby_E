@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: LGPL-3.0-or-later
 import Foundation
 
-/// All eight analysis window/transition configurations used by the reference encoder.
+/// The eight analysis window and transition configurations.
 public enum DolbyEAnalysisBlock: Int, CaseIterable, Sendable {
     case shortStart = 0
     case shortToLongStart = 1
@@ -17,7 +17,7 @@ public enum DolbyEAnalysisBlock: Int, CaseIterable, Sendable {
 public enum DolbyEAnalysisBank {
     /// Input contains the retained overlap followed by the current channel samples.
     /// Output is the 1024-slot spectral buffer, with short blocks placed at their
-    /// reference offsets. LFE band truncation belongs to exponent/bit allocation.
+    /// configured offsets. LFE band truncation belongs to exponent/bit allocation.
     public static func analyze(_ samples: [Double], block: DolbyEAnalysisBlock) throws -> [Double] {
         guard (1152...1344).contains(samples.count), samples.allSatisfy(\.isFinite) else {
             throw DolbyEError.invalidArgument("analysis bank requires 1152...1344 finite channel samples")

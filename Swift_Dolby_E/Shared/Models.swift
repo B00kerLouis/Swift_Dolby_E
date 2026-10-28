@@ -45,8 +45,7 @@ public enum DolbyEProgram: String, CaseIterable, Codable, Sendable {
         }
     }
 
-    /// Channel semantics recovered from the reference configuration table. Both
-    /// corresponding wire configurations have been decoded by the reference decoder.
+    /// Channel semantics for the corresponding wire configurations.
     public var channels: [String] {
         switch self {
         case .fiveOnePlusTwo: ["L", "R", "C", "LFE", "Ls", "Rs", "L2", "R2"]

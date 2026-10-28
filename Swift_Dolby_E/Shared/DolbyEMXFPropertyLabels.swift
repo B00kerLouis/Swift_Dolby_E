@@ -2,8 +2,7 @@
 // SPDX-License-Identifier: LGPL-3.0-or-later
 import Foundation
 
-// Registered MXF property identifiers, ST 377-1 / ST 382. These are data
-// identifiers, not an implementation imported from a third-party library.
+// Registered MXF property identifiers, ST 377-1 / ST 382.
 enum DolbyEMXFPropertyLabels {
     static let values: [UInt16: Data] = [
         0x0201: DolbyEMXFKLV.ul("060e2b34010101020407010000000000"), // DataDefinition

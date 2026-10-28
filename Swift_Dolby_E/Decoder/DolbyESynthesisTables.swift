@@ -1,6 +1,6 @@
 // Copyright © 2026 B00kerLouis.
 // SPDX-License-Identifier: LGPL-3.0-or-later
-/// Exact synthesis transition windows and coefficient placement from the reference decoder.
+/// Synthesis transition windows and coefficient placement.
 enum DolbyESynthesisTables {
     struct Plan: Sendable {
         let destination: Int

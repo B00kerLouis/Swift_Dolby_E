@@ -93,7 +93,7 @@ Copyright ©2026 B00kerLouis.
 All first-party code, build configuration and documentation in this
 repository are licensed under **GNU LGPL version3 or any later version**
 (`LGPL-3.0-or-later`). See [LICENSE](LICENSE) for the LGPL additional permissions
-and [COPYING](COPYING) for the incorporated GPLv3 terms. The license texts retain
+and the incorporated GPLv3 terms. The license texts retain
 their original notices. Third-party materials, if separately provided, retain
 their own terms and are not relicensed by this statement.
 

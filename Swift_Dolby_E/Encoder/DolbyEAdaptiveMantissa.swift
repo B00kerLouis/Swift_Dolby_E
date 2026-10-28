@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: LGPL-3.0-or-later
 import Foundation
 
-/// Inverts the admitted decoder's primary/escape quantizers. The selected
+/// Inverts the primary and escape quantizers. The selected
 /// refinement changes the actual bit cost, so allocation includes every escape.
 enum DolbyEAdaptiveMantissa {
     struct Token: Sendable {

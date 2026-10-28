@@ -93,8 +93,8 @@ public struct DolbyEAC3Metadata: Codable, Equatable, Sendable {
     }
 }
 
-/// Observed wire fields, retaining raw DRC words/profile codes even when the
-/// reference stream contains values outside the public encoder presets.
+/// Wire fields retain raw DRC words and profile codes even when values
+/// fall outside the public encoder presets.
 public struct DolbyEAC3ProgramInfo: Codable, Sendable {
     public let bitRateCode: UInt8
     public let serviceMode: UInt8

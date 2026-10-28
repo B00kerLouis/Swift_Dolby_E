@@ -343,7 +343,7 @@ public struct DolbyED2MetadataContainer: Sendable {
             crcVerified: crcVerified, authenticationVerified: true)
     }
 
-    /// The reference ED2 profile signs the complete Dolby E core in left-aligned
+    /// This ED2 profile signs the complete Dolby E core in left-aligned
     /// UInt32 little-endian form, then the canonical unescaped EMDF container.
     /// Secondary protection authenticates the complete primary digest, not its
     /// four transmitted octets. No cross-frame signing state is used by this profile.
@@ -436,8 +436,8 @@ public struct DolbyED2MetadataContainer: Sendable {
             for codecID in [1, 254] {
                 let body: Data
                 if let programmeLoudness {
-                    // The reference distinguishes the programme record from
-                    // the separate compatibility record. Do not assign a
+                    // The programme record is distinct from the separate
+                    // compatibility record. Do not assign a
                     // rendered Main measurement to unrelated mono signals.
                     body = try (codecID == 1 ? programmeLoudness:DolbyEProgrammeLoudness(version:programmeLoudness.version)).encoded()
                 }else{body=Data([0,0])}

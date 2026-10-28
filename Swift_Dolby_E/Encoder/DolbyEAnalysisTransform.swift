@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: LGPL-3.0-or-later
 import Foundation
 
-/// Scalar reference implementation of the recovered unshifted cosine-analysis primitive.
+/// Scalar implementation of the unshifted cosine-analysis primitive.
 /// Verified sizes are 256 and 2048 input samples. This is one stage of the codec;
 /// transition windows, overlapping state and transient block selection belong to its caller.
 public enum DolbyEAnalysisTransform {
@@ -21,7 +21,7 @@ public enum DolbyEAnalysisTransform {
         let scale = 2.0 / Double(count)
         var result = [Double](repeating: 0, count: count)
         // Keep the direct formula as the auditable CPU baseline. Replacing it with
-        // FFT/vector acceleration requires matching the retained reference vectors.
+        // FFT/vector acceleration must preserve the calculated coefficients.
         for coefficient in 0..<count {
             let frequency = Double.pi / Double(count) * (Double(coefficient) + 0.5)
             var sum = 0.0

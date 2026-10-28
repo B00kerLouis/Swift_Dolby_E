@@ -28,9 +28,10 @@ for path in files {
         }
     }
 }
-for path in ["LICENSE", "COPYING"] {
-    guard files.contains(path) else { fatalError("license text missing: \(path)") }
-}
+guard files.contains("LICENSE") else { fatalError("license text missing: LICENSE") }
+let license = try String(contentsOfFile: "LICENSE", encoding: .utf8)
+guard license.contains("GNU LESSER GENERAL PUBLIC LICENSE"),
+      license.contains("GNU GENERAL PUBLIC LICENSE") else { fatalError("incomplete LGPL and GPL license texts") }
 print("Reviewed \(files.count) tracked files: source-only inventory and owned-source license checks passed.")
 
 let project = try String(contentsOfFile: "Swift_Dolby_E.xcodeproj/project.pbxproj", encoding: .utf8)

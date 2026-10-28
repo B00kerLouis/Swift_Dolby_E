@@ -69,7 +69,7 @@ public enum DolbyEFrameEncoder {
                 payload += try DolbyEIntegrity.appendingCRC(to: segment, wordWidth: 20)
             }
             if half == 0 {
-                // Disabled optional per-program user bytes use the reference's empty extension syntax.
+                // Disabled optional per-program user bytes use empty extension syntax.
                 var extensionBits = try DolbyEBitWriter(capacityWords: metadata.extendedMetadataWordCount)
                 try extensionBits.append(1, bits: 4)
                 let count = program.programChannelCounts.count

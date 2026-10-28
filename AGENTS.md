@@ -6,9 +6,10 @@
 
 Use B00kerLouis as the sole first-party author in notices and new Git author/
 committer fields. Preserve required third-party notices. Do not add AI co-author
-trailers. All first-party repository content is LGPL-3.0-or-later; retain LICENSE
-and COPYING. For local work apply the installed no-defensive-replies and
-chatgpt-honor-code skills; publication also uses github-push-policy.
+trailers. All first-party repository content is LGPL-3.0-or-later; retain the
+complete LGPL and incorporated GPL terms in LICENSE. For local work apply the
+installed no-defensive-replies and chatgpt-honor-code skills; publication also
+uses github-push-policy.
 
 The human has authorized this GitHub repository to be private. New commits use
 exactly `Fixed known issues.` with no body. Verify owner/admin identity and staged
