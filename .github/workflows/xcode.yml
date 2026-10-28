@@ -43,4 +43,7 @@ jobs:
             -configuration Release -derivedDataPath Build \
             CODE_SIGNING_ALLOWED=NO SWIFT_TREAT_WARNINGS_AS_ERRORS=YES GCC_TREAT_WARNINGS_AS_ERRORS=YES \
             build
-          xcrun swift Scripts/CI/CheckProducts.swift Build/Products/Release
+          static_framework_binary="$(find Build -type f -path '*/Products/Release/DolbyEEncoder.framework/Versions/A/DolbyEEncoder' -print -quit)"
+          test -n "$static_framework_binary"
+          products_directory="$(cd "$(dirname "$static_framework_binary")/../../.." && pwd)"
+          xcrun swift Scripts/CI/CheckProducts.swift "$products_directory"

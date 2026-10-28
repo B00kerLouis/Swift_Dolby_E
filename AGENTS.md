@@ -11,8 +11,9 @@ complete LGPL and incorporated GPL terms in LICENSE. For local work apply the
 installed no-defensive-replies and chatgpt-honor-code skills; publication also
 uses github-push-policy.
 
-The human has authorized this GitHub repository to be private. New commits use
-exactly `Fixed known issues.` with no body. Verify owner/admin identity and staged
+Preserve the repository’s existing visibility and access settings; change them only
+when the human explicitly requests it. New commits use exactly `Fixed known issues.`
+with no body. Verify owner/admin identity and staged
 paths before pushing. Never force-push without explicit instruction. Research
 archives, private test vectors, reference binaries, media and investigation results
 stay local, even when the repository is private. Stage an explicit allowlist.
