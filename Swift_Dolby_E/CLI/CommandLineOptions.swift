@@ -14,6 +14,7 @@ struct CommandLineOptions {
     let program: DolbyEProgram
     let rate: DolbyEFrameRate?
     let inputLayout: DolbyEInputLayout
+    let jsonResult: Bool
     let probe: Bool
     let play: Bool
     let muted: Bool
@@ -34,7 +35,11 @@ struct CommandLineOptions {
         var flags: Set<String> = []
         let aliases = ["-i": "--input", "-o": "--output", "-f": "--format", "-p": "--program", "--progam": "--program"]
         let valued: Set<String> = ["--input", "--input-pri", "--input-exp", "--output", "--format", "--program", "--frame-rate", "--input-layout", "--metadata", "--dialnorm", "--rf-profile", "--line-profile", "--ac3-bitrate", "--layout", "--monitor", "--presentation", "--downmix-mode", "--encode-vision", "--dialogue-source", "--secondary-input"]
+        #if ENCODER_CLI
+        let switches: Set<String> = ["--probe", "--plan", "--play", "--mute", "--json"]
+        #else
         let switches: Set<String> = ["--probe", "--plan", "--play", "--mute"]
+        #endif
         let loudnessOptions:Set<String>=["--loudness","--loudness-target","--loudness-ceiling","--loudness-layout","--loudness-version","--loudness-tolerance"]
         let valuedOptions = valued.union(["--workers"]).union(loudnessOptions)
         var index = 0
@@ -73,6 +78,7 @@ struct CommandLineOptions {
         for option in ["--input", "--input-pri", "--input-exp", "--secondary-input"] where values[option] != nil {
             guard !values[option]!.isEmpty else { throw DolbyEError.invalidArgument("empty path: \(option)") }
         }
+        self.jsonResult = flags.contains("--json")
         let input = values["--input-pri"] ?? values["--input"]
         guard input != nil || flags.contains("--play") else {
             throw DolbyEError.invalidArgument("--input or the ED2 --input-pri/--input-exp pair is required")
@@ -206,4 +212,16 @@ func printJSON<T: Encodable>(_ value: T) throws {
 func reportFailure(_ error: Error) {
     let message = "error: \(error.localizedDescription)\n"
     try? FileHandle.standardError.write(contentsOf: Data(message.utf8))
+}
+
+/// Keep Release terminal output focused on progress and actionable failures.
+/// Core Data diagnostics remain available through the system unified log;
+/// thrown persistence errors still reach reportFailure. No defaults are persisted.
+func configureCLIDiagnostics() {
+    #if !DEBUG
+    var arguments = UserDefaults.standard.volatileDomain(forName: UserDefaults.argumentDomain)
+    arguments["com.apple.CoreData.Logging.stderr"] = false
+    arguments["com.apple.CoreData.Logging.oslog"] = true
+    UserDefaults.standard.setVolatileDomain(arguments, forName: UserDefaults.argumentDomain)
+    #endif
 }

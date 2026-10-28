@@ -61,7 +61,7 @@ private struct LoudnessPreparationCheckpoint: Codable {
 /// intermediate PCM master is generated. A prepared plan survives encoding
 /// retries without repeating completed source analysis.
 enum DolbyEOfflineLoudnessPreparation {
-    static func run(_ request:DolbyERequest,sourceURL:URL,outputURL:URL,directory:URL)throws->DolbyEOfflineLoudnessPlan? {
+    static func run(_ request:DolbyERequest,sourceURL:URL,outputURL:URL,directory:URL,progress:DolbyEEncodingProgressReporter?=nil)throws->DolbyEOfflineLoudnessPlan? {
         guard let configuration=request.loudness else{return nil}
         try configuration.validate()
         let store=try DolbyEFileJobStore(operation:"loudness",directory:directory)
@@ -72,7 +72,7 @@ enum DolbyEOfflineLoudnessPreparation {
         let identity=try source.identity(),rate=request.frameRate ?? source.embeddedFrameRate ?? .fps25
         guard existing == nil || existing?.sourceIdentity==identity else{throw DolbyEError.invalidArgument("loudness source/sidecar identity changed")}
         if let plan=saved?.plan{return plan}
-        let job=existing ?? DolbyEFileJob(signature:signature,input:request.inputURL,output:request.outputURL,sourceIdentity:identity,sourceFrames:source.info.frameCount)
+        let job=existing ?? DolbyEFileJobRecord(signature:signature,input:request.inputURL,output:request.outputURL,sourceIdentity:identity,sourceFrames:source.info.frameCount)
         if existing==nil{try store.insert(job)}
         let isED2=request.encodeVision == .ed2
         let groups=isED2 ? [Array(0..<16)]:DolbyELoudnessProcessor.groups(request.program)
@@ -115,6 +115,8 @@ enum DolbyEOfflineLoudnessPreparation {
         do {
             if saved==nil{try checkpoint()}
             while true {
+                let phase:DolbyEEncodingPhase = pass == 0 ? .measuringLoudness:.normalizingLoudness
+                progress?.emit(phase,processed:source.position,total:source.info.frameCount,pass:pass+1)
                 while source.position<source.info.frameCount || tail>0 {
                     try autoreleasepool {
                         try Task.checkCancellation()
@@ -137,7 +139,9 @@ enum DolbyEOfflineLoudnessPreparation {
                             for i in analyzers.indices{try analyzers[i].append(outputs[i],maximumParallelism:request.maximumParallelism)}
                             try spectralProfiler?.append(routed,maximumParallelism:request.maximumParallelism)
                         }
-                        frames+=1;if frames%25==0{try checkpoint()}
+                        frames+=1
+                        progress?.emit(phase,processed:source.position,total:source.info.frameCount,pass:pass+1)
+                        if frames%25==0{try checkpoint()}
                     }
                 }
                 guard try source.identity()==identity else{throw DolbyEError.invalidArgument("source changed during programme measurement")}
@@ -155,7 +159,7 @@ enum DolbyEOfflineLoudnessPreparation {
                     plan.spectralShifts=try spectralProfiler?.spectralShifts()
                     try checkpoint(plan:plan);return plan
                 }
-                guard pass<4 else{throw DolbyEError.invalidArgument("offline correction did not converge: measured\(measured.map{$0.integratedLUFS}), target\(configuration.targetLUFS)LUFS")}
+                guard pass<DolbyEEncodingProgressReporter.maximumNormalizationPasses-1 else{throw DolbyEError.invalidArgument("offline correction did not converge: measured\(measured.map{$0.integratedLUFS}), target\(configuration.targetLUFS)LUFS")}
                 for i in gains.indices {if let level=measured[i].integratedLUFS{gains[i]+=configuration.targetLUFS-level}}
                 pass+=1;frames=0;tail=1
                 ordinary=try isED2 ? nil:DolbyEEncodingRouter(source:source,request:request)

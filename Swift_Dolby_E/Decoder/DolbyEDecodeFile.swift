@@ -59,13 +59,13 @@ actor DolbyEDecodeFileWorker {
                 outputChannels = 2
             }
             try source.seek(toWord: saved?.sourceWord ?? 0, restoring: saved?.boundaries)
-            let active: DolbyEFileJob
+            let active: DolbyEFileJobRecord
             if let existing { active = existing }
             else {
                 guard !FileManager.default.fileExists(atPath: outputURL.path) else {
                     throw DolbyEError.invalidArgument("output already exists")
                 }
-                active = DolbyEFileJob(signature: signature, input: request.inputURL, output: request.outputURL,
+                active = DolbyEFileJobRecord(signature: signature, input: request.inputURL, output: request.outputURL,
                     sourceIdentity: identity, sourceFrames: source.info.frameCount)
                 active.sourceBookmarkBytes = inputAccess.bookmark
                 active.outputBookmarkBytes = outputAccess.bookmark

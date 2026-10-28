@@ -42,8 +42,7 @@ public final class DolbyED2CarrierReader {
         let a = try DolbyEWaveCarrierReader(url: url)
         var peer = secondaryURL
         if peer == nil, a.info.channelCount == 2 {
-            let candidate = DolbyED2CompanionFile.url(for: url)
-            if FileManager.default.fileExists(atPath: candidate.path) { peer = candidate }
+            peer = DolbyED2CompanionFile.existingURL(for: url)
         }
         if let secondaryURL = peer {
             guard url.standardizedFileURL.resolvingSymlinksInPath() != secondaryURL.standardizedFileURL.resolvingSymlinksInPath(),

@@ -35,8 +35,7 @@ actor DolbyED2DecodeFileWorker {
         let destination = DolbyESecurityAccess(url: request.outputURL.deletingLastPathComponent(), bookmark: existing?.outputBookmarkBytes ?? Data())
         var secondaryURL = request.secondaryInputURL
         if secondaryURL == nil {
-            let candidate = DolbyED2CompanionFile.url(for: input.url)
-            if FileManager.default.fileExists(atPath: candidate.path) { secondaryURL = candidate }
+            secondaryURL = DolbyED2CompanionFile.existingURL(for: input.url)
         }
         let secondary = secondaryURL.map { DolbyESecurityAccess(url: $0, bookmark: saved?.secondaryBookmark ?? Data()) }
         defer { input.stop(); secondary?.stop(); destination.stop() }
@@ -73,11 +72,11 @@ actor DolbyED2DecodeFileWorker {
             try reader.seek(firstWord: saved?.firstWord ?? 0, secondWord: saved?.secondWord ?? 0,
                 firstBoundaries: saved?.firstBoundaries, secondBoundaries: saved?.secondBoundaries,
                 discardedLeadingFrames: saved?.discardedLeadingFrames ?? [0, 0])
-            let active: DolbyEFileJob
+            let active: DolbyEFileJobRecord
             if let existing { active = existing }
             else {
                 guard finals.allSatisfy({ !FileManager.default.fileExists(atPath: $0.path) }) else { throw DolbyEError.invalidArgument("ED2 PCM export or metadata sidecar already exists") }
-                active = DolbyEFileJob(signature: signature, input: request.inputURL, output: request.outputURL,
+                active = DolbyEFileJobRecord(signature: signature, input: request.inputURL, output: request.outputURL,
                     sourceIdentity: sourceIdentity, sourceFrames: reader.first.info.frameCount)
                 active.sourceBookmarkBytes = input.bookmark; active.outputBookmarkBytes = destination.bookmark
                 try store.insert(active)

@@ -1,1816 +1,1461 @@
 // !$*UTF8*$!
 {
-	"classes" = {
+	archiveVersion = 1;
+	classes = {
 	};
-	"objectVersion" = "56";
-	"archiveVersion" = "1";
-	"objects" = {
-		"B8A7C4C7C43B9A2F11EEEA63" = {
-			"isa" = "PBXGroup";
-			"name" = "Shared";
-			"children" = (
-				"CFC887C7F0D938AD421DDD38",
-				"0F908E60DA0408D175BFA622",
-				"886815B68B20D6BD2D372A43",
-				"DAB43D39BB7809153DBD03BA",
-				"A95A8D968C998AC3EB380729",
-				"53B06A3F26A54A8FDFB15305",
-				"50549124B22635A7DA9B40F2",
-				"3E98862D09E97A4AF7B8BA88",
-				"797A5109A32F29CD1DE4B059",
-				"8C146798CB5445A652D001DF",
-				"E8363F0F88BA6EEA094720AC",
-				"9A6875D95DD3323BF34BACDB",
-				"4D07CA2E3347DF039514D85B",
-				"D8F48443A2176C960EF28935",
-				"577DAC3D47EA49B88DE1F581",
-				"B87E03B9D002F234CC26503D",
-				"AB83363AC24B2871E234849D",
-				"505D5CA76C3E52F1839930FD",
-				"8EFD64B27E900C395BA1348D",
-				"B029C0EE314F1E08681318BF",
-				"7A43BBA087A6596BE72C9C66",
-				"3CAC3309D68E5D2E8E51E7B3",
-				"2616CFA4EDBB00056B9E7523",
-				"7BA0958DD199777E222A3FB3",
-				"4928AFA9E7178473E1E1F382",
-				"501E5574A568022567C7053F",
-				"B221AC056B08D51D690B59B1",
-				"434299EF4C0202748091C33F",
-				"87798DF6F9C433438F7610C1",
-				"B1B5C6720AAD068A7E4F1BF7",
-				"72737C881DBCBCC23CAA52A7",
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		53F486580A3826403E58196B /* Build ALL */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 730D088F3C2BBEDD80E38265 /* Build configuration list for PBXAggregateTarget "Build ALL" */;
+			buildPhases = (
 			);
-			"sourceTree" = "<group>";
+			dependencies = (
+				9742E410F4E259EE04B47F4B /* PBXTargetDependency */,
+				18EFAB58E471997400FE6EFA /* PBXTargetDependency */,
+				C486272786219DBACE1977A2 /* PBXTargetDependency */,
+				5C50E0301666A758BDFCEABA /* PBXTargetDependency */,
+				EF8EE2E837ABEF7EDEF8E657 /* PBXTargetDependency */,
+				C4EA0D3A34D5B3C6BB78F205 /* PBXTargetDependency */,
+			);
+			name = "Build ALL";
+			productName = "Build ALL";
 		};
-		"227E95968243CB7A91AF2032" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "FFB658BAFC73894234D3C865";
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		000C1133FE5CACD695614FCB /* Swift_Dolby_E/Shared/DolbyEWaveWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAC3309D68E5D2E8E51E7B3 /* Swift_Dolby_E/Shared/DolbyEWaveWriter.swift */; };
+		0030D115DBBA18574A762F2D /* Swift_Dolby_E/Decoder/DolbyEDecodeFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BDF79798A4AC662691790 /* Swift_Dolby_E/Decoder/DolbyEDecodeFile.swift */; };
+		00625A3CCAB35D7A018B9DAE /* Swift_Dolby_E/Shared/DolbyEResamplingTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = B029C0EE314F1E08681318BF /* Swift_Dolby_E/Shared/DolbyEResamplingTables.swift */; };
+		0156F50AEA939DDF07046F3C /* Swift_Dolby_E/Shared/DolbyEFrameAllocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577DAC3D47EA49B88DE1F581 /* Swift_Dolby_E/Shared/DolbyEFrameAllocation.swift */; };
+		027F485128B509A0F287B012 /* Swift_Dolby_E/Decoder/DolbyEDecodeFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BDF79798A4AC662691790 /* Swift_Dolby_E/Decoder/DolbyEDecodeFile.swift */; };
+		03401E5AAFB454C4E43AD6E3 /* Swift_Dolby_E/Shared/DolbyEMaskingTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB83363AC24B2871E234849D /* Swift_Dolby_E/Shared/DolbyEMaskingTables.swift */; };
+		039E44569E0C32E475845E4E /* Swift_Dolby_E/Decoder/DolbyEPCMFrameDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B32B63C746832409DE993E /* Swift_Dolby_E/Decoder/DolbyEPCMFrameDecoder.swift */; };
+		051B6EAC8DB8FC9E6C1501CD /* Swift_Dolby_E/Encoder/DolbyEAtmosScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B548B0DD79B51544E9B647 /* Swift_Dolby_E/Encoder/DolbyEAtmosScene.swift */; };
+		066D3A76E7285C6080AB1019 /* Swift_Dolby_E/Shared/DolbyED2WavePairWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797A5109A32F29CD1DE4B059 /* Swift_Dolby_E/Shared/DolbyED2WavePairWriter.swift */; };
+		06F27964869B3870CC5CD4A9 /* Swift_Dolby_E/Shared/DolbyEResampler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFD64B27E900C395BA1348D /* Swift_Dolby_E/Shared/DolbyEResampler.swift */; };
+		07CFC6E6034330BBE583615C /* Swift_Dolby_E/Decoder/DolbyESynthesisResampler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0E181F640288428DB79BF3 /* Swift_Dolby_E/Decoder/DolbyESynthesisResampler.swift */; };
+		07E3EBFD48E8CA0AA5484C83 /* Swift_Dolby_E/Encoder/DolbyESpatialProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552282153AB33BC14D1A76B4 /* Swift_Dolby_E/Encoder/DolbyESpatialProcessing.swift */; };
+		0899CEE966FEAF11B39C8ADB /* Swift_Dolby_E/Decoder/DolbyESynthesisResampler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0E181F640288428DB79BF3 /* Swift_Dolby_E/Decoder/DolbyESynthesisResampler.swift */; };
+		0AE5A2A393B088FCFB212C9C /* Swift_Dolby_E/Shared/DolbyED2MediaWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C146798CB5445A652D001DF /* Swift_Dolby_E/Shared/DolbyED2MediaWriter.swift */; };
+		0B2035252597C91EEE042DBD /* Swift_Dolby_E/Shared/DolbyEMXFPropertyLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434299EF4C0202748091C33F /* Swift_Dolby_E/Shared/DolbyEMXFPropertyLabels.swift */; };
+		0C05E9846F426EB2B1636216 /* Swift_Dolby_E/Shared/DolbyEProgrammeLoudness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886815B68B20D6BD2D372A43 /* Swift_Dolby_E/Shared/DolbyEProgrammeLoudness.swift */; };
+		0C38AA68993FC8E037412CB1 /* Swift_Dolby_E/Shared/DolbyECosineTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501E5574A568022567C7053F /* Swift_Dolby_E/Shared/DolbyECosineTransform.swift */; };
+		0F4DB53112562091C478EB64 /* Swift_Dolby_E/Shared/WavePCMReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4928AFA9E7178473E1E1F382 /* Swift_Dolby_E/Shared/WavePCMReader.swift */; };
+		1037EF8CA2CBD129FFBADBA5 /* Swift_Dolby_E/Shared/DolbyED2PresentationRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F908E60DA0408D175BFA622 /* Swift_Dolby_E/Shared/DolbyED2PresentationRenderer.swift */; };
+		12355117779889FB08B3D6FC /* DolbyEDecoder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF04AEA69A9DCA1649D2D088 /* DolbyEDecoder.framework */; };
+		18404880D0EBFB953DBF016E /* Swift_Dolby_E/Shared/WavePCMReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4928AFA9E7178473E1E1F382 /* Swift_Dolby_E/Shared/WavePCMReader.swift */; };
+		18A5CE4786382F45EC7D66D6 /* Swift_Dolby_E/Encoder/DolbyEAtmosScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B548B0DD79B51544E9B647 /* Swift_Dolby_E/Encoder/DolbyEAtmosScene.swift */; };
+		191C030AB0932BA6F77D22AF /* Swift_Dolby_E/Decoder/DolbyED2PCMFrameDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9148DA6E00D019925431E376 /* Swift_Dolby_E/Decoder/DolbyED2PCMFrameDecoder.swift */; };
+		198419B3B031B0F083379E33 /* Swift_Dolby_E/Shared/Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA0958DD199777E222A3FB3 /* Swift_Dolby_E/Shared/Models.swift */; };
+		1A1F673EAE6EFB5A7EF529FB /* Swift_Dolby_E/Shared/DolbyED2WavePairWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797A5109A32F29CD1DE4B059 /* Swift_Dolby_E/Shared/DolbyED2WavePairWriter.swift */; };
+		1A25BEB27EB046CC67BD0126 /* Swift_Dolby_E/Shared/DolbyED2MediaWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C146798CB5445A652D001DF /* Swift_Dolby_E/Shared/DolbyED2MediaWriter.swift */; };
+		1B3A347B8E421B0221CDCE5B /* Swift_Dolby_E/Shared/DolbyECosineTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501E5574A568022567C7053F /* Swift_Dolby_E/Shared/DolbyECosineTransform.swift */; };
+		1B67090F4B5CA82754427B82 /* Swift_Dolby_E/Shared/DolbyEFrameAllocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577DAC3D47EA49B88DE1F581 /* Swift_Dolby_E/Shared/DolbyEFrameAllocation.swift */; };
+		1BBDCB4696763CEC16E96A68 /* Swift_Dolby_E/Encoder/DolbyEAtmosMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E60A376FE5D9C6082DFEE02 /* Swift_Dolby_E/Encoder/DolbyEAtmosMetadata.swift */; };
+		1BC0270735C9BDB4CEF5300A /* Swift_Dolby_E/Decoder/DolbyEAC3MetadataReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B3233B74409C0A482386C6 /* Swift_Dolby_E/Decoder/DolbyEAC3MetadataReader.swift */; };
+		1CCEC4A5794600684697A5CC /* Swift_Dolby_E/Shared/BinaryIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6875D95DD3323BF34BACDB /* Swift_Dolby_E/Shared/BinaryIO.swift */; };
+		1ED6E7D16015D5845D4B5711 /* Swift_Dolby_E/Shared/DolbyEAC3Metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B5C6720AAD068A7E4F1BF7 /* Swift_Dolby_E/Shared/DolbyEAC3Metadata.swift */; };
+		1F81FD2137540D66204CF89C /* Swift_Dolby_E/Decoder/DolbyEMantissaTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7066F10B3781F7FC236D5AA2 /* Swift_Dolby_E/Decoder/DolbyEMantissaTables.swift */; };
+		20A39239033F276C8101FDFD /* Swift_Dolby_E/Decoder/DolbyEPlaybackRouting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E01E33E7EC6C96DF802A0C /* Swift_Dolby_E/Decoder/DolbyEPlaybackRouting.swift */; };
+		227E95968243CB7A91AF2032 /* Swift_Dolby_E/Encoder/DolbyERealtimeEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB658BAFC73894234D3C865 /* Swift_Dolby_E/Encoder/DolbyERealtimeEncoder.swift */; };
+		2325FF0C68E4784D926ECC7F /* Swift_Dolby_E/Shared/BinaryIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6875D95DD3323BF34BACDB /* Swift_Dolby_E/Shared/BinaryIO.swift */; };
+		246F61142F8AB5A6FA165E8C /* Swift_Dolby_E/Shared/DolbyED2MediaWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C146798CB5445A652D001DF /* Swift_Dolby_E/Shared/DolbyED2MediaWriter.swift */; };
+		253DFF2E4731DB2240990948 /* Swift_Dolby_E/Encoder/DolbyEAdaptiveMantissa.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7547F89D43306444D62BB0C /* Swift_Dolby_E/Encoder/DolbyEAdaptiveMantissa.swift */; };
+		2690768405887ECA15F9A10D /* Swift_Dolby_E/Shared/Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA0958DD199777E222A3FB3 /* Swift_Dolby_E/Shared/Models.swift */; };
+		275AD664712E36D135FED46E /* Swift_Dolby_E/Shared/DolbyESpectralAllocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A43BBA087A6596BE72C9C66 /* Swift_Dolby_E/Shared/DolbyESpectralAllocation.swift */; };
+		2B55588C6495726949A6EE9B /* Swift_Dolby_E/Encoder/DolbyEAnalysisTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E5849631AC3CA80E9F6C9E /* Swift_Dolby_E/Encoder/DolbyEAnalysisTables.swift */; };
+		2BEC38C1279CC4232E6FB0B1 /* Swift_Dolby_E/Encoder/DolbyEAnalysisBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBB055C973E129272A29AD5 /* Swift_Dolby_E/Encoder/DolbyEAnalysisBank.swift */; };
+		2C1EEE86A8CAEB31EADE2CA1 /* Swift_Dolby_E/Shared/DolbyEWaveWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAC3309D68E5D2E8E51E7B3 /* Swift_Dolby_E/Shared/DolbyEWaveWriter.swift */; };
+		2FD08856C60734D16F3FB48A /* Swift_Dolby_E/Shared/DolbyEMeterCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505D5CA76C3E52F1839930FD /* Swift_Dolby_E/Shared/DolbyEMeterCoding.swift */; };
+		30185C12EEFEE25C68525F78 /* Swift_Dolby_E/Shared/DolbyEMXF.swift in Sources */ = {isa = PBXBuildFile; fileRef = B221AC056B08D51D690B59B1 /* Swift_Dolby_E/Shared/DolbyEMXF.swift */; };
+		30464E270B8F5A93CB94CC8E /* Swift_Dolby_E/Shared/DolbyEAC3Metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B5C6720AAD068A7E4F1BF7 /* Swift_Dolby_E/Shared/DolbyEAC3Metadata.swift */; };
+		3111A3996DE604468053CB98 /* Swift_Dolby_E/Encoder/DolbyERealtimeEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB658BAFC73894234D3C865 /* Swift_Dolby_E/Encoder/DolbyERealtimeEncoder.swift */; };
+		314E550B63FF2F6E610D8DA7 /* Swift_Dolby_E/Shared/DolbyETruePeakLimiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E98862D09E97A4AF7B8BA88 /* Swift_Dolby_E/Shared/DolbyETruePeakLimiter.swift */; };
+		31CC4566F83CB71BC8BD0E2A /* Swift_Dolby_E/Shared/DolbyETruePeakLimiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E98862D09E97A4AF7B8BA88 /* Swift_Dolby_E/Shared/DolbyETruePeakLimiter.swift */; };
+		3336B4C7B2A64B58D5AF6FDB /* Swift_Dolby_E/Decoder/DolbyEAudioDevices.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0815157B5F17FBFD29E88D /* Swift_Dolby_E/Decoder/DolbyEAudioDevices.swift */; };
+		359581C1511987E992A9DD38 /* Swift_Dolby_E/Shared/DolbyEOfflineLoudness.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC887C7F0D938AD421DDD38 /* Swift_Dolby_E/Shared/DolbyEOfflineLoudness.swift */; };
+		35E08626DDC64F735155E64F /* Swift_Dolby_E/Shared/DolbyELoudnessMeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB43D39BB7809153DBD03BA /* Swift_Dolby_E/Shared/DolbyELoudnessMeter.swift */; };
+		360EC003FEDD9B0F1F7D507A /* Swift_Dolby_E/Encoder/DolbyEChannelAnalysis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFF8F4586951C649B75B7BE /* Swift_Dolby_E/Encoder/DolbyEChannelAnalysis.swift */; };
+		362B7B0BA153B941021E7C9E /* Swift_Dolby_E/Shared/DolbyESpeakerLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50549124B22635A7DA9B40F2 /* Swift_Dolby_E/Shared/DolbyESpeakerLayout.swift */; };
+		3739E2EDD9EE966AB7495166 /* Swift_Dolby_E/Decoder/DolbyEChannelSynthesis.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5400E053780D9AA0280E3E4 /* Swift_Dolby_E/Decoder/DolbyEChannelSynthesis.swift */; };
+		37457D035D0BA7D43FBD01FF /* Swift_Dolby_E/Encoder/DolbyEPCMFrameEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1AC0DBB72A653305EFB155 /* Swift_Dolby_E/Encoder/DolbyEPCMFrameEncoder.swift */; };
+		378DA871F5242896306632B0 /* Swift_Dolby_E/Shared/DolbyEMediaWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87798DF6F9C433438F7610C1 /* Swift_Dolby_E/Shared/DolbyEMediaWriter.swift */; };
+		38D91C2D7EE0E22DFFC99F4F /* Swift_Dolby_E/Shared/DolbyEIntegrity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87E03B9D002F234CC26503D /* Swift_Dolby_E/Shared/DolbyEIntegrity.swift */; };
+		398ED8DA279F6B24E639391D /* Swift_Dolby_E/Shared/DolbyEFileJobs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F48443A2176C960EF28935 /* Swift_Dolby_E/Shared/DolbyEFileJobs.swift */; };
+		39CE1F73224423608091C206 /* Swift_Dolby_E/Encoder/DolbyEIABReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3A20F7834051A0958E52A5 /* Swift_Dolby_E/Encoder/DolbyEIABReader.swift */; };
+		41EB9B1FF70DC0CFAFFAF957 /* Swift_Dolby_E/Shared/DolbyEOfflineLoudness.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC887C7F0D938AD421DDD38 /* Swift_Dolby_E/Shared/DolbyEOfflineLoudness.swift */; };
+		43723A8B53FA1808FAF5D9DA /* Swift_Dolby_E/Shared/DolbyEMXF.swift in Sources */ = {isa = PBXBuildFile; fileRef = B221AC056B08D51D690B59B1 /* Swift_Dolby_E/Shared/DolbyEMXF.swift */; };
+		438056F266D2D54E340CBB0C /* Swift_Dolby_E/Encoder/DolbyED2PCMFrameEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D99E204355EF9C585555B0 /* Swift_Dolby_E/Encoder/DolbyED2PCMFrameEncoder.swift */; };
+		45D349EA7C39A80FA9809F54 /* Swift_Dolby_E/Decoder/DolbyED2SceneWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79541D5F221367DF78475C94 /* Swift_Dolby_E/Decoder/DolbyED2SceneWriter.swift */; };
+		46B90A56FFC1777533A0935C /* Swift_Dolby_E/Shared/DolbyED2WavePairWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797A5109A32F29CD1DE4B059 /* Swift_Dolby_E/Shared/DolbyED2WavePairWriter.swift */; };
+		4841BC41C7C21FB0F4376778 /* Swift_Dolby_E/Shared/DolbyEAC3Metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B5C6720AAD068A7E4F1BF7 /* Swift_Dolby_E/Shared/DolbyEAC3Metadata.swift */; };
+		49F98F86B972BFB27FF7A51E /* Swift_Dolby_E/Decoder/DolbyED2DecodeFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B25A98E04EBBB83C72FD91 /* Swift_Dolby_E/Decoder/DolbyED2DecodeFile.swift */; };
+		5139D7E90692E67946E93560 /* Swift_Dolby_E/Shared/DolbyEMeterCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505D5CA76C3E52F1839930FD /* Swift_Dolby_E/Shared/DolbyEMeterCoding.swift */; };
+		52F8EBDBF959EA8CEF3F1CD1 /* Swift_Dolby_E/Shared/DolbyEIntegrity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87E03B9D002F234CC26503D /* Swift_Dolby_E/Shared/DolbyEIntegrity.swift */; };
+		552BB967097813E1BF8B12D2 /* Swift_Dolby_E/Shared/DolbyEMediaWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87798DF6F9C433438F7610C1 /* Swift_Dolby_E/Shared/DolbyEMediaWriter.swift */; };
+		55A8901225634D6779AD8E8B /* Swift_Dolby_E/Encoder/DolbyEIABFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABE30866B9140708771CA47 /* Swift_Dolby_E/Encoder/DolbyEIABFrame.swift */; };
+		5608CD8785BAD16146713B40 /* Swift_Dolby_E/Encoder/DolbyEPrimaryMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FCEFC35A2BD92982DD4445 /* Swift_Dolby_E/Encoder/DolbyEPrimaryMetadata.swift */; };
+		56C931C9259F8ABEE48288BB /* Swift_Dolby_E/Encoder/DolbyEAnalysisTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E5849631AC3CA80E9F6C9E /* Swift_Dolby_E/Encoder/DolbyEAnalysisTables.swift */; };
+		587BA38786A69D00AB582C95 /* Swift_Dolby_E/Encoder/DolbyEChannelAnalysis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFF8F4586951C649B75B7BE /* Swift_Dolby_E/Encoder/DolbyEChannelAnalysis.swift */; };
+		58C04C4419ADDBE72B064BD4 /* Swift_Dolby_E/Shared/DolbyESpectralAllocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A43BBA087A6596BE72C9C66 /* Swift_Dolby_E/Shared/DolbyESpectralAllocation.swift */; };
+		59445E1E469A2B811C6E1622 /* Swift_Dolby_E/Shared/DolbyEResamplingTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = B029C0EE314F1E08681318BF /* Swift_Dolby_E/Shared/DolbyEResamplingTables.swift */; };
+		5A6F536B858DC5355D5686A4 /* Swift_Dolby_E/Shared/DolbyEFrameAllocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577DAC3D47EA49B88DE1F581 /* Swift_Dolby_E/Shared/DolbyEFrameAllocation.swift */; };
+		5A89A697E9559844B496BA55 /* Swift_Dolby_E/Shared/DolbyEProgrammeLoudness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886815B68B20D6BD2D372A43 /* Swift_Dolby_E/Shared/DolbyEProgrammeLoudness.swift */; };
+		5C08949AB7A2D2C86733638A /* Swift_Dolby_E/Encoder/DolbyEAudioSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4DC11AB91007184D72FA72 /* Swift_Dolby_E/Encoder/DolbyEAudioSegment.swift */; };
+		5CC555D8D68D683476D3D6D3 /* Swift_Dolby_E/Decoder/DolbyEPlayback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E4F4B5F2C4F024ABED29D2 /* Swift_Dolby_E/Decoder/DolbyEPlayback.swift */; };
+		5CF260550F5FEFFE9EC3AFCC /* Swift_Dolby_E/Shared/DolbyEMXF.swift in Sources */ = {isa = PBXBuildFile; fileRef = B221AC056B08D51D690B59B1 /* Swift_Dolby_E/Shared/DolbyEMXF.swift */; };
+		5EA85CCD4B31AC27D5AC2DEE /* Swift_Dolby_E/Encoder/DolbyEIABFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABE30866B9140708771CA47 /* Swift_Dolby_E/Encoder/DolbyEIABFrame.swift */; };
+		5F28D6422815FB41FFE24D4F /* Swift_Dolby_E/CLI/Encoder/main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606D6B2D46660A973CCB89E5 /* Swift_Dolby_E/CLI/Encoder/main.swift */; };
+		5F6AEF3EEAA8AD473D355367 /* Swift_Dolby_E/Shared/Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA0958DD199777E222A3FB3 /* Swift_Dolby_E/Shared/Models.swift */; };
+		60A328D3B5AF214D9E1E279A /* Swift_Dolby_E/Shared/DolbyEProgrammeLoudness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886815B68B20D6BD2D372A43 /* Swift_Dolby_E/Shared/DolbyEProgrammeLoudness.swift */; };
+		610307E2D45DC7676177BBE6 /* Swift_Dolby_E/Shared/MasterProbe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2616CFA4EDBB00056B9E7523 /* Swift_Dolby_E/Shared/MasterProbe.swift */; };
+		618818BA6B2192203C998636 /* Swift_Dolby_E/Shared/DolbyELoudnessMeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB43D39BB7809153DBD03BA /* Swift_Dolby_E/Shared/DolbyELoudnessMeter.swift */; };
+		618890FC54583E68A165C661 /* Swift_Dolby_E/CLI/CommandLineOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DCFCEA9EDB7FB6C5213577 /* Swift_Dolby_E/CLI/CommandLineOptions.swift */; };
+		61C6B55D49E50C58E2D6738C /* Swift_Dolby_E/Encoder/DolbyEBitWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DACAE2CF5358798F72EFCEC /* Swift_Dolby_E/Encoder/DolbyEBitWriter.swift */; };
+		62B9C11AE45F417BA1FF55E8 /* Swift_Dolby_E/Shared/DolbyEMXFPropertyLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434299EF4C0202748091C33F /* Swift_Dolby_E/Shared/DolbyEMXFPropertyLabels.swift */; };
+		66AEFDB0819479702AB3E1D3 /* Swift_Dolby_E/Encoder/DolbyEEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246F5AA5D579E86BF8BE2C85 /* Swift_Dolby_E/Encoder/DolbyEEncoder.swift */; };
+		6733564A652BB0F7DBC7E458 /* Swift_Dolby_E/Decoder/DolbyEPCMFrameDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B32B63C746832409DE993E /* Swift_Dolby_E/Decoder/DolbyEPCMFrameDecoder.swift */; };
+		699FEC5CB82A54A60917C3B9 /* Swift_Dolby_E/Decoder/DolbyEPlaybackRouting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E01E33E7EC6C96DF802A0C /* Swift_Dolby_E/Decoder/DolbyEPlaybackRouting.swift */; };
+		6A09555B3252CFDDE3F45E58 /* Swift_Dolby_E/Decoder/DolbyEBitReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6749CA17202A1A44AE16B932 /* Swift_Dolby_E/Decoder/DolbyEBitReader.swift */; };
+		6A8811C13E1C6A6F11E7F2F9 /* Swift_Dolby_E/Shared/DolbyEMantissaCodingTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B06A3F26A54A8FDFB15305 /* Swift_Dolby_E/Shared/DolbyEMantissaCodingTables.swift */; };
+		6B5BFCFAE523006EC435E73B /* Swift_Dolby_E/Decoder/DolbyED2PCMFrameDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9148DA6E00D019925431E376 /* Swift_Dolby_E/Decoder/DolbyED2PCMFrameDecoder.swift */; };
+		6BADEF94C0A2B95F27AFE97E /* Swift_Dolby_E/CLI/Decoder/PlayerWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC76D40D2A93089EBF3ECD6 /* Swift_Dolby_E/CLI/Decoder/PlayerWindow.swift */; };
+		6D6372CDC3C5207459EE9063 /* Swift_Dolby_E/Shared/DolbyECosineTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501E5574A568022567C7053F /* Swift_Dolby_E/Shared/DolbyECosineTransform.swift */; };
+		712BFD98DF394C2327573A81 /* Swift_Dolby_E/Decoder/DolbyEWaveCarrierReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E140D53A64CE1151217E19 /* Swift_Dolby_E/Decoder/DolbyEWaveCarrierReader.swift */; };
+		73700B67A6EBA1B67FA02F5A /* Swift_Dolby_E/Shared/DolbyEMeterCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505D5CA76C3E52F1839930FD /* Swift_Dolby_E/Shared/DolbyEMeterCoding.swift */; };
+		744D372FD1CE136ABAE2B74C /* Swift_Dolby_E/Shared/Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA0958DD199777E222A3FB3 /* Swift_Dolby_E/Shared/Models.swift */; };
+		75A4CF039BA0541FCF144DB8 /* Swift_Dolby_E/Decoder/DolbyEDecodingRateTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC53C088B63A3B067BCB43B /* Swift_Dolby_E/Decoder/DolbyEDecodingRateTables.swift */; };
+		76BFCAAB13508C950E08404D /* Swift_Dolby_E/Encoder/DolbyEBitWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DACAE2CF5358798F72EFCEC /* Swift_Dolby_E/Encoder/DolbyEBitWriter.swift */; };
+		773354A687E2527855D3B3D7 /* Swift_Dolby_E/Encoder/DolbyED2MetadataClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2C17DEAFCABCBDEB465931 /* Swift_Dolby_E/Encoder/DolbyED2MetadataClock.swift */; };
+		77BCBCAFFF51843E4E50DAF7 /* Swift_Dolby_E/Shared/DolbyEResampler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFD64B27E900C395BA1348D /* Swift_Dolby_E/Shared/DolbyEResampler.swift */; };
+		7975E28F65A8E39A82BB1813 /* Swift_Dolby_E/Shared/DolbyEAC3Metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B5C6720AAD068A7E4F1BF7 /* Swift_Dolby_E/Shared/DolbyEAC3Metadata.swift */; };
+		79E4F52B817F7AB9A319245B /* Swift_Dolby_E/Decoder/DolbyECarrierFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DA401D88699907F4B93D8A /* Swift_Dolby_E/Decoder/DolbyECarrierFrame.swift */; };
+		7AA962B9F2624A0DFF0969DE /* Swift_Dolby_E/Encoder/DolbyEEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246F5AA5D579E86BF8BE2C85 /* Swift_Dolby_E/Encoder/DolbyEEncoder.swift */; };
+		7B38A3CF25E7B22964E2FA25 /* Swift_Dolby_E/Encoder/DolbyEFrameEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABF9639F4D4CFBAD9CD9628 /* Swift_Dolby_E/Encoder/DolbyEFrameEncoder.swift */; };
+		7DD40A0D28CCB554F46873A5 /* Swift_Dolby_E/Encoder/DolbyED2EncodeFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318FA5AF13C66C0DAEB69ACB /* Swift_Dolby_E/Encoder/DolbyED2EncodeFile.swift */; };
+		7EC55BB396AAC54E3D1BD557 /* Swift_Dolby_E/Encoder/DolbyEOfflineLoudnessPreparation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2C87B973C997D7FC8B8EE7 /* Swift_Dolby_E/Encoder/DolbyEOfflineLoudnessPreparation.swift */; };
+		82358B81E67B18EBCD2B52DC /* Swift_Dolby_E/Shared/DolbyETruePeakLimiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E98862D09E97A4AF7B8BA88 /* Swift_Dolby_E/Shared/DolbyETruePeakLimiter.swift */; };
+		82D7015C9A9F94D2A038FFE7 /* Swift_Dolby_E/Encoder/DolbyEOfflineLoudnessPreparation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2C87B973C997D7FC8B8EE7 /* Swift_Dolby_E/Encoder/DolbyEOfflineLoudnessPreparation.swift */; };
+		8509DB677B195C802E105F42 /* Swift_Dolby_E/Shared/DolbyEParallelWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95A8D968C998AC3EB380729 /* Swift_Dolby_E/Shared/DolbyEParallelWork.swift */; };
+		8613A51B02295670D68F8898 /* Swift_Dolby_E/Encoder/DolbyEPCMRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249B88B73AF3AF80152956EA /* Swift_Dolby_E/Encoder/DolbyEPCMRouter.swift */; };
+		876996C1E0EBB7FC219F4227 /* Swift_Dolby_E/Shared/DolbyEIntegrity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87E03B9D002F234CC26503D /* Swift_Dolby_E/Shared/DolbyEIntegrity.swift */; };
+		8913A8193B79B16FEE51A4D7 /* Swift_Dolby_E/Shared/DolbyEParallelWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95A8D968C998AC3EB380729 /* Swift_Dolby_E/Shared/DolbyEParallelWork.swift */; };
+		8941F48201BDFEDFEA6BB8CC /* Swift_Dolby_E/Shared/DolbyECodecBands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D07CA2E3347DF039514D85B /* Swift_Dolby_E/Shared/DolbyECodecBands.swift */; };
+		8957995191EEE30B7A186E0E /* Swift_Dolby_E/Decoder/DolbyEChannelSynthesis.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5400E053780D9AA0280E3E4 /* Swift_Dolby_E/Decoder/DolbyEChannelSynthesis.swift */; };
+		8B39A348F880AE5588D2F087 /* Swift_Dolby_E/Encoder/DolbyESpatialProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552282153AB33BC14D1A76B4 /* Swift_Dolby_E/Encoder/DolbyESpatialProcessing.swift */; };
+		8CA1AE61ED86237AF301D176 /* Swift_Dolby_E/Shared/DolbyEMaskingTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB83363AC24B2871E234849D /* Swift_Dolby_E/Shared/DolbyEMaskingTables.swift */; };
+		8CFB179649A6A9322583ABEC /* Swift_Dolby_E/Encoder/DolbyEAnalysisBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBB055C973E129272A29AD5 /* Swift_Dolby_E/Encoder/DolbyEAnalysisBank.swift */; };
+		8E25AB13EAFC0D7FE2C7374B /* Swift_Dolby_E/Decoder/DolbyEMantissaTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7066F10B3781F7FC236D5AA2 /* Swift_Dolby_E/Decoder/DolbyEMantissaTables.swift */; };
+		8E8EFE0279718748F054CE92 /* Swift_Dolby_E/Shared/DolbyED2Metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8363F0F88BA6EEA094720AC /* Swift_Dolby_E/Shared/DolbyED2Metadata.swift */; };
+		8EE63CCAD3AF7B17675575EA /* Swift_Dolby_E/Shared/DolbyEResampler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFD64B27E900C395BA1348D /* Swift_Dolby_E/Shared/DolbyEResampler.swift */; };
+		8EF5BF97BDD9DE9D47D39889 /* Swift_Dolby_E/Shared/DolbyESpeakerLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50549124B22635A7DA9B40F2 /* Swift_Dolby_E/Shared/DolbyESpeakerLayout.swift */; };
+		8F43664A32CB5566FF6BA330 /* Swift_Dolby_E/Shared/WavePCMReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4928AFA9E7178473E1E1F382 /* Swift_Dolby_E/Shared/WavePCMReader.swift */; };
+		8F751B8DA67D93E1E993CF55 /* Swift_Dolby_E/Decoder/DolbyEDecodingRateTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC53C088B63A3B067BCB43B /* Swift_Dolby_E/Decoder/DolbyEDecodingRateTables.swift */; };
+		90671C97ECD837145F98843B /* Swift_Dolby_E/Encoder/DolbyEAtmosMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E60A376FE5D9C6082DFEE02 /* Swift_Dolby_E/Encoder/DolbyEAtmosMetadata.swift */; };
+		90D82538CE7936D9DD384B21 /* Swift_Dolby_E/Decoder/DolbyED2CarrierReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E3C2B85E8105233F244A59 /* Swift_Dolby_E/Decoder/DolbyED2CarrierReader.swift */; };
+		91F34A9F8EF55D68F8B48F9A /* Swift_Dolby_E/Encoder/DolbyEPrimaryMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FCEFC35A2BD92982DD4445 /* Swift_Dolby_E/Encoder/DolbyEPrimaryMetadata.swift */; };
+		9276D8340985055A35708C9A /* Swift_Dolby_E/Shared/DolbyELoudnessMeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB43D39BB7809153DBD03BA /* Swift_Dolby_E/Shared/DolbyELoudnessMeter.swift */; };
+		938153D472F476E5DC4C6D71 /* Swift_Dolby_E/Shared/DolbyEProgrammeLoudness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886815B68B20D6BD2D372A43 /* Swift_Dolby_E/Shared/DolbyEProgrammeLoudness.swift */; };
+		9399452230FA8915BF493556 /* Swift_Dolby_E/Shared/DolbyEParallelWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95A8D968C998AC3EB380729 /* Swift_Dolby_E/Shared/DolbyEParallelWork.swift */; };
+		9447A0A02E02C0C7618CC81B /* Swift_Dolby_E/Decoder/DolbyEAC3MetadataReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B3233B74409C0A482386C6 /* Swift_Dolby_E/Decoder/DolbyEAC3MetadataReader.swift */; };
+		95C33C434BD5D8BBB2ACE41D /* Swift_Dolby_E/Encoder/DolbyED2SceneRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4B8766E4AD8F9E13C69817 /* Swift_Dolby_E/Encoder/DolbyED2SceneRouter.swift */; };
+		967BD22296AC4A397B62684C /* Swift_Dolby_E/Shared/DolbyEOfflineLoudness.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC887C7F0D938AD421DDD38 /* Swift_Dolby_E/Shared/DolbyEOfflineLoudness.swift */; };
+		97132595A9FE14A049993F68 /* Swift_Dolby_E/Shared/DolbyETruePeakLimiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E98862D09E97A4AF7B8BA88 /* Swift_Dolby_E/Shared/DolbyETruePeakLimiter.swift */; };
+		97D6F7809C06BA7F22D1D546 /* Swift_Dolby_E/Shared/BinaryIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6875D95DD3323BF34BACDB /* Swift_Dolby_E/Shared/BinaryIO.swift */; };
+		984A07F29D6069D2B32AD4B3 /* Swift_Dolby_E/Shared/DolbyEMetadataStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72737C881DBCBCC23CAA52A7 /* Swift_Dolby_E/Shared/DolbyEMetadataStream.swift */; };
+		9878B3A98D8A5045511116BA /* Swift_Dolby_E/Encoder/DolbyEEncodeFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78C34629B23F420EBCE28E5 /* Swift_Dolby_E/Encoder/DolbyEEncodeFile.swift */; };
+		99721A8575D9B73080BEC4CD /* Swift_Dolby_E/Decoder/DolbyEBitReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6749CA17202A1A44AE16B932 /* Swift_Dolby_E/Decoder/DolbyEBitReader.swift */; };
+		99E68473F6963CA5D68C3D71 /* Swift_Dolby_E/CLI/Encoder/EncodingProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E99E1F36AAB3CE8D49EE91 /* Swift_Dolby_E/CLI/Encoder/EncodingProgress.swift */; };
+		9BACDE023A33FEA2BACEF218 /* Swift_Dolby_E/Encoder/DolbyED2EncodeFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318FA5AF13C66C0DAEB69ACB /* Swift_Dolby_E/Encoder/DolbyED2EncodeFile.swift */; };
+		9E5641945FE5B3910E9E028C /* Swift_Dolby_E/Shared/DolbyEMXFPropertyLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434299EF4C0202748091C33F /* Swift_Dolby_E/Shared/DolbyEMXFPropertyLabels.swift */; };
+		A149BAC3B4FA1A9F4144C55A /* Swift_Dolby_E/Encoder/DolbyED2PCMFrameEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D99E204355EF9C585555B0 /* Swift_Dolby_E/Encoder/DolbyED2PCMFrameEncoder.swift */; };
+		A2E92B8A01918940A10B3AA7 /* Swift_Dolby_E/Encoder/DolbyEInputSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC722F6191B6E6132F270DDB /* Swift_Dolby_E/Encoder/DolbyEInputSource.swift */; };
+		A388862FCCA07B2F3A2EFC8D /* Swift_Dolby_E/Encoder/DolbyECAFReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951697AB42EB42A08D6ADB8E /* Swift_Dolby_E/Encoder/DolbyECAFReader.swift */; };
+		A4CDE4A4D6F4D7597786415E /* Swift_Dolby_E/Decoder/DolbyESynthesisGains.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3806608C26A137C786382421 /* Swift_Dolby_E/Decoder/DolbyESynthesisGains.swift */; };
+		A4E7680246045A76659F79F2 /* Swift_Dolby_E/Decoder/DolbyEPlayback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E4F4B5F2C4F024ABED29D2 /* Swift_Dolby_E/Decoder/DolbyEPlayback.swift */; };
+		A98942A341B58A2EBB6CB2A5 /* Swift_Dolby_E/Shared/DolbyEWaveWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAC3309D68E5D2E8E51E7B3 /* Swift_Dolby_E/Shared/DolbyEWaveWriter.swift */; };
+		AB1A193ACA6A3FDCDA3740FB /* Swift_Dolby_E/Encoder/DolbyEIABReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3A20F7834051A0958E52A5 /* Swift_Dolby_E/Encoder/DolbyEIABReader.swift */; };
+		ABEFD009F4301A09536DBC48 /* Swift_Dolby_E/Decoder/DolbyEAudioSegmentDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A0488C3D9DA5DE16A38815 /* Swift_Dolby_E/Decoder/DolbyEAudioSegmentDecoder.swift */; };
+		AC5D793EE429B84BCCA7608B /* Swift_Dolby_E/Decoder/DolbyEWaveCarrierReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E140D53A64CE1151217E19 /* Swift_Dolby_E/Decoder/DolbyEWaveCarrierReader.swift */; };
+		AD542CB7DA74CD914DE9A652 /* Swift_Dolby_E/Shared/DolbyED2WavePairWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797A5109A32F29CD1DE4B059 /* Swift_Dolby_E/Shared/DolbyED2WavePairWriter.swift */; };
+		B18E9C774F5C27FF71C7D715 /* Swift_Dolby_E/Decoder/DolbyED2CarrierReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E3C2B85E8105233F244A59 /* Swift_Dolby_E/Decoder/DolbyED2CarrierReader.swift */; };
+		B51DFEEC6A748128BA312F68 /* Swift_Dolby_E/Shared/DolbyEFrameAllocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577DAC3D47EA49B88DE1F581 /* Swift_Dolby_E/Shared/DolbyEFrameAllocation.swift */; };
+		B7F8E8B810EF05859C32B035 /* Swift_Dolby_E/Encoder/DolbyESpectralProfiler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FCF7D2C9BA2D36FAE5A2B3 /* Swift_Dolby_E/Encoder/DolbyESpectralProfiler.swift */; };
+		B811C6B8FF97C0E74B8B1B51 /* Swift_Dolby_E/Shared/DolbyED2Metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8363F0F88BA6EEA094720AC /* Swift_Dolby_E/Shared/DolbyED2Metadata.swift */; };
+		B8C3B364E0C91E85ED2FD824 /* Swift_Dolby_E/Shared/DolbyECodecBands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D07CA2E3347DF039514D85B /* Swift_Dolby_E/Shared/DolbyECodecBands.swift */; };
+		BA36B2A2F1EA8C2AA73485FC /* Swift_Dolby_E/Shared/DolbyEFileJobs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F48443A2176C960EF28935 /* Swift_Dolby_E/Shared/DolbyEFileJobs.swift */; };
+		BAB3EB819AB67ADE998B94CB /* Swift_Dolby_E/Shared/DolbyEMetadataStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72737C881DBCBCC23CAA52A7 /* Swift_Dolby_E/Shared/DolbyEMetadataStream.swift */; };
+		BB86CB9F886934DCAFE00E42 /* Swift_Dolby_E/Encoder/DolbyEAnalysisTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E209D8146C6B82E2C009475 /* Swift_Dolby_E/Encoder/DolbyEAnalysisTransform.swift */; };
+		BC72771DB60913DE9EFD1714 /* Swift_Dolby_E/Shared/DolbyEMediaWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87798DF6F9C433438F7610C1 /* Swift_Dolby_E/Shared/DolbyEMediaWriter.swift */; };
+		BE06402C90A08D100DB9357B /* Swift_Dolby_E/Shared/DolbyEResamplingTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = B029C0EE314F1E08681318BF /* Swift_Dolby_E/Shared/DolbyEResamplingTables.swift */; };
+		BE82936476F2375F9AF53422 /* Swift_Dolby_E/Shared/DolbyEMantissaCodingTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B06A3F26A54A8FDFB15305 /* Swift_Dolby_E/Shared/DolbyEMantissaCodingTables.swift */; };
+		BF3CD727FE219820EB831F88 /* Swift_Dolby_E/Shared/DolbyED2MediaWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C146798CB5445A652D001DF /* Swift_Dolby_E/Shared/DolbyED2MediaWriter.swift */; };
+		BFB93F652CC386A4CFC57C95 /* Swift_Dolby_E/CLI/Decoder/main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1029451EF1C2E6E1F51038 /* Swift_Dolby_E/CLI/Decoder/main.swift */; };
+		C072EA715FC75A2BEBD96E53 /* Swift_Dolby_E/Shared/DolbyEMXF.swift in Sources */ = {isa = PBXBuildFile; fileRef = B221AC056B08D51D690B59B1 /* Swift_Dolby_E/Shared/DolbyEMXF.swift */; };
+		C262AC175491F80FEB477D93 /* Swift_Dolby_E/Shared/DolbyEParallelWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95A8D968C998AC3EB380729 /* Swift_Dolby_E/Shared/DolbyEParallelWork.swift */; };
+		C5E3DB3AC98CBC65D9559B49 /* DolbyEEncoder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9216A565C4C0935B9156A12D /* DolbyEEncoder.framework */; };
+		C70A2DE8B1FA93F12EA0380A /* Swift_Dolby_E/Shared/DolbyEFileJobs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F48443A2176C960EF28935 /* Swift_Dolby_E/Shared/DolbyEFileJobs.swift */; };
+		C77F372CE7B47A2CEFDA840B /* Swift_Dolby_E/Shared/DolbyEMetadataStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72737C881DBCBCC23CAA52A7 /* Swift_Dolby_E/Shared/DolbyEMetadataStream.swift */; };
+		C7FF872AE6BA33E569990122 /* Swift_Dolby_E/Decoder/DolbyESynthesisTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C5B42E1764E48DC21D5960 /* Swift_Dolby_E/Decoder/DolbyESynthesisTables.swift */; };
+		C8C4F225A4383A2D05DFC0B7 /* Swift_Dolby_E/Shared/MasterProbe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2616CFA4EDBB00056B9E7523 /* Swift_Dolby_E/Shared/MasterProbe.swift */; };
+		C901286BC32A61D8620AD14B /* Swift_Dolby_E/Encoder/DolbyECAFReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951697AB42EB42A08D6ADB8E /* Swift_Dolby_E/Encoder/DolbyECAFReader.swift */; };
+		C903142B2BF4E539D9D536FD /* Swift_Dolby_E/Encoder/DolbyEEncodeFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78C34629B23F420EBCE28E5 /* Swift_Dolby_E/Encoder/DolbyEEncodeFile.swift */; };
+		C9B137E14475005AFF311A77 /* Swift_Dolby_E/Decoder/DolbyEAudioSegmentDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A0488C3D9DA5DE16A38815 /* Swift_Dolby_E/Decoder/DolbyEAudioSegmentDecoder.swift */; };
+		C9F13335A9F729D2D294E104 /* Swift_Dolby_E/Shared/DolbyED2PresentationRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F908E60DA0408D175BFA622 /* Swift_Dolby_E/Shared/DolbyED2PresentationRenderer.swift */; };
+		C9FABDB5B60BFAA5FB370707 /* Swift_Dolby_E/Shared/DolbyEMaskingTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB83363AC24B2871E234849D /* Swift_Dolby_E/Shared/DolbyEMaskingTables.swift */; };
+		CCA5F807747C9946FDAB95CD /* Swift_Dolby_E/Encoder/DolbyEPCMFrameEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1AC0DBB72A653305EFB155 /* Swift_Dolby_E/Encoder/DolbyEPCMFrameEncoder.swift */; };
+		CCAB466F6A05ECAD34CC32E9 /* Swift_Dolby_E/Shared/DolbyECodecBands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D07CA2E3347DF039514D85B /* Swift_Dolby_E/Shared/DolbyECodecBands.swift */; };
+		CFDA48143A53BA15D489D2A9 /* Swift_Dolby_E/Shared/DolbyED2Metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8363F0F88BA6EEA094720AC /* Swift_Dolby_E/Shared/DolbyED2Metadata.swift */; };
+		D01ED20707C0D922B7FBC262 /* Swift_Dolby_E/Shared/DolbyEOfflineLoudness.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC887C7F0D938AD421DDD38 /* Swift_Dolby_E/Shared/DolbyEOfflineLoudness.swift */; };
+		D1C62690DFE144D193BB45A2 /* Swift_Dolby_E/CLI/CommandLineOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DCFCEA9EDB7FB6C5213577 /* Swift_Dolby_E/CLI/CommandLineOptions.swift */; };
+		D249A6AB7480D4A6CE67AF2E /* Swift_Dolby_E/Shared/DolbyEMediaWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87798DF6F9C433438F7610C1 /* Swift_Dolby_E/Shared/DolbyEMediaWriter.swift */; };
+		D359DAD184A9F3EB90F51B68 /* Swift_Dolby_E/Shared/DolbyESpectralAllocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A43BBA087A6596BE72C9C66 /* Swift_Dolby_E/Shared/DolbyESpectralAllocation.swift */; };
+		D78DA5A4757CDA54219CB546 /* Swift_Dolby_E/Shared/MasterProbe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2616CFA4EDBB00056B9E7523 /* Swift_Dolby_E/Shared/MasterProbe.swift */; };
+		D7BAF09398DC05D72E12FAB3 /* Swift_Dolby_E/Encoder/DolbyED2SceneRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4B8766E4AD8F9E13C69817 /* Swift_Dolby_E/Encoder/DolbyED2SceneRouter.swift */; };
+		D80B54C9BB842FB44525AC06 /* Swift_Dolby_E/Decoder/DolbyEAudioDevices.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0815157B5F17FBFD29E88D /* Swift_Dolby_E/Decoder/DolbyEAudioDevices.swift */; };
+		D87E6C222AAA2C4A82509908 /* Swift_Dolby_E/Shared/WavePCMReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4928AFA9E7178473E1E1F382 /* Swift_Dolby_E/Shared/WavePCMReader.swift */; };
+		DB15FA06164B98E0E7AD9CE1 /* Swift_Dolby_E/Decoder/DolbyESynthesisTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C5B42E1764E48DC21D5960 /* Swift_Dolby_E/Decoder/DolbyESynthesisTables.swift */; };
+		DC5A1BAAA1DCA7AE415B050C /* Swift_Dolby_E/Shared/DolbyEMXFPropertyLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434299EF4C0202748091C33F /* Swift_Dolby_E/Shared/DolbyEMXFPropertyLabels.swift */; };
+		DC86242237F431FF9314EEA9 /* Swift_Dolby_E/Shared/DolbyEResampler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFD64B27E900C395BA1348D /* Swift_Dolby_E/Shared/DolbyEResampler.swift */; };
+		DD9B9F696C48280A7E22C0E0 /* Swift_Dolby_E/Encoder/DolbyEEncodingProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE2F3DEA56419DE151FC98B /* Swift_Dolby_E/Encoder/DolbyEEncodingProgress.swift */; };
+		DDDDDF743B25717C0F7048BC /* Swift_Dolby_E/Decoder/DolbyESynthesisBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56B84A4B38E71F94774FCA6 /* Swift_Dolby_E/Decoder/DolbyESynthesisBank.swift */; };
+		DF1FF00A2925CA93C19E3288 /* Swift_Dolby_E/Shared/DolbyESpectralAllocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A43BBA087A6596BE72C9C66 /* Swift_Dolby_E/Shared/DolbyESpectralAllocation.swift */; };
+		E1B011882E4BDC1DD13B350C /* Swift_Dolby_E/Shared/DolbyED2PresentationRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F908E60DA0408D175BFA622 /* Swift_Dolby_E/Shared/DolbyED2PresentationRenderer.swift */; };
+		E27B34F490B43BE2C25B98CB /* Swift_Dolby_E/Shared/DolbyED2Metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8363F0F88BA6EEA094720AC /* Swift_Dolby_E/Shared/DolbyED2Metadata.swift */; };
+		E2E602B269391EC2D1FEA984 /* Swift_Dolby_E/Shared/DolbyESpeakerLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50549124B22635A7DA9B40F2 /* Swift_Dolby_E/Shared/DolbyESpeakerLayout.swift */; };
+		E318BE547C55ED10B80F0CAF /* Swift_Dolby_E/Shared/DolbyEFileJobs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F48443A2176C960EF28935 /* Swift_Dolby_E/Shared/DolbyEFileJobs.swift */; };
+		E33E9998D3A10F2178D4C141 /* Swift_Dolby_E/Encoder/DolbyED2MetadataClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2C17DEAFCABCBDEB465931 /* Swift_Dolby_E/Encoder/DolbyED2MetadataClock.swift */; };
+		E3790366C87362D7C46835F2 /* Swift_Dolby_E/Shared/DolbyEMantissaCodingTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B06A3F26A54A8FDFB15305 /* Swift_Dolby_E/Shared/DolbyEMantissaCodingTables.swift */; };
+		E385C48A974D19A466CF0A6D /* Swift_Dolby_E/Encoder/DolbyEFrameEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABF9639F4D4CFBAD9CD9628 /* Swift_Dolby_E/Encoder/DolbyEFrameEncoder.swift */; };
+		E3F5D0F6858924787B3327B8 /* Swift_Dolby_E/Encoder/DolbyESpectralProfiler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FCF7D2C9BA2D36FAE5A2B3 /* Swift_Dolby_E/Encoder/DolbyESpectralProfiler.swift */; };
+		E477CBDA3C5CC75E3D44A714 /* Swift_Dolby_E/Decoder/DolbyED2DecodeFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B25A98E04EBBB83C72FD91 /* Swift_Dolby_E/Decoder/DolbyED2DecodeFile.swift */; };
+		E47AE1BB14A75BC811DB2E85 /* Swift_Dolby_E/Encoder/DolbyEAdaptiveMantissa.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7547F89D43306444D62BB0C /* Swift_Dolby_E/Encoder/DolbyEAdaptiveMantissa.swift */; };
+		E4E5A80A726FE34B472642C8 /* Swift_Dolby_E/Shared/DolbyEWaveWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAC3309D68E5D2E8E51E7B3 /* Swift_Dolby_E/Shared/DolbyEWaveWriter.swift */; };
+		E766DC09CBB6CDDBCEDF0294 /* Swift_Dolby_E/Shared/DolbyEMantissaCodingTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B06A3F26A54A8FDFB15305 /* Swift_Dolby_E/Shared/DolbyEMantissaCodingTables.swift */; };
+		E79B42D7ABAF578D721B94ED /* Swift_Dolby_E/Shared/DolbyEResamplingTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = B029C0EE314F1E08681318BF /* Swift_Dolby_E/Shared/DolbyEResamplingTables.swift */; };
+		EB9783D952EBBB8A8FABFF20 /* Swift_Dolby_E/Shared/DolbyEMaskingTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB83363AC24B2871E234849D /* Swift_Dolby_E/Shared/DolbyEMaskingTables.swift */; };
+		ECFF476ED0CC07E92C549739 /* Swift_Dolby_E/Shared/DolbyECodecBands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D07CA2E3347DF039514D85B /* Swift_Dolby_E/Shared/DolbyECodecBands.swift */; };
+		EDB5332A9A71AE111BC8B3B2 /* Swift_Dolby_E/Shared/DolbyEMetadataStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72737C881DBCBCC23CAA52A7 /* Swift_Dolby_E/Shared/DolbyEMetadataStream.swift */; };
+		EF15EFA3E62C7784E2585995 /* Swift_Dolby_E/Shared/DolbyELoudnessMeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB43D39BB7809153DBD03BA /* Swift_Dolby_E/Shared/DolbyELoudnessMeter.swift */; };
+		F08ABD5DA99B71D9904833BD /* Swift_Dolby_E/Shared/DolbyEIntegrity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87E03B9D002F234CC26503D /* Swift_Dolby_E/Shared/DolbyEIntegrity.swift */; };
+		F129CD530E964D9264DFE726 /* Swift_Dolby_E/Decoder/DolbyED2SceneWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79541D5F221367DF78475C94 /* Swift_Dolby_E/Decoder/DolbyED2SceneWriter.swift */; };
+		F1642422A54B529202A8D374 /* Swift_Dolby_E/Decoder/DolbyECarrierFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DA401D88699907F4B93D8A /* Swift_Dolby_E/Decoder/DolbyECarrierFrame.swift */; };
+		F1807C26DE683068F56D0111 /* Swift_Dolby_E/Decoder/DolbyESynthesisBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56B84A4B38E71F94774FCA6 /* Swift_Dolby_E/Decoder/DolbyESynthesisBank.swift */; };
+		F1C9A13AE1E962203AF5F255 /* Swift_Dolby_E/Decoder/DolbyESynthesisGains.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3806608C26A137C786382421 /* Swift_Dolby_E/Decoder/DolbyESynthesisGains.swift */; };
+		F4B6338916845D5A8692932F /* Swift_Dolby_E/Shared/DolbyEMeterCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505D5CA76C3E52F1839930FD /* Swift_Dolby_E/Shared/DolbyEMeterCoding.swift */; };
+		F78E455657997523444E4E06 /* Swift_Dolby_E/Encoder/DolbyEAnalysisTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E209D8146C6B82E2C009475 /* Swift_Dolby_E/Encoder/DolbyEAnalysisTransform.swift */; };
+		F7E573AC96F2ACB7F7F00CF2 /* Swift_Dolby_E/Shared/MasterProbe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2616CFA4EDBB00056B9E7523 /* Swift_Dolby_E/Shared/MasterProbe.swift */; };
+		F8475E28EFBC642BC1EA8859 /* Swift_Dolby_E/Encoder/DolbyEInputSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC722F6191B6E6132F270DDB /* Swift_Dolby_E/Encoder/DolbyEInputSource.swift */; };
+		FA6C58FB6BEAA2109487C49F /* Swift_Dolby_E/Encoder/DolbyEEncodingProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE2F3DEA56419DE151FC98B /* Swift_Dolby_E/Encoder/DolbyEEncodingProgress.swift */; };
+		FAF6134A874BA3F56DD06E51 /* Swift_Dolby_E/Shared/DolbyECosineTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501E5574A568022567C7053F /* Swift_Dolby_E/Shared/DolbyECosineTransform.swift */; };
+		FB36C18FF197048A4A9F043A /* Swift_Dolby_E/Shared/DolbyESpeakerLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50549124B22635A7DA9B40F2 /* Swift_Dolby_E/Shared/DolbyESpeakerLayout.swift */; };
+		FBEF54CF062A38E33B5CB734 /* Swift_Dolby_E/Encoder/DolbyEPCMRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249B88B73AF3AF80152956EA /* Swift_Dolby_E/Encoder/DolbyEPCMRouter.swift */; };
+		FC6602F931046B563C8B56E5 /* Swift_Dolby_E/Shared/BinaryIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6875D95DD3323BF34BACDB /* Swift_Dolby_E/Shared/BinaryIO.swift */; };
+		FCCDCEEF76A18F8C474463B8 /* Swift_Dolby_E/Encoder/DolbyEAudioSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4DC11AB91007184D72FA72 /* Swift_Dolby_E/Encoder/DolbyEAudioSegment.swift */; };
+		FE9AFBF34E9D91805416F889 /* Swift_Dolby_E/Shared/DolbyED2PresentationRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F908E60DA0408D175BFA622 /* Swift_Dolby_E/Shared/DolbyED2PresentationRenderer.swift */; };
+		225A6EDF34FCC583F54B2B6B /* Swift_Dolby_E/CLI/Decoder/PlayerMeters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FB66C4AE07963F1BD14C74; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0401232FDFE281884FEA1968 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 244210E48437B6556980A702 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1623B058FE8CF24A98ADFAD4;
+			remoteInfo = DolbyEDecoderDynamic;
 		};
-		"3C2C87B973C997D7FC8B8EE7" = {
-			"path" = "Swift_Dolby_E/Encoder/DolbyEOfflineLoudnessPreparation.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
+		13B5EAF312B5181380A01B46 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 244210E48437B6556980A702 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4F283E276873C1ACDDF1C01B;
+			remoteInfo = DolbyEDecoderCLI;
 		};
-		"609A1EC4BCD8100826A6D171" = {
-			"fileRef" = "70DCFCEA9EDB7FB6C5213577";
-			"isa" = "PBXBuildFile";
+		31B67D89DB894EF07E9007C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 244210E48437B6556980A702 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4D6EB8A46CE8C76DBFA0A2FA;
+			remoteInfo = DolbyEEncoder;
 		};
-		"0899CEE966FEAF11B39C8ADB" = {
-			"fileRef" = "1E0E181F640288428DB79BF3";
-			"isa" = "PBXBuildFile";
+		64D06B82BE9B06A49450EF10 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 244210E48437B6556980A702 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C473F165BA5BA0C7B9711E19;
+			remoteInfo = DolbyEEncoderCLI;
 		};
-		"24307D249BA43EB13D41A392" = {
-			"isa" = "XCBuildConfiguration";
-			"buildSettings" = {
-				"DEBUG_INFORMATION_FORMAT" = "dwarf-with-dsym";
-				"SWIFT_INSTALL_OBJC_HEADER" = "YES";
-				"DEFINES_MODULE" = "YES";
-				"SKIP_INSTALL" = "NO";
-				"DYLIB_COMPATIBILITY_VERSION" = "1";
-				"MACOSX_DEPLOYMENT_TARGET" = "14.0";
-				"CODE_SIGNING_ALLOWED" = "NO";
-				"INSTALL_PATH" = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				"GENERATE_INFOPLIST_FILE" = "YES";
-				"BUILD_LIBRARY_FOR_DISTRIBUTION" = "YES";
-				"SWIFT_COMPILATION_MODE" = "wholemodule";
-				"SWIFT_OPTIMIZATION_LEVEL" = "-O";
-				"PRODUCT_NAME" = "DolbyEEncoder";
-				"MACH_O_TYPE" = "staticlib";
-				"DYLIB_CURRENT_VERSION" = "1";
-				"PRODUCT_BUNDLE_IDENTIFIER" = "com.B00kerLouis.DolbyEEncoder";
-				"SWIFT_VERSION" = "6.0";
+		A56619F72A4D91F987A155E9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 244210E48437B6556980A702 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 31D97163596CD6D8D2A9AC55;
+			remoteInfo = DolbyEEncoderDynamic;
+		};
+		BBFAB9A247441EBCBF804D49 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 244210E48437B6556980A702 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED5C76D0F720978EB9C4CAF3;
+			remoteInfo = DolbyEDecoder;
+		};
+		C04F714938E7D5EE33DF7E0D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 244210E48437B6556980A702 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED5C76D0F720978EB9C4CAF3;
+			remoteInfo = DolbyEDecoder;
+		};
+		E03A19E6BFF064F91AD0D827 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 244210E48437B6556980A702 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4D6EB8A46CE8C76DBFA0A2FA;
+			remoteInfo = DolbyEEncoder;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		02DA401D88699907F4B93D8A /* Swift_Dolby_E/Decoder/DolbyECarrierFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Decoder/DolbyECarrierFrame.swift; sourceTree = "<group>"; };
+		0DACAE2CF5358798F72EFCEC /* Swift_Dolby_E/Encoder/DolbyEBitWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Encoder/DolbyEBitWriter.swift; sourceTree = "<group>"; };
+		0F908E60DA0408D175BFA622 /* Swift_Dolby_E/Shared/DolbyED2PresentationRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Shared/DolbyED2PresentationRenderer.swift; sourceTree = "<group>"; };
+		13B25A98E04EBBB83C72FD91 /* Swift_Dolby_E/Decoder/DolbyED2DecodeFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Decoder/DolbyED2DecodeFile.swift; sourceTree = "<group>"; };
+		1E0E181F640288428DB79BF3 /* Swift_Dolby_E/Decoder/DolbyESynthesisResampler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Decoder/DolbyESynthesisResampler.swift; sourceTree = "<group>"; };
+		20E5849631AC3CA80E9F6C9E /* Swift_Dolby_E/Encoder/DolbyEAnalysisTables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Encoder/DolbyEAnalysisTables.swift; sourceTree = "<group>"; };
+		246F5AA5D579E86BF8BE2C85 /* Swift_Dolby_E/Encoder/DolbyEEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Encoder/DolbyEEncoder.swift; sourceTree = "<group>"; };
+		249B88B73AF3AF80152956EA /* Swift_Dolby_E/Encoder/DolbyEPCMRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Encoder/DolbyEPCMRouter.swift; sourceTree = "<group>"; };
+		25B548B0DD79B51544E9B647 /* Swift_Dolby_E/Encoder/DolbyEAtmosScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Encoder/DolbyEAtmosScene.swift; sourceTree = "<group>"; };
+		2616CFA4EDBB00056B9E7523 /* Swift_Dolby_E/Shared/MasterProbe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Shared/MasterProbe.swift; sourceTree = "<group>"; };
+		29E4F4B5F2C4F024ABED29D2 /* Swift_Dolby_E/Decoder/DolbyEPlayback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Decoder/DolbyEPlayback.swift; sourceTree = "<group>"; };
+		318FA5AF13C66C0DAEB69ACB /* Swift_Dolby_E/Encoder/DolbyED2EncodeFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Encoder/DolbyED2EncodeFile.swift; sourceTree = "<group>"; };
+		3806608C26A137C786382421 /* Swift_Dolby_E/Decoder/DolbyESynthesisGains.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Decoder/DolbyESynthesisGains.swift; sourceTree = "<group>"; };
+		3C2C87B973C997D7FC8B8EE7 /* Swift_Dolby_E/Encoder/DolbyEOfflineLoudnessPreparation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Encoder/DolbyEOfflineLoudnessPreparation.swift; sourceTree = "<group>"; };
+		3CAC3309D68E5D2E8E51E7B3 /* Swift_Dolby_E/Shared/DolbyEWaveWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Shared/DolbyEWaveWriter.swift; sourceTree = "<group>"; };
+		3CC53C088B63A3B067BCB43B /* Swift_Dolby_E/Decoder/DolbyEDecodingRateTables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Decoder/DolbyEDecodingRateTables.swift; sourceTree = "<group>"; };
+		3E98862D09E97A4AF7B8BA88 /* Swift_Dolby_E/Shared/DolbyETruePeakLimiter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Shared/DolbyETruePeakLimiter.swift; sourceTree = "<group>"; };
+		434299EF4C0202748091C33F /* Swift_Dolby_E/Shared/DolbyEMXFPropertyLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Shared/DolbyEMXFPropertyLabels.swift; sourceTree = "<group>"; };
+		46408B820AB3EF498A52CE4D /* dolbye-encode */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "dolbye-encode"; sourceTree = BUILT_PRODUCTS_DIR; };
+		47E99E1F36AAB3CE8D49EE91 /* Swift_Dolby_E/CLI/Encoder/EncodingProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/CLI/Encoder/EncodingProgress.swift; sourceTree = "<group>"; };
+		4928AFA9E7178473E1E1F382 /* Swift_Dolby_E/Shared/WavePCMReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Shared/WavePCMReader.swift; sourceTree = "<group>"; };
+		4A1AC0DBB72A653305EFB155 /* Swift_Dolby_E/Encoder/DolbyEPCMFrameEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Encoder/DolbyEPCMFrameEncoder.swift; sourceTree = "<group>"; };
+		4D07CA2E3347DF039514D85B /* Swift_Dolby_E/Shared/DolbyECodecBands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Shared/DolbyECodecBands.swift; sourceTree = "<group>"; };
+		4F33C7AA71BB5AE017FA5697 /* dolbye-decode */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "dolbye-decode"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FFF8F4586951C649B75B7BE /* Swift_Dolby_E/Encoder/DolbyEChannelAnalysis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Encoder/DolbyEChannelAnalysis.swift; sourceTree = "<group>"; };
+		501E5574A568022567C7053F /* Swift_Dolby_E/Shared/DolbyECosineTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Shared/DolbyECosineTransform.swift; sourceTree = "<group>"; };
+		50549124B22635A7DA9B40F2 /* Swift_Dolby_E/Shared/DolbyESpeakerLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Shared/DolbyESpeakerLayout.swift; sourceTree = "<group>"; };
+		505D5CA76C3E52F1839930FD /* Swift_Dolby_E/Shared/DolbyEMeterCoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Shared/DolbyEMeterCoding.swift; sourceTree = "<group>"; };
+		52D99E204355EF9C585555B0 /* Swift_Dolby_E/Encoder/DolbyED2PCMFrameEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Encoder/DolbyED2PCMFrameEncoder.swift; sourceTree = "<group>"; };
+		53B06A3F26A54A8FDFB15305 /* Swift_Dolby_E/Shared/DolbyEMantissaCodingTables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Shared/DolbyEMantissaCodingTables.swift; sourceTree = "<group>"; };
+		53E140D53A64CE1151217E19 /* Swift_Dolby_E/Decoder/DolbyEWaveCarrierReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Decoder/DolbyEWaveCarrierReader.swift; sourceTree = "<group>"; };
+		552282153AB33BC14D1A76B4 /* Swift_Dolby_E/Encoder/DolbyESpatialProcessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Encoder/DolbyESpatialProcessing.swift; sourceTree = "<group>"; };
+		577DAC3D47EA49B88DE1F581 /* Swift_Dolby_E/Shared/DolbyEFrameAllocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Shared/DolbyEFrameAllocation.swift; sourceTree = "<group>"; };
+		606D6B2D46660A973CCB89E5 /* Swift_Dolby_E/CLI/Encoder/main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/CLI/Encoder/main.swift; sourceTree = "<group>"; };
+		623BDF79798A4AC662691790 /* Swift_Dolby_E/Decoder/DolbyEDecodeFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Decoder/DolbyEDecodeFile.swift; sourceTree = "<group>"; };
+		62C5B42E1764E48DC21D5960 /* Swift_Dolby_E/Decoder/DolbyESynthesisTables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Decoder/DolbyESynthesisTables.swift; sourceTree = "<group>"; };
+		66FCF7D2C9BA2D36FAE5A2B3 /* Swift_Dolby_E/Encoder/DolbyESpectralProfiler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Encoder/DolbyESpectralProfiler.swift; sourceTree = "<group>"; };
+		6749CA17202A1A44AE16B932 /* Swift_Dolby_E/Decoder/DolbyEBitReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Decoder/DolbyEBitReader.swift; sourceTree = "<group>"; };
+		6B4B8766E4AD8F9E13C69817 /* Swift_Dolby_E/Encoder/DolbyED2SceneRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Encoder/DolbyED2SceneRouter.swift; sourceTree = "<group>"; };
+		7066F10B3781F7FC236D5AA2 /* Swift_Dolby_E/Decoder/DolbyEMantissaTables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Decoder/DolbyEMantissaTables.swift; sourceTree = "<group>"; };
+		70DCFCEA9EDB7FB6C5213577 /* Swift_Dolby_E/CLI/CommandLineOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/CLI/CommandLineOptions.swift; sourceTree = "<group>"; };
+		72737C881DBCBCC23CAA52A7 /* Swift_Dolby_E/Shared/DolbyEMetadataStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Shared/DolbyEMetadataStream.swift; sourceTree = "<group>"; };
+		79541D5F221367DF78475C94 /* Swift_Dolby_E/Decoder/DolbyED2SceneWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Decoder/DolbyED2SceneWriter.swift; sourceTree = "<group>"; };
+		797A5109A32F29CD1DE4B059 /* Swift_Dolby_E/Shared/DolbyED2WavePairWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Shared/DolbyED2WavePairWriter.swift; sourceTree = "<group>"; };
+		7A43BBA087A6596BE72C9C66 /* Swift_Dolby_E/Shared/DolbyESpectralAllocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Shared/DolbyESpectralAllocation.swift; sourceTree = "<group>"; };
+		7ABE30866B9140708771CA47 /* Swift_Dolby_E/Encoder/DolbyEIABFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Encoder/DolbyEIABFrame.swift; sourceTree = "<group>"; };
+		7BA0958DD199777E222A3FB3 /* Swift_Dolby_E/Shared/Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Shared/Models.swift; sourceTree = "<group>"; };
+		7D2C17DEAFCABCBDEB465931 /* Swift_Dolby_E/Encoder/DolbyED2MetadataClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Encoder/DolbyED2MetadataClock.swift; sourceTree = "<group>"; };
+		7E209D8146C6B82E2C009475 /* Swift_Dolby_E/Encoder/DolbyEAnalysisTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Encoder/DolbyEAnalysisTransform.swift; sourceTree = "<group>"; };
+		7F1029451EF1C2E6E1F51038 /* Swift_Dolby_E/CLI/Decoder/main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/CLI/Decoder/main.swift; sourceTree = "<group>"; };
+		87798DF6F9C433438F7610C1 /* Swift_Dolby_E/Shared/DolbyEMediaWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Shared/DolbyEMediaWriter.swift; sourceTree = "<group>"; };
+		886815B68B20D6BD2D372A43 /* Swift_Dolby_E/Shared/DolbyEProgrammeLoudness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Shared/DolbyEProgrammeLoudness.swift; sourceTree = "<group>"; };
+		8C146798CB5445A652D001DF /* Swift_Dolby_E/Shared/DolbyED2MediaWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Shared/DolbyED2MediaWriter.swift; sourceTree = "<group>"; };
+		8EFD64B27E900C395BA1348D /* Swift_Dolby_E/Shared/DolbyEResampler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Shared/DolbyEResampler.swift; sourceTree = "<group>"; };
+		9148DA6E00D019925431E376 /* Swift_Dolby_E/Decoder/DolbyED2PCMFrameDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Decoder/DolbyED2PCMFrameDecoder.swift; sourceTree = "<group>"; };
+		9216A565C4C0935B9156A12D /* DolbyEEncoder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DolbyEEncoder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		951697AB42EB42A08D6ADB8E /* Swift_Dolby_E/Encoder/DolbyECAFReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Encoder/DolbyECAFReader.swift; sourceTree = "<group>"; };
+		9A6875D95DD3323BF34BACDB /* Swift_Dolby_E/Shared/BinaryIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Shared/BinaryIO.swift; sourceTree = "<group>"; };
+		9E60A376FE5D9C6082DFEE02 /* Swift_Dolby_E/Encoder/DolbyEAtmosMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Encoder/DolbyEAtmosMetadata.swift; sourceTree = "<group>"; };
+		A95A8D968C998AC3EB380729 /* Swift_Dolby_E/Shared/DolbyEParallelWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Shared/DolbyEParallelWork.swift; sourceTree = "<group>"; };
+		A9B32B63C746832409DE993E /* Swift_Dolby_E/Decoder/DolbyEPCMFrameDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Decoder/DolbyEPCMFrameDecoder.swift; sourceTree = "<group>"; };
+		AB83363AC24B2871E234849D /* Swift_Dolby_E/Shared/DolbyEMaskingTables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Shared/DolbyEMaskingTables.swift; sourceTree = "<group>"; };
+		AE3A20F7834051A0958E52A5 /* Swift_Dolby_E/Encoder/DolbyEIABReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Encoder/DolbyEIABReader.swift; sourceTree = "<group>"; };
+		AEE2F3DEA56419DE151FC98B /* Swift_Dolby_E/Encoder/DolbyEEncodingProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Encoder/DolbyEEncodingProgress.swift; sourceTree = "<group>"; };
+		B029C0EE314F1E08681318BF /* Swift_Dolby_E/Shared/DolbyEResamplingTables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Shared/DolbyEResamplingTables.swift; sourceTree = "<group>"; };
+		B1B5C6720AAD068A7E4F1BF7 /* Swift_Dolby_E/Shared/DolbyEAC3Metadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Shared/DolbyEAC3Metadata.swift; sourceTree = "<group>"; };
+		B221AC056B08D51D690B59B1 /* Swift_Dolby_E/Shared/DolbyEMXF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Shared/DolbyEMXF.swift; sourceTree = "<group>"; };
+		B4FCEFC35A2BD92982DD4445 /* Swift_Dolby_E/Encoder/DolbyEPrimaryMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Encoder/DolbyEPrimaryMetadata.swift; sourceTree = "<group>"; };
+		B5400E053780D9AA0280E3E4 /* Swift_Dolby_E/Decoder/DolbyEChannelSynthesis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Decoder/DolbyEChannelSynthesis.swift; sourceTree = "<group>"; };
+		B87E03B9D002F234CC26503D /* Swift_Dolby_E/Shared/DolbyEIntegrity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Shared/DolbyEIntegrity.swift; sourceTree = "<group>"; };
+		BA0815157B5F17FBFD29E88D /* Swift_Dolby_E/Decoder/DolbyEAudioDevices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Decoder/DolbyEAudioDevices.swift; sourceTree = "<group>"; };
+		BF04AEA69A9DCA1649D2D088 /* DolbyEDecoder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DolbyEDecoder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C56B84A4B38E71F94774FCA6 /* Swift_Dolby_E/Decoder/DolbyESynthesisBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Decoder/DolbyESynthesisBank.swift; sourceTree = "<group>"; };
+		C8A0488C3D9DA5DE16A38815 /* Swift_Dolby_E/Decoder/DolbyEAudioSegmentDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Decoder/DolbyEAudioSegmentDecoder.swift; sourceTree = "<group>"; };
+		C9E01E33E7EC6C96DF802A0C /* Swift_Dolby_E/Decoder/DolbyEPlaybackRouting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Decoder/DolbyEPlaybackRouting.swift; sourceTree = "<group>"; };
+		CA4DC11AB91007184D72FA72 /* Swift_Dolby_E/Encoder/DolbyEAudioSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Encoder/DolbyEAudioSegment.swift; sourceTree = "<group>"; };
+		CABF9639F4D4CFBAD9CD9628 /* Swift_Dolby_E/Encoder/DolbyEFrameEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Encoder/DolbyEFrameEncoder.swift; sourceTree = "<group>"; };
+		CFC887C7F0D938AD421DDD38 /* Swift_Dolby_E/Shared/DolbyEOfflineLoudness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Shared/DolbyEOfflineLoudness.swift; sourceTree = "<group>"; };
+		D2E3C2B85E8105233F244A59 /* Swift_Dolby_E/Decoder/DolbyED2CarrierReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Decoder/DolbyED2CarrierReader.swift; sourceTree = "<group>"; };
+		D7547F89D43306444D62BB0C /* Swift_Dolby_E/Encoder/DolbyEAdaptiveMantissa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Encoder/DolbyEAdaptiveMantissa.swift; sourceTree = "<group>"; };
+		D78C34629B23F420EBCE28E5 /* Swift_Dolby_E/Encoder/DolbyEEncodeFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Encoder/DolbyEEncodeFile.swift; sourceTree = "<group>"; };
+		D8F48443A2176C960EF28935 /* Swift_Dolby_E/Shared/DolbyEFileJobs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Shared/DolbyEFileJobs.swift; sourceTree = "<group>"; };
+		DAB43D39BB7809153DBD03BA /* Swift_Dolby_E/Shared/DolbyELoudnessMeter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Shared/DolbyELoudnessMeter.swift; sourceTree = "<group>"; };
+		DBBB055C973E129272A29AD5 /* Swift_Dolby_E/Encoder/DolbyEAnalysisBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Encoder/DolbyEAnalysisBank.swift; sourceTree = "<group>"; };
+		E1B3233B74409C0A482386C6 /* Swift_Dolby_E/Decoder/DolbyEAC3MetadataReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Decoder/DolbyEAC3MetadataReader.swift; sourceTree = "<group>"; };
+		E8363F0F88BA6EEA094720AC /* Swift_Dolby_E/Shared/DolbyED2Metadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Shared/DolbyED2Metadata.swift; sourceTree = "<group>"; };
+		EAC76D40D2A93089EBF3ECD6 /* Swift_Dolby_E/CLI/Decoder/PlayerWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/CLI/Decoder/PlayerWindow.swift; sourceTree = "<group>"; };
+		EC722F6191B6E6132F270DDB /* Swift_Dolby_E/Encoder/DolbyEInputSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Encoder/DolbyEInputSource.swift; sourceTree = "<group>"; };
+		F79BEC59BB67D6FF36DCA62A /* DolbyEEncoderDynamic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DolbyEEncoderDynamic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC5495C9DF18A5546E4F1425 /* DolbyEDecoderDynamic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DolbyEDecoderDynamic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFB658BAFC73894234D3C865 /* Swift_Dolby_E/Encoder/DolbyERealtimeEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/Encoder/DolbyERealtimeEncoder.swift; sourceTree = "<group>"; };
+		85FB66C4AE07963F1BD14C74 /* Swift_Dolby_E/CLI/Decoder/PlayerMeters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Dolby_E/CLI/Decoder/PlayerMeters.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		31A5DDD40CB2C5F316E51954 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5DC4B3B16ED571D3AD398B06 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8C09A4E05A280CC975E9895A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5E3DB3AC98CBC65D9559B49 /* DolbyEEncoder.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2C9D5435744B0EC9E2A1AD4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12355117779889FB08B3D6FC /* DolbyEDecoder.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD5BC8FCCD506D76B3DFE330 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1F1CBE715C114D9C01282B7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		18B380750B890871AAA7495C /* CLI */ = {
+			isa = PBXGroup;
+			children = (
+				85FB66C4AE07963F1BD14C74,
+				47E99E1F36AAB3CE8D49EE91 /* Swift_Dolby_E/CLI/Encoder/EncodingProgress.swift */,
+				70DCFCEA9EDB7FB6C5213577 /* Swift_Dolby_E/CLI/CommandLineOptions.swift */,
+				7F1029451EF1C2E6E1F51038 /* Swift_Dolby_E/CLI/Decoder/main.swift */,
+				606D6B2D46660A973CCB89E5 /* Swift_Dolby_E/CLI/Encoder/main.swift */,
+				EAC76D40D2A93089EBF3ECD6 /* Swift_Dolby_E/CLI/Decoder/PlayerWindow.swift */,
+			);
+			name = CLI;
+			sourceTree = "<group>";
+		};
+		5A7E31A324668F3598350D46 /* Decoder */ = {
+			isa = PBXGroup;
+			children = (
+				13B25A98E04EBBB83C72FD91 /* Swift_Dolby_E/Decoder/DolbyED2DecodeFile.swift */,
+				79541D5F221367DF78475C94 /* Swift_Dolby_E/Decoder/DolbyED2SceneWriter.swift */,
+				9148DA6E00D019925431E376 /* Swift_Dolby_E/Decoder/DolbyED2PCMFrameDecoder.swift */,
+				D2E3C2B85E8105233F244A59 /* Swift_Dolby_E/Decoder/DolbyED2CarrierReader.swift */,
+				C8A0488C3D9DA5DE16A38815 /* Swift_Dolby_E/Decoder/DolbyEAudioSegmentDecoder.swift */,
+				6749CA17202A1A44AE16B932 /* Swift_Dolby_E/Decoder/DolbyEBitReader.swift */,
+				02DA401D88699907F4B93D8A /* Swift_Dolby_E/Decoder/DolbyECarrierFrame.swift */,
+				B5400E053780D9AA0280E3E4 /* Swift_Dolby_E/Decoder/DolbyEChannelSynthesis.swift */,
+				623BDF79798A4AC662691790 /* Swift_Dolby_E/Decoder/DolbyEDecodeFile.swift */,
+				3CC53C088B63A3B067BCB43B /* Swift_Dolby_E/Decoder/DolbyEDecodingRateTables.swift */,
+				7066F10B3781F7FC236D5AA2 /* Swift_Dolby_E/Decoder/DolbyEMantissaTables.swift */,
+				A9B32B63C746832409DE993E /* Swift_Dolby_E/Decoder/DolbyEPCMFrameDecoder.swift */,
+				C56B84A4B38E71F94774FCA6 /* Swift_Dolby_E/Decoder/DolbyESynthesisBank.swift */,
+				3806608C26A137C786382421 /* Swift_Dolby_E/Decoder/DolbyESynthesisGains.swift */,
+				1E0E181F640288428DB79BF3 /* Swift_Dolby_E/Decoder/DolbyESynthesisResampler.swift */,
+				62C5B42E1764E48DC21D5960 /* Swift_Dolby_E/Decoder/DolbyESynthesisTables.swift */,
+				53E140D53A64CE1151217E19 /* Swift_Dolby_E/Decoder/DolbyEWaveCarrierReader.swift */,
+				E1B3233B74409C0A482386C6 /* Swift_Dolby_E/Decoder/DolbyEAC3MetadataReader.swift */,
+				BA0815157B5F17FBFD29E88D /* Swift_Dolby_E/Decoder/DolbyEAudioDevices.swift */,
+				29E4F4B5F2C4F024ABED29D2 /* Swift_Dolby_E/Decoder/DolbyEPlayback.swift */,
+				C9E01E33E7EC6C96DF802A0C /* Swift_Dolby_E/Decoder/DolbyEPlaybackRouting.swift */,
+			);
+			name = Decoder;
+			sourceTree = "<group>";
+		};
+		76D4AEB4EE11589FD04C0627 /* Encoder */ = {
+			isa = PBXGroup;
+			children = (
+				AEE2F3DEA56419DE151FC98B /* Swift_Dolby_E/Encoder/DolbyEEncodingProgress.swift */,
+				3C2C87B973C997D7FC8B8EE7 /* Swift_Dolby_E/Encoder/DolbyEOfflineLoudnessPreparation.swift */,
+				66FCF7D2C9BA2D36FAE5A2B3 /* Swift_Dolby_E/Encoder/DolbyESpectralProfiler.swift */,
+				FFB658BAFC73894234D3C865 /* Swift_Dolby_E/Encoder/DolbyERealtimeEncoder.swift */,
+				D7547F89D43306444D62BB0C /* Swift_Dolby_E/Encoder/DolbyEAdaptiveMantissa.swift */,
+				7D2C17DEAFCABCBDEB465931 /* Swift_Dolby_E/Encoder/DolbyED2MetadataClock.swift */,
+				318FA5AF13C66C0DAEB69ACB /* Swift_Dolby_E/Encoder/DolbyED2EncodeFile.swift */,
+				52D99E204355EF9C585555B0 /* Swift_Dolby_E/Encoder/DolbyED2PCMFrameEncoder.swift */,
+				6B4B8766E4AD8F9E13C69817 /* Swift_Dolby_E/Encoder/DolbyED2SceneRouter.swift */,
+				DBBB055C973E129272A29AD5 /* Swift_Dolby_E/Encoder/DolbyEAnalysisBank.swift */,
+				20E5849631AC3CA80E9F6C9E /* Swift_Dolby_E/Encoder/DolbyEAnalysisTables.swift */,
+				7E209D8146C6B82E2C009475 /* Swift_Dolby_E/Encoder/DolbyEAnalysisTransform.swift */,
+				CA4DC11AB91007184D72FA72 /* Swift_Dolby_E/Encoder/DolbyEAudioSegment.swift */,
+				0DACAE2CF5358798F72EFCEC /* Swift_Dolby_E/Encoder/DolbyEBitWriter.swift */,
+				4FFF8F4586951C649B75B7BE /* Swift_Dolby_E/Encoder/DolbyEChannelAnalysis.swift */,
+				D78C34629B23F420EBCE28E5 /* Swift_Dolby_E/Encoder/DolbyEEncodeFile.swift */,
+				246F5AA5D579E86BF8BE2C85 /* Swift_Dolby_E/Encoder/DolbyEEncoder.swift */,
+				CABF9639F4D4CFBAD9CD9628 /* Swift_Dolby_E/Encoder/DolbyEFrameEncoder.swift */,
+				4A1AC0DBB72A653305EFB155 /* Swift_Dolby_E/Encoder/DolbyEPCMFrameEncoder.swift */,
+				249B88B73AF3AF80152956EA /* Swift_Dolby_E/Encoder/DolbyEPCMRouter.swift */,
+				B4FCEFC35A2BD92982DD4445 /* Swift_Dolby_E/Encoder/DolbyEPrimaryMetadata.swift */,
+				9E60A376FE5D9C6082DFEE02 /* Swift_Dolby_E/Encoder/DolbyEAtmosMetadata.swift */,
+				25B548B0DD79B51544E9B647 /* Swift_Dolby_E/Encoder/DolbyEAtmosScene.swift */,
+				951697AB42EB42A08D6ADB8E /* Swift_Dolby_E/Encoder/DolbyECAFReader.swift */,
+				EC722F6191B6E6132F270DDB /* Swift_Dolby_E/Encoder/DolbyEInputSource.swift */,
+				7ABE30866B9140708771CA47 /* Swift_Dolby_E/Encoder/DolbyEIABFrame.swift */,
+				AE3A20F7834051A0958E52A5 /* Swift_Dolby_E/Encoder/DolbyEIABReader.swift */,
+				552282153AB33BC14D1A76B4 /* Swift_Dolby_E/Encoder/DolbyESpatialProcessing.swift */,
+			);
+			name = Encoder;
+			sourceTree = "<group>";
+		};
+		AA0596BBDB4DCC95D5D4F10C = {
+			isa = PBXGroup;
+			children = (
+				B8A7C4C7C43B9A2F11EEEA63 /* Shared */,
+				76D4AEB4EE11589FD04C0627 /* Encoder */,
+				5A7E31A324668F3598350D46 /* Decoder */,
+				18B380750B890871AAA7495C /* CLI */,
+				AE7805B56D1DCAFAA071416F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AE7805B56D1DCAFAA071416F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F79BEC59BB67D6FF36DCA62A /* DolbyEEncoderDynamic.framework */,
+				FC5495C9DF18A5546E4F1425 /* DolbyEDecoderDynamic.framework */,
+				9216A565C4C0935B9156A12D /* DolbyEEncoder.framework */,
+				BF04AEA69A9DCA1649D2D088 /* DolbyEDecoder.framework */,
+				46408B820AB3EF498A52CE4D /* dolbye-encode */,
+				4F33C7AA71BB5AE017FA5697 /* dolbye-decode */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B8A7C4C7C43B9A2F11EEEA63 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				CFC887C7F0D938AD421DDD38 /* Swift_Dolby_E/Shared/DolbyEOfflineLoudness.swift */,
+				0F908E60DA0408D175BFA622 /* Swift_Dolby_E/Shared/DolbyED2PresentationRenderer.swift */,
+				886815B68B20D6BD2D372A43 /* Swift_Dolby_E/Shared/DolbyEProgrammeLoudness.swift */,
+				DAB43D39BB7809153DBD03BA /* Swift_Dolby_E/Shared/DolbyELoudnessMeter.swift */,
+				A95A8D968C998AC3EB380729 /* Swift_Dolby_E/Shared/DolbyEParallelWork.swift */,
+				53B06A3F26A54A8FDFB15305 /* Swift_Dolby_E/Shared/DolbyEMantissaCodingTables.swift */,
+				50549124B22635A7DA9B40F2 /* Swift_Dolby_E/Shared/DolbyESpeakerLayout.swift */,
+				3E98862D09E97A4AF7B8BA88 /* Swift_Dolby_E/Shared/DolbyETruePeakLimiter.swift */,
+				797A5109A32F29CD1DE4B059 /* Swift_Dolby_E/Shared/DolbyED2WavePairWriter.swift */,
+				8C146798CB5445A652D001DF /* Swift_Dolby_E/Shared/DolbyED2MediaWriter.swift */,
+				E8363F0F88BA6EEA094720AC /* Swift_Dolby_E/Shared/DolbyED2Metadata.swift */,
+				9A6875D95DD3323BF34BACDB /* Swift_Dolby_E/Shared/BinaryIO.swift */,
+				4D07CA2E3347DF039514D85B /* Swift_Dolby_E/Shared/DolbyECodecBands.swift */,
+				D8F48443A2176C960EF28935 /* Swift_Dolby_E/Shared/DolbyEFileJobs.swift */,
+				577DAC3D47EA49B88DE1F581 /* Swift_Dolby_E/Shared/DolbyEFrameAllocation.swift */,
+				B87E03B9D002F234CC26503D /* Swift_Dolby_E/Shared/DolbyEIntegrity.swift */,
+				AB83363AC24B2871E234849D /* Swift_Dolby_E/Shared/DolbyEMaskingTables.swift */,
+				505D5CA76C3E52F1839930FD /* Swift_Dolby_E/Shared/DolbyEMeterCoding.swift */,
+				8EFD64B27E900C395BA1348D /* Swift_Dolby_E/Shared/DolbyEResampler.swift */,
+				B029C0EE314F1E08681318BF /* Swift_Dolby_E/Shared/DolbyEResamplingTables.swift */,
+				7A43BBA087A6596BE72C9C66 /* Swift_Dolby_E/Shared/DolbyESpectralAllocation.swift */,
+				3CAC3309D68E5D2E8E51E7B3 /* Swift_Dolby_E/Shared/DolbyEWaveWriter.swift */,
+				2616CFA4EDBB00056B9E7523 /* Swift_Dolby_E/Shared/MasterProbe.swift */,
+				7BA0958DD199777E222A3FB3 /* Swift_Dolby_E/Shared/Models.swift */,
+				4928AFA9E7178473E1E1F382 /* Swift_Dolby_E/Shared/WavePCMReader.swift */,
+				501E5574A568022567C7053F /* Swift_Dolby_E/Shared/DolbyECosineTransform.swift */,
+				B221AC056B08D51D690B59B1 /* Swift_Dolby_E/Shared/DolbyEMXF.swift */,
+				434299EF4C0202748091C33F /* Swift_Dolby_E/Shared/DolbyEMXFPropertyLabels.swift */,
+				87798DF6F9C433438F7610C1 /* Swift_Dolby_E/Shared/DolbyEMediaWriter.swift */,
+				B1B5C6720AAD068A7E4F1BF7 /* Swift_Dolby_E/Shared/DolbyEAC3Metadata.swift */,
+				72737C881DBCBCC23CAA52A7 /* Swift_Dolby_E/Shared/DolbyEMetadataStream.swift */,
+			);
+			name = Shared;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1623B058FE8CF24A98ADFAD4 /* DolbyEDecoderDynamic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B5D91C74C39E4F34905AA94 /* Build configuration list for PBXNativeTarget "DolbyEDecoderDynamic" */;
+			buildPhases = (
+				FBFE6FE7CED94DD4A90C24A6 /* Sources */,
+				CD5BC8FCCD506D76B3DFE330 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DolbyEDecoderDynamic;
+			productName = DolbyEDecoderDynamic.framework;
+			productReference = FC5495C9DF18A5546E4F1425 /* DolbyEDecoderDynamic.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		31D97163596CD6D8D2A9AC55 /* DolbyEEncoderDynamic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0485562E944D36F3DA50BBEF /* Build configuration list for PBXNativeTarget "DolbyEEncoderDynamic" */;
+			buildPhases = (
+				4B67D77929F3A1F5677A2EF8 /* Sources */,
+				E1F1CBE715C114D9C01282B7 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DolbyEEncoderDynamic;
+			productName = DolbyEEncoderDynamic.framework;
+			productReference = F79BEC59BB67D6FF36DCA62A /* DolbyEEncoderDynamic.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		4D6EB8A46CE8C76DBFA0A2FA /* DolbyEEncoder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 377E87D3156390DE3454A92B /* Build configuration list for PBXNativeTarget "DolbyEEncoder" */;
+			buildPhases = (
+				A0CDAA2446A9E070E312AA05 /* Sources */,
+				5DC4B3B16ED571D3AD398B06 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DolbyEEncoder;
+			productName = DolbyEEncoder.framework;
+			productReference = 9216A565C4C0935B9156A12D /* DolbyEEncoder.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		4F283E276873C1ACDDF1C01B /* DolbyEDecoderCLI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52AB4CF9FCDA1F954D7E1F56 /* Build configuration list for PBXNativeTarget "DolbyEDecoderCLI" */;
+			buildPhases = (
+				EB87953A8F705648D53796CF /* Sources */,
+				A2C9D5435744B0EC9E2A1AD4 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9BE57CA97F4C312D537C238D /* PBXTargetDependency */,
+			);
+			name = DolbyEDecoderCLI;
+			productName = "dolbye-decode";
+			productReference = 4F33C7AA71BB5AE017FA5697 /* dolbye-decode */;
+			productType = "com.apple.product-type.tool";
+		};
+		C473F165BA5BA0C7B9711E19 /* DolbyEEncoderCLI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 91B091F2E31DA353916830D9 /* Build configuration list for PBXNativeTarget "DolbyEEncoderCLI" */;
+			buildPhases = (
+				403A7241EA37619619CB8259 /* Sources */,
+				8C09A4E05A280CC975E9895A /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				13FCD69AF3912F7146A22A0C /* PBXTargetDependency */,
+			);
+			name = DolbyEEncoderCLI;
+			productName = "dolbye-encode";
+			productReference = 46408B820AB3EF498A52CE4D /* dolbye-encode */;
+			productType = "com.apple.product-type.tool";
+		};
+		ED5C76D0F720978EB9C4CAF3 /* DolbyEDecoder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9775C303148FB637C44AAFCE /* Build configuration list for PBXNativeTarget "DolbyEDecoder" */;
+			buildPhases = (
+				5F0BCFA1FBCA4B9E72F3740B /* Sources */,
+				31A5DDD40CB2C5F316E51954 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DolbyEDecoder;
+			productName = DolbyEDecoder.framework;
+			productReference = BF04AEA69A9DCA1649D2D088 /* DolbyEDecoder.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		244210E48437B6556980A702 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 2630;
 			};
-			"name" = "Release";
-		};
-		"3CAC3309D68E5D2E8E51E7B3" = {
-			"path" = "Swift_Dolby_E/Shared/DolbyEWaveWriter.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"501E5574A568022567C7053F" = {
-			"path" = "Swift_Dolby_E/Shared/DolbyECosineTransform.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"4F283E276873C1ACDDF1C01B" = {
-			"buildConfigurationList" = "52AB4CF9FCDA1F954D7E1F56";
-			"productReference" = "4F33C7AA71BB5AE017FA5697";
-			"productType" = "com.apple.product-type.tool";
-			"productName" = "dolbye-decode";
-			"isa" = "PBXNativeTarget";
-			"buildPhases" = (
-				"EB87953A8F705648D53796CF",
-				"A2C9D5435744B0EC9E2A1AD4",
+			buildConfigurationList = 9F6B1A7BCFF26D263B843F95 /* Build configuration list for PBXProject "Swift_Dolby_E" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
 			);
-			"dependencies" = (
-				"9BE57CA97F4C312D537C238D",
-				"F681D099637204287A1F62E8",
-			);
-			"name" = "DolbyEDecoderCLI";
-			"buildRules" = (
+			mainGroup = AA0596BBDB4DCC95D5D4F10C;
+			productRefGroup = AE7805B56D1DCAFAA071416F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				53F486580A3826403E58196B /* Build ALL */,
+				31D97163596CD6D8D2A9AC55 /* DolbyEEncoderDynamic */,
+				1623B058FE8CF24A98ADFAD4 /* DolbyEDecoderDynamic */,
+				4D6EB8A46CE8C76DBFA0A2FA /* DolbyEEncoder */,
+				ED5C76D0F720978EB9C4CAF3 /* DolbyEDecoder */,
+				C473F165BA5BA0C7B9711E19 /* DolbyEEncoderCLI */,
+				4F283E276873C1ACDDF1C01B /* DolbyEDecoderCLI */,
 			);
 		};
-		"E3790366C87362D7C46835F2" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "53B06A3F26A54A8FDFB15305";
-		};
-		"AA0596BBDB4DCC95D5D4F10C" = {
-			"isa" = "PBXGroup";
-			"sourceTree" = "<group>";
-			"children" = (
-				"B8A7C4C7C43B9A2F11EEEA63",
-				"76D4AEB4EE11589FD04C0627",
-				"5A7E31A324668F3598350D46",
-				"18B380750B890871AAA7495C",
-				"AE7805B56D1DCAFAA071416F",
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		403A7241EA37619619CB8259 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				99E68473F6963CA5D68C3D71 /* Swift_Dolby_E/CLI/Encoder/EncodingProgress.swift in Sources */,
+				618890FC54583E68A165C661 /* Swift_Dolby_E/CLI/CommandLineOptions.swift in Sources */,
+				5F28D6422815FB41FFE24D4F /* Swift_Dolby_E/CLI/Encoder/main.swift in Sources */,
 			);
+			runOnlyForDeploymentPostprocessing = 0;
 		};
-		"F1C9A13AE1E962203AF5F255" = {
-			"fileRef" = "3806608C26A137C786382421";
-			"isa" = "PBXBuildFile";
-		};
-		"CFC887C7F0D938AD421DDD38" = {
-			"path" = "Swift_Dolby_E/Shared/DolbyEOfflineLoudness.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"5608CD8785BAD16146713B40" = {
-			"fileRef" = "B4FCEFC35A2BD92982DD4445";
-			"isa" = "PBXBuildFile";
-		};
-		"F681D099637204287A1F62E8" = {
-			"isa" = "PBXTargetDependency";
-			"target" = "897BA171436B0D2E47188461";
-			"targetProxy" = "854D697BEA3D438CF7978FFF";
-		};
-		"0B2035252597C91EEE042DBD" = {
-			"fileRef" = "434299EF4C0202748091C33F";
-			"isa" = "PBXBuildFile";
-		};
-		"B51DFEEC6A748128BA312F68" = {
-			"fileRef" = "577DAC3D47EA49B88DE1F581";
-			"isa" = "PBXBuildFile";
-		};
-		"377E87D3156390DE3454A92B" = {
-			"defaultConfigurationIsVisible" = "0";
-			"defaultConfigurationName" = "Release";
-			"isa" = "XCConfigurationList";
-			"buildConfigurations" = (
-				"75DE6B7DFB73CBE9BE5E1C7E",
-				"24307D249BA43EB13D41A392",
+		4B67D77929F3A1F5677A2EF8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA6C58FB6BEAA2109487C49F /* Swift_Dolby_E/Encoder/DolbyEEncodingProgress.swift in Sources */,
+				7EC55BB396AAC54E3D1BD557 /* Swift_Dolby_E/Encoder/DolbyEOfflineLoudnessPreparation.swift in Sources */,
+				D01ED20707C0D922B7FBC262 /* Swift_Dolby_E/Shared/DolbyEOfflineLoudness.swift in Sources */,
+				E1B011882E4BDC1DD13B350C /* Swift_Dolby_E/Shared/DolbyED2PresentationRenderer.swift in Sources */,
+				5A89A697E9559844B496BA55 /* Swift_Dolby_E/Shared/DolbyEProgrammeLoudness.swift in Sources */,
+				618818BA6B2192203C998636 /* Swift_Dolby_E/Shared/DolbyELoudnessMeter.swift in Sources */,
+				8509DB677B195C802E105F42 /* Swift_Dolby_E/Shared/DolbyEParallelWork.swift in Sources */,
+				E3F5D0F6858924787B3327B8 /* Swift_Dolby_E/Encoder/DolbyESpectralProfiler.swift in Sources */,
+				3111A3996DE604468053CB98 /* Swift_Dolby_E/Encoder/DolbyERealtimeEncoder.swift in Sources */,
+				E47AE1BB14A75BC811DB2E85 /* Swift_Dolby_E/Encoder/DolbyEAdaptiveMantissa.swift in Sources */,
+				E766DC09CBB6CDDBCEDF0294 /* Swift_Dolby_E/Shared/DolbyEMantissaCodingTables.swift in Sources */,
+				FB36C18FF197048A4A9F043A /* Swift_Dolby_E/Shared/DolbyESpeakerLayout.swift in Sources */,
+				AD542CB7DA74CD914DE9A652 /* Swift_Dolby_E/Shared/DolbyED2WavePairWriter.swift in Sources */,
+				773354A687E2527855D3B3D7 /* Swift_Dolby_E/Encoder/DolbyED2MetadataClock.swift in Sources */,
+				7DD40A0D28CCB554F46873A5 /* Swift_Dolby_E/Encoder/DolbyED2EncodeFile.swift in Sources */,
+				A149BAC3B4FA1A9F4144C55A /* Swift_Dolby_E/Encoder/DolbyED2PCMFrameEncoder.swift in Sources */,
+				95C33C434BD5D8BBB2ACE41D /* Swift_Dolby_E/Encoder/DolbyED2SceneRouter.swift in Sources */,
+				0AE5A2A393B088FCFB212C9C /* Swift_Dolby_E/Shared/DolbyED2MediaWriter.swift in Sources */,
+				B811C6B8FF97C0E74B8B1B51 /* Swift_Dolby_E/Shared/DolbyED2Metadata.swift in Sources */,
+				2BEC38C1279CC4232E6FB0B1 /* Swift_Dolby_E/Encoder/DolbyEAnalysisBank.swift in Sources */,
+				2B55588C6495726949A6EE9B /* Swift_Dolby_E/Encoder/DolbyEAnalysisTables.swift in Sources */,
+				BB86CB9F886934DCAFE00E42 /* Swift_Dolby_E/Encoder/DolbyEAnalysisTransform.swift in Sources */,
+				5C08949AB7A2D2C86733638A /* Swift_Dolby_E/Encoder/DolbyEAudioSegment.swift in Sources */,
+				76BFCAAB13508C950E08404D /* Swift_Dolby_E/Encoder/DolbyEBitWriter.swift in Sources */,
+				360EC003FEDD9B0F1F7D507A /* Swift_Dolby_E/Encoder/DolbyEChannelAnalysis.swift in Sources */,
+				9878B3A98D8A5045511116BA /* Swift_Dolby_E/Encoder/DolbyEEncodeFile.swift in Sources */,
+				7AA962B9F2624A0DFF0969DE /* Swift_Dolby_E/Encoder/DolbyEEncoder.swift in Sources */,
+				7B38A3CF25E7B22964E2FA25 /* Swift_Dolby_E/Encoder/DolbyEFrameEncoder.swift in Sources */,
+				CCA5F807747C9946FDAB95CD /* Swift_Dolby_E/Encoder/DolbyEPCMFrameEncoder.swift in Sources */,
+				FBEF54CF062A38E33B5CB734 /* Swift_Dolby_E/Encoder/DolbyEPCMRouter.swift in Sources */,
+				91F34A9F8EF55D68F8B48F9A /* Swift_Dolby_E/Encoder/DolbyEPrimaryMetadata.swift in Sources */,
+				97D6F7809C06BA7F22D1D546 /* Swift_Dolby_E/Shared/BinaryIO.swift in Sources */,
+				ECFF476ED0CC07E92C549739 /* Swift_Dolby_E/Shared/DolbyECodecBands.swift in Sources */,
+				BA36B2A2F1EA8C2AA73485FC /* Swift_Dolby_E/Shared/DolbyEFileJobs.swift in Sources */,
+				5A6F536B858DC5355D5686A4 /* Swift_Dolby_E/Shared/DolbyEFrameAllocation.swift in Sources */,
+				52F8EBDBF959EA8CEF3F1CD1 /* Swift_Dolby_E/Shared/DolbyEIntegrity.swift in Sources */,
+				8CA1AE61ED86237AF301D176 /* Swift_Dolby_E/Shared/DolbyEMaskingTables.swift in Sources */,
+				5139D7E90692E67946E93560 /* Swift_Dolby_E/Shared/DolbyEMeterCoding.swift in Sources */,
+				77BCBCAFFF51843E4E50DAF7 /* Swift_Dolby_E/Shared/DolbyEResampler.swift in Sources */,
+				00625A3CCAB35D7A018B9DAE /* Swift_Dolby_E/Shared/DolbyEResamplingTables.swift in Sources */,
+				DF1FF00A2925CA93C19E3288 /* Swift_Dolby_E/Shared/DolbyESpectralAllocation.swift in Sources */,
+				2C1EEE86A8CAEB31EADE2CA1 /* Swift_Dolby_E/Shared/DolbyEWaveWriter.swift in Sources */,
+				D78DA5A4757CDA54219CB546 /* Swift_Dolby_E/Shared/MasterProbe.swift in Sources */,
+				5F6AEF3EEAA8AD473D355367 /* Swift_Dolby_E/Shared/Models.swift in Sources */,
+				D87E6C222AAA2C4A82509908 /* Swift_Dolby_E/Shared/WavePCMReader.swift in Sources */,
+				6D6372CDC3C5207459EE9063 /* Swift_Dolby_E/Shared/DolbyECosineTransform.swift in Sources */,
+				5CF260550F5FEFFE9EC3AFCC /* Swift_Dolby_E/Shared/DolbyEMXF.swift in Sources */,
+				62B9C11AE45F417BA1FF55E8 /* Swift_Dolby_E/Shared/DolbyEMXFPropertyLabels.swift in Sources */,
+				BC72771DB60913DE9EFD1714 /* Swift_Dolby_E/Shared/DolbyEMediaWriter.swift in Sources */,
+				90671C97ECD837145F98843B /* Swift_Dolby_E/Encoder/DolbyEAtmosMetadata.swift in Sources */,
+				051B6EAC8DB8FC9E6C1501CD /* Swift_Dolby_E/Encoder/DolbyEAtmosScene.swift in Sources */,
+				C901286BC32A61D8620AD14B /* Swift_Dolby_E/Encoder/DolbyECAFReader.swift in Sources */,
+				F8475E28EFBC642BC1EA8859 /* Swift_Dolby_E/Encoder/DolbyEInputSource.swift in Sources */,
+				5EA85CCD4B31AC27D5AC2DEE /* Swift_Dolby_E/Encoder/DolbyEIABFrame.swift in Sources */,
+				39CE1F73224423608091C206 /* Swift_Dolby_E/Encoder/DolbyEIABReader.swift in Sources */,
+				07E3EBFD48E8CA0AA5484C83 /* Swift_Dolby_E/Encoder/DolbyESpatialProcessing.swift in Sources */,
+				1ED6E7D16015D5845D4B5711 /* Swift_Dolby_E/Shared/DolbyEAC3Metadata.swift in Sources */,
+				82358B81E67B18EBCD2B52DC /* Swift_Dolby_E/Shared/DolbyETruePeakLimiter.swift in Sources */,
+				BAB3EB819AB67ADE998B94CB /* Swift_Dolby_E/Shared/DolbyEMetadataStream.swift in Sources */,
 			);
+			runOnlyForDeploymentPostprocessing = 0;
 		};
-		"D25DED527CEB729E09AE0BA3" = {
-			"isa" = "XCBuildConfiguration";
-			"buildSettings" = {
-				"GENERATE_INFOPLIST_FILE" = "YES";
-				"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "$(inherited) ENCODER_CLI";
-				"CODE_SIGNING_ALLOWED" = "NO";
-				"DEBUG_INFORMATION_FORMAT" = "dwarf-with-dsym";
-				"SWIFT_COMPILATION_MODE" = "wholemodule";
-				"PRODUCT_BUNDLE_IDENTIFIER" = "com.B00kerLouis.DolbyEEncoderCLI";
-				"MACOSX_DEPLOYMENT_TARGET" = "14.0";
-				"SWIFT_OPTIMIZATION_LEVEL" = "-O";
-				"SWIFT_VERSION" = "6.0";
-				"PRODUCT_NAME" = "dolbye-encode";
+		5F0BCFA1FBCA4B9E72F3740B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				967BD22296AC4A397B62684C /* Swift_Dolby_E/Shared/DolbyEOfflineLoudness.swift in Sources */,
+				60A328D3B5AF214D9E1E279A /* Swift_Dolby_E/Shared/DolbyEProgrammeLoudness.swift in Sources */,
+				9276D8340985055A35708C9A /* Swift_Dolby_E/Shared/DolbyELoudnessMeter.swift in Sources */,
+				8913A8193B79B16FEE51A4D7 /* Swift_Dolby_E/Shared/DolbyEParallelWork.swift in Sources */,
+				BE82936476F2375F9AF53422 /* Swift_Dolby_E/Shared/DolbyEMantissaCodingTables.swift in Sources */,
+				8EF5BF97BDD9DE9D47D39889 /* Swift_Dolby_E/Shared/DolbyESpeakerLayout.swift in Sources */,
+				97132595A9FE14A049993F68 /* Swift_Dolby_E/Shared/DolbyETruePeakLimiter.swift in Sources */,
+				46B90A56FFC1777533A0935C /* Swift_Dolby_E/Shared/DolbyED2WavePairWriter.swift in Sources */,
+				FE9AFBF34E9D91805416F889 /* Swift_Dolby_E/Shared/DolbyED2PresentationRenderer.swift in Sources */,
+				49F98F86B972BFB27FF7A51E /* Swift_Dolby_E/Decoder/DolbyED2DecodeFile.swift in Sources */,
+				45D349EA7C39A80FA9809F54 /* Swift_Dolby_E/Decoder/DolbyED2SceneWriter.swift in Sources */,
+				191C030AB0932BA6F77D22AF /* Swift_Dolby_E/Decoder/DolbyED2PCMFrameDecoder.swift in Sources */,
+				B18E9C774F5C27FF71C7D715 /* Swift_Dolby_E/Decoder/DolbyED2CarrierReader.swift in Sources */,
+				BF3CD727FE219820EB831F88 /* Swift_Dolby_E/Shared/DolbyED2MediaWriter.swift in Sources */,
+				E27B34F490B43BE2C25B98CB /* Swift_Dolby_E/Shared/DolbyED2Metadata.swift in Sources */,
+				ABEFD009F4301A09536DBC48 /* Swift_Dolby_E/Decoder/DolbyEAudioSegmentDecoder.swift in Sources */,
+				99721A8575D9B73080BEC4CD /* Swift_Dolby_E/Decoder/DolbyEBitReader.swift in Sources */,
+				F1642422A54B529202A8D374 /* Swift_Dolby_E/Decoder/DolbyECarrierFrame.swift in Sources */,
+				8957995191EEE30B7A186E0E /* Swift_Dolby_E/Decoder/DolbyEChannelSynthesis.swift in Sources */,
+				0030D115DBBA18574A762F2D /* Swift_Dolby_E/Decoder/DolbyEDecodeFile.swift in Sources */,
+				75A4CF039BA0541FCF144DB8 /* Swift_Dolby_E/Decoder/DolbyEDecodingRateTables.swift in Sources */,
+				1F81FD2137540D66204CF89C /* Swift_Dolby_E/Decoder/DolbyEMantissaTables.swift in Sources */,
+				6733564A652BB0F7DBC7E458 /* Swift_Dolby_E/Decoder/DolbyEPCMFrameDecoder.swift in Sources */,
+				DDDDDF743B25717C0F7048BC /* Swift_Dolby_E/Decoder/DolbyESynthesisBank.swift in Sources */,
+				F1C9A13AE1E962203AF5F255 /* Swift_Dolby_E/Decoder/DolbyESynthesisGains.swift in Sources */,
+				0899CEE966FEAF11B39C8ADB /* Swift_Dolby_E/Decoder/DolbyESynthesisResampler.swift in Sources */,
+				C7FF872AE6BA33E569990122 /* Swift_Dolby_E/Decoder/DolbyESynthesisTables.swift in Sources */,
+				AC5D793EE429B84BCCA7608B /* Swift_Dolby_E/Decoder/DolbyEWaveCarrierReader.swift in Sources */,
+				1CCEC4A5794600684697A5CC /* Swift_Dolby_E/Shared/BinaryIO.swift in Sources */,
+				B8C3B364E0C91E85ED2FD824 /* Swift_Dolby_E/Shared/DolbyECodecBands.swift in Sources */,
+				E318BE547C55ED10B80F0CAF /* Swift_Dolby_E/Shared/DolbyEFileJobs.swift in Sources */,
+				B51DFEEC6A748128BA312F68 /* Swift_Dolby_E/Shared/DolbyEFrameAllocation.swift in Sources */,
+				876996C1E0EBB7FC219F4227 /* Swift_Dolby_E/Shared/DolbyEIntegrity.swift in Sources */,
+				EB9783D952EBBB8A8FABFF20 /* Swift_Dolby_E/Shared/DolbyEMaskingTables.swift in Sources */,
+				F4B6338916845D5A8692932F /* Swift_Dolby_E/Shared/DolbyEMeterCoding.swift in Sources */,
+				DC86242237F431FF9314EEA9 /* Swift_Dolby_E/Shared/DolbyEResampler.swift in Sources */,
+				59445E1E469A2B811C6E1622 /* Swift_Dolby_E/Shared/DolbyEResamplingTables.swift in Sources */,
+				D359DAD184A9F3EB90F51B68 /* Swift_Dolby_E/Shared/DolbyESpectralAllocation.swift in Sources */,
+				E4E5A80A726FE34B472642C8 /* Swift_Dolby_E/Shared/DolbyEWaveWriter.swift in Sources */,
+				610307E2D45DC7676177BBE6 /* Swift_Dolby_E/Shared/MasterProbe.swift in Sources */,
+				2690768405887ECA15F9A10D /* Swift_Dolby_E/Shared/Models.swift in Sources */,
+				8F43664A32CB5566FF6BA330 /* Swift_Dolby_E/Shared/WavePCMReader.swift in Sources */,
+				0C38AA68993FC8E037412CB1 /* Swift_Dolby_E/Shared/DolbyECosineTransform.swift in Sources */,
+				30185C12EEFEE25C68525F78 /* Swift_Dolby_E/Shared/DolbyEMXF.swift in Sources */,
+				0B2035252597C91EEE042DBD /* Swift_Dolby_E/Shared/DolbyEMXFPropertyLabels.swift in Sources */,
+				378DA871F5242896306632B0 /* Swift_Dolby_E/Shared/DolbyEMediaWriter.swift in Sources */,
+				1BC0270735C9BDB4CEF5300A /* Swift_Dolby_E/Decoder/DolbyEAC3MetadataReader.swift in Sources */,
+				7975E28F65A8E39A82BB1813 /* Swift_Dolby_E/Shared/DolbyEAC3Metadata.swift in Sources */,
+				D80B54C9BB842FB44525AC06 /* Swift_Dolby_E/Decoder/DolbyEAudioDevices.swift in Sources */,
+				A4E7680246045A76659F79F2 /* Swift_Dolby_E/Decoder/DolbyEPlayback.swift in Sources */,
+				20A39239033F276C8101FDFD /* Swift_Dolby_E/Decoder/DolbyEPlaybackRouting.swift in Sources */,
+				EDB5332A9A71AE111BC8B3B2 /* Swift_Dolby_E/Shared/DolbyEMetadataStream.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0CDAA2446A9E070E312AA05 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD9B9F696C48280A7E22C0E0 /* Swift_Dolby_E/Encoder/DolbyEEncodingProgress.swift in Sources */,
+				82D7015C9A9F94D2A038FFE7 /* Swift_Dolby_E/Encoder/DolbyEOfflineLoudnessPreparation.swift in Sources */,
+				359581C1511987E992A9DD38 /* Swift_Dolby_E/Shared/DolbyEOfflineLoudness.swift in Sources */,
+				C9F13335A9F729D2D294E104 /* Swift_Dolby_E/Shared/DolbyED2PresentationRenderer.swift in Sources */,
+				938153D472F476E5DC4C6D71 /* Swift_Dolby_E/Shared/DolbyEProgrammeLoudness.swift in Sources */,
+				EF15EFA3E62C7784E2585995 /* Swift_Dolby_E/Shared/DolbyELoudnessMeter.swift in Sources */,
+				9399452230FA8915BF493556 /* Swift_Dolby_E/Shared/DolbyEParallelWork.swift in Sources */,
+				B7F8E8B810EF05859C32B035 /* Swift_Dolby_E/Encoder/DolbyESpectralProfiler.swift in Sources */,
+				227E95968243CB7A91AF2032 /* Swift_Dolby_E/Encoder/DolbyERealtimeEncoder.swift in Sources */,
+				253DFF2E4731DB2240990948 /* Swift_Dolby_E/Encoder/DolbyEAdaptiveMantissa.swift in Sources */,
+				E3790366C87362D7C46835F2 /* Swift_Dolby_E/Shared/DolbyEMantissaCodingTables.swift in Sources */,
+				362B7B0BA153B941021E7C9E /* Swift_Dolby_E/Shared/DolbyESpeakerLayout.swift in Sources */,
+				1A1F673EAE6EFB5A7EF529FB /* Swift_Dolby_E/Shared/DolbyED2WavePairWriter.swift in Sources */,
+				E33E9998D3A10F2178D4C141 /* Swift_Dolby_E/Encoder/DolbyED2MetadataClock.swift in Sources */,
+				9BACDE023A33FEA2BACEF218 /* Swift_Dolby_E/Encoder/DolbyED2EncodeFile.swift in Sources */,
+				438056F266D2D54E340CBB0C /* Swift_Dolby_E/Encoder/DolbyED2PCMFrameEncoder.swift in Sources */,
+				D7BAF09398DC05D72E12FAB3 /* Swift_Dolby_E/Encoder/DolbyED2SceneRouter.swift in Sources */,
+				246F61142F8AB5A6FA165E8C /* Swift_Dolby_E/Shared/DolbyED2MediaWriter.swift in Sources */,
+				8E8EFE0279718748F054CE92 /* Swift_Dolby_E/Shared/DolbyED2Metadata.swift in Sources */,
+				8CFB179649A6A9322583ABEC /* Swift_Dolby_E/Encoder/DolbyEAnalysisBank.swift in Sources */,
+				56C931C9259F8ABEE48288BB /* Swift_Dolby_E/Encoder/DolbyEAnalysisTables.swift in Sources */,
+				F78E455657997523444E4E06 /* Swift_Dolby_E/Encoder/DolbyEAnalysisTransform.swift in Sources */,
+				FCCDCEEF76A18F8C474463B8 /* Swift_Dolby_E/Encoder/DolbyEAudioSegment.swift in Sources */,
+				61C6B55D49E50C58E2D6738C /* Swift_Dolby_E/Encoder/DolbyEBitWriter.swift in Sources */,
+				587BA38786A69D00AB582C95 /* Swift_Dolby_E/Encoder/DolbyEChannelAnalysis.swift in Sources */,
+				C903142B2BF4E539D9D536FD /* Swift_Dolby_E/Encoder/DolbyEEncodeFile.swift in Sources */,
+				66AEFDB0819479702AB3E1D3 /* Swift_Dolby_E/Encoder/DolbyEEncoder.swift in Sources */,
+				E385C48A974D19A466CF0A6D /* Swift_Dolby_E/Encoder/DolbyEFrameEncoder.swift in Sources */,
+				37457D035D0BA7D43FBD01FF /* Swift_Dolby_E/Encoder/DolbyEPCMFrameEncoder.swift in Sources */,
+				8613A51B02295670D68F8898 /* Swift_Dolby_E/Encoder/DolbyEPCMRouter.swift in Sources */,
+				5608CD8785BAD16146713B40 /* Swift_Dolby_E/Encoder/DolbyEPrimaryMetadata.swift in Sources */,
+				2325FF0C68E4784D926ECC7F /* Swift_Dolby_E/Shared/BinaryIO.swift in Sources */,
+				CCAB466F6A05ECAD34CC32E9 /* Swift_Dolby_E/Shared/DolbyECodecBands.swift in Sources */,
+				398ED8DA279F6B24E639391D /* Swift_Dolby_E/Shared/DolbyEFileJobs.swift in Sources */,
+				0156F50AEA939DDF07046F3C /* Swift_Dolby_E/Shared/DolbyEFrameAllocation.swift in Sources */,
+				F08ABD5DA99B71D9904833BD /* Swift_Dolby_E/Shared/DolbyEIntegrity.swift in Sources */,
+				03401E5AAFB454C4E43AD6E3 /* Swift_Dolby_E/Shared/DolbyEMaskingTables.swift in Sources */,
+				73700B67A6EBA1B67FA02F5A /* Swift_Dolby_E/Shared/DolbyEMeterCoding.swift in Sources */,
+				06F27964869B3870CC5CD4A9 /* Swift_Dolby_E/Shared/DolbyEResampler.swift in Sources */,
+				E79B42D7ABAF578D721B94ED /* Swift_Dolby_E/Shared/DolbyEResamplingTables.swift in Sources */,
+				58C04C4419ADDBE72B064BD4 /* Swift_Dolby_E/Shared/DolbyESpectralAllocation.swift in Sources */,
+				A98942A341B58A2EBB6CB2A5 /* Swift_Dolby_E/Shared/DolbyEWaveWriter.swift in Sources */,
+				F7E573AC96F2ACB7F7F00CF2 /* Swift_Dolby_E/Shared/MasterProbe.swift in Sources */,
+				198419B3B031B0F083379E33 /* Swift_Dolby_E/Shared/Models.swift in Sources */,
+				18404880D0EBFB953DBF016E /* Swift_Dolby_E/Shared/WavePCMReader.swift in Sources */,
+				FAF6134A874BA3F56DD06E51 /* Swift_Dolby_E/Shared/DolbyECosineTransform.swift in Sources */,
+				43723A8B53FA1808FAF5D9DA /* Swift_Dolby_E/Shared/DolbyEMXF.swift in Sources */,
+				9E5641945FE5B3910E9E028C /* Swift_Dolby_E/Shared/DolbyEMXFPropertyLabels.swift in Sources */,
+				552BB967097813E1BF8B12D2 /* Swift_Dolby_E/Shared/DolbyEMediaWriter.swift in Sources */,
+				1BBDCB4696763CEC16E96A68 /* Swift_Dolby_E/Encoder/DolbyEAtmosMetadata.swift in Sources */,
+				18A5CE4786382F45EC7D66D6 /* Swift_Dolby_E/Encoder/DolbyEAtmosScene.swift in Sources */,
+				A388862FCCA07B2F3A2EFC8D /* Swift_Dolby_E/Encoder/DolbyECAFReader.swift in Sources */,
+				A2E92B8A01918940A10B3AA7 /* Swift_Dolby_E/Encoder/DolbyEInputSource.swift in Sources */,
+				55A8901225634D6779AD8E8B /* Swift_Dolby_E/Encoder/DolbyEIABFrame.swift in Sources */,
+				AB1A193ACA6A3FDCDA3740FB /* Swift_Dolby_E/Encoder/DolbyEIABReader.swift in Sources */,
+				8B39A348F880AE5588D2F087 /* Swift_Dolby_E/Encoder/DolbyESpatialProcessing.swift in Sources */,
+				30464E270B8F5A93CB94CC8E /* Swift_Dolby_E/Shared/DolbyEAC3Metadata.swift in Sources */,
+				314E550B63FF2F6E610D8DA7 /* Swift_Dolby_E/Shared/DolbyETruePeakLimiter.swift in Sources */,
+				984A07F29D6069D2B32AD4B3 /* Swift_Dolby_E/Shared/DolbyEMetadataStream.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB87953A8F705648D53796CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				225A6EDF34FCC583F54B2B6B,
+				D1C62690DFE144D193BB45A2 /* Swift_Dolby_E/CLI/CommandLineOptions.swift in Sources */,
+				BFB93F652CC386A4CFC57C95 /* Swift_Dolby_E/CLI/Decoder/main.swift in Sources */,
+				6BADEF94C0A2B95F27AFE97E /* Swift_Dolby_E/CLI/Decoder/PlayerWindow.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FBFE6FE7CED94DD4A90C24A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41EB9B1FF70DC0CFAFFAF957 /* Swift_Dolby_E/Shared/DolbyEOfflineLoudness.swift in Sources */,
+				0C05E9846F426EB2B1636216 /* Swift_Dolby_E/Shared/DolbyEProgrammeLoudness.swift in Sources */,
+				35E08626DDC64F735155E64F /* Swift_Dolby_E/Shared/DolbyELoudnessMeter.swift in Sources */,
+				C262AC175491F80FEB477D93 /* Swift_Dolby_E/Shared/DolbyEParallelWork.swift in Sources */,
+				6A8811C13E1C6A6F11E7F2F9 /* Swift_Dolby_E/Shared/DolbyEMantissaCodingTables.swift in Sources */,
+				E2E602B269391EC2D1FEA984 /* Swift_Dolby_E/Shared/DolbyESpeakerLayout.swift in Sources */,
+				31CC4566F83CB71BC8BD0E2A /* Swift_Dolby_E/Shared/DolbyETruePeakLimiter.swift in Sources */,
+				066D3A76E7285C6080AB1019 /* Swift_Dolby_E/Shared/DolbyED2WavePairWriter.swift in Sources */,
+				1037EF8CA2CBD129FFBADBA5 /* Swift_Dolby_E/Shared/DolbyED2PresentationRenderer.swift in Sources */,
+				E477CBDA3C5CC75E3D44A714 /* Swift_Dolby_E/Decoder/DolbyED2DecodeFile.swift in Sources */,
+				F129CD530E964D9264DFE726 /* Swift_Dolby_E/Decoder/DolbyED2SceneWriter.swift in Sources */,
+				6B5BFCFAE523006EC435E73B /* Swift_Dolby_E/Decoder/DolbyED2PCMFrameDecoder.swift in Sources */,
+				90D82538CE7936D9DD384B21 /* Swift_Dolby_E/Decoder/DolbyED2CarrierReader.swift in Sources */,
+				1A25BEB27EB046CC67BD0126 /* Swift_Dolby_E/Shared/DolbyED2MediaWriter.swift in Sources */,
+				CFDA48143A53BA15D489D2A9 /* Swift_Dolby_E/Shared/DolbyED2Metadata.swift in Sources */,
+				C9B137E14475005AFF311A77 /* Swift_Dolby_E/Decoder/DolbyEAudioSegmentDecoder.swift in Sources */,
+				6A09555B3252CFDDE3F45E58 /* Swift_Dolby_E/Decoder/DolbyEBitReader.swift in Sources */,
+				79E4F52B817F7AB9A319245B /* Swift_Dolby_E/Decoder/DolbyECarrierFrame.swift in Sources */,
+				3739E2EDD9EE966AB7495166 /* Swift_Dolby_E/Decoder/DolbyEChannelSynthesis.swift in Sources */,
+				027F485128B509A0F287B012 /* Swift_Dolby_E/Decoder/DolbyEDecodeFile.swift in Sources */,
+				8F751B8DA67D93E1E993CF55 /* Swift_Dolby_E/Decoder/DolbyEDecodingRateTables.swift in Sources */,
+				8E25AB13EAFC0D7FE2C7374B /* Swift_Dolby_E/Decoder/DolbyEMantissaTables.swift in Sources */,
+				039E44569E0C32E475845E4E /* Swift_Dolby_E/Decoder/DolbyEPCMFrameDecoder.swift in Sources */,
+				F1807C26DE683068F56D0111 /* Swift_Dolby_E/Decoder/DolbyESynthesisBank.swift in Sources */,
+				A4CDE4A4D6F4D7597786415E /* Swift_Dolby_E/Decoder/DolbyESynthesisGains.swift in Sources */,
+				07CFC6E6034330BBE583615C /* Swift_Dolby_E/Decoder/DolbyESynthesisResampler.swift in Sources */,
+				DB15FA06164B98E0E7AD9CE1 /* Swift_Dolby_E/Decoder/DolbyESynthesisTables.swift in Sources */,
+				712BFD98DF394C2327573A81 /* Swift_Dolby_E/Decoder/DolbyEWaveCarrierReader.swift in Sources */,
+				FC6602F931046B563C8B56E5 /* Swift_Dolby_E/Shared/BinaryIO.swift in Sources */,
+				8941F48201BDFEDFEA6BB8CC /* Swift_Dolby_E/Shared/DolbyECodecBands.swift in Sources */,
+				C70A2DE8B1FA93F12EA0380A /* Swift_Dolby_E/Shared/DolbyEFileJobs.swift in Sources */,
+				1B67090F4B5CA82754427B82 /* Swift_Dolby_E/Shared/DolbyEFrameAllocation.swift in Sources */,
+				38D91C2D7EE0E22DFFC99F4F /* Swift_Dolby_E/Shared/DolbyEIntegrity.swift in Sources */,
+				C9FABDB5B60BFAA5FB370707 /* Swift_Dolby_E/Shared/DolbyEMaskingTables.swift in Sources */,
+				2FD08856C60734D16F3FB48A /* Swift_Dolby_E/Shared/DolbyEMeterCoding.swift in Sources */,
+				8EE63CCAD3AF7B17675575EA /* Swift_Dolby_E/Shared/DolbyEResampler.swift in Sources */,
+				BE06402C90A08D100DB9357B /* Swift_Dolby_E/Shared/DolbyEResamplingTables.swift in Sources */,
+				275AD664712E36D135FED46E /* Swift_Dolby_E/Shared/DolbyESpectralAllocation.swift in Sources */,
+				000C1133FE5CACD695614FCB /* Swift_Dolby_E/Shared/DolbyEWaveWriter.swift in Sources */,
+				C8C4F225A4383A2D05DFC0B7 /* Swift_Dolby_E/Shared/MasterProbe.swift in Sources */,
+				744D372FD1CE136ABAE2B74C /* Swift_Dolby_E/Shared/Models.swift in Sources */,
+				0F4DB53112562091C478EB64 /* Swift_Dolby_E/Shared/WavePCMReader.swift in Sources */,
+				1B3A347B8E421B0221CDCE5B /* Swift_Dolby_E/Shared/DolbyECosineTransform.swift in Sources */,
+				C072EA715FC75A2BEBD96E53 /* Swift_Dolby_E/Shared/DolbyEMXF.swift in Sources */,
+				DC5A1BAAA1DCA7AE415B050C /* Swift_Dolby_E/Shared/DolbyEMXFPropertyLabels.swift in Sources */,
+				D249A6AB7480D4A6CE67AF2E /* Swift_Dolby_E/Shared/DolbyEMediaWriter.swift in Sources */,
+				9447A0A02E02C0C7618CC81B /* Swift_Dolby_E/Decoder/DolbyEAC3MetadataReader.swift in Sources */,
+				4841BC41C7C21FB0F4376778 /* Swift_Dolby_E/Shared/DolbyEAC3Metadata.swift in Sources */,
+				3336B4C7B2A64B58D5AF6FDB /* Swift_Dolby_E/Decoder/DolbyEAudioDevices.swift in Sources */,
+				5CC555D8D68D683476D3D6D3 /* Swift_Dolby_E/Decoder/DolbyEPlayback.swift in Sources */,
+				699FEC5CB82A54A60917C3B9 /* Swift_Dolby_E/Decoder/DolbyEPlaybackRouting.swift in Sources */,
+				C77F372CE7B47A2CEFDA840B /* Swift_Dolby_E/Shared/DolbyEMetadataStream.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		13FCD69AF3912F7146A22A0C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4D6EB8A46CE8C76DBFA0A2FA /* DolbyEEncoder */;
+			targetProxy = 31B67D89DB894EF07E9007C2 /* PBXContainerItemProxy */;
+		};
+		18EFAB58E471997400FE6EFA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ED5C76D0F720978EB9C4CAF3 /* DolbyEDecoder */;
+			targetProxy = BBFAB9A247441EBCBF804D49 /* PBXContainerItemProxy */;
+		};
+		5C50E0301666A758BDFCEABA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4F283E276873C1ACDDF1C01B /* DolbyEDecoderCLI */;
+			targetProxy = 13B5EAF312B5181380A01B46 /* PBXContainerItemProxy */;
+		};
+		9742E410F4E259EE04B47F4B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4D6EB8A46CE8C76DBFA0A2FA /* DolbyEEncoder */;
+			targetProxy = E03A19E6BFF064F91AD0D827 /* PBXContainerItemProxy */;
+		};
+		9BE57CA97F4C312D537C238D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ED5C76D0F720978EB9C4CAF3 /* DolbyEDecoder */;
+			targetProxy = C04F714938E7D5EE33DF7E0D /* PBXContainerItemProxy */;
+		};
+		C486272786219DBACE1977A2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C473F165BA5BA0C7B9711E19 /* DolbyEEncoderCLI */;
+			targetProxy = 64D06B82BE9B06A49450EF10 /* PBXContainerItemProxy */;
+		};
+		C4EA0D3A34D5B3C6BB78F205 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1623B058FE8CF24A98ADFAD4 /* DolbyEDecoderDynamic */;
+			targetProxy = 0401232FDFE281884FEA1968 /* PBXContainerItemProxy */;
+		};
+		EF8EE2E837ABEF7EDEF8E657 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 31D97163596CD6D8D2A9AC55 /* DolbyEEncoderDynamic */;
+			targetProxy = A56619F72A4D91F987A155E9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		184B519F8E1416CCE38CFFD7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
+				SWIFT_VERSION = 6.0;
 			};
-			"name" = "Release";
+			name = Debug;
 		};
-		"B221AC056B08D51D690B59B1" = {
-			"path" = "Swift_Dolby_E/Shared/DolbyEMXF.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"DBBB055C973E129272A29AD5" = {
-			"path" = "Swift_Dolby_E/Encoder/DolbyEAnalysisBank.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"D80B54C9BB842FB44525AC06" = {
-			"fileRef" = "BA0815157B5F17FBFD29E88D";
-			"isa" = "PBXBuildFile";
-		};
-		"61C6B55D49E50C58E2D6738C" = {
-			"fileRef" = "0DACAE2CF5358798F72EFCEC";
-			"isa" = "PBXBuildFile";
-		};
-		"3806608C26A137C786382421" = {
-			"path" = "Swift_Dolby_E/Decoder/DolbyESynthesisGains.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"C903142B2BF4E539D9D536FD" = {
-			"fileRef" = "D78C34629B23F420EBCE28E5";
-			"isa" = "PBXBuildFile";
-		};
-		"244210E48437B6556980A702" = {
-			"buildConfigurationList" = "9F6B1A7BCFF26D263B843F95";
-			"targets" = (
-				"4D6EB8A46CE8C76DBFA0A2FA",
-				"ED5C76D0F720978EB9C4CAF3",
-				"C473F165BA5BA0C7B9711E19",
-				"4F283E276873C1ACDDF1C01B",
-				"897BA171436B0D2E47188461",
-			);
-			"developmentRegion" = "en";
-			"knownRegions" = (
-				"en",
-				"Base",
-			);
-			"isa" = "PBXProject";
-			"compatibilityVersion" = "Xcode 14.0";
-			"productRefGroup" = "AE7805B56D1DCAFAA071416F";
-			"projectDirPath" = "";
-			"attributes" = {
-				"LastUpgradeCheck" = "2630";
-				"BuildIndependentTargetsInParallel" = "YES";
+		192DE4228F7B4201BCDC7E88 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.B00kerLouis.DolbyEEncoderCLI;
+				PRODUCT_NAME = "dolbye-encode";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG ENCODER_CLI";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
 			};
-			"hasScannedForEncodings" = "0";
-			"projectRoot" = "";
-			"mainGroup" = "AA0596BBDB4DCC95D5D4F10C";
+			name = Debug;
 		};
-		"F1642422A54B529202A8D374" = {
-			"fileRef" = "02DA401D88699907F4B93D8A";
-			"isa" = "PBXBuildFile";
-		};
-		"854D697BEA3D438CF7978FFF" = {
-			"isa" = "PBXContainerItemProxy";
-			"containerPortal" = "244210E48437B6556980A702";
-			"remoteGlobalIDString" = "897BA171436B0D2E47188461";
-			"remoteInfo" = "DolbyEPlayer";
-			"proxyType" = "1";
-		};
-		"587BA38786A69D00AB582C95" = {
-			"fileRef" = "4FFF8F4586951C649B75B7BE";
-			"isa" = "PBXBuildFile";
-		};
-		"8346F259E441EB4C91143945" = {
-			"fileRef" = "EAC76D40D2A93089EBF3ECD6";
-			"isa" = "PBXBuildFile";
-		};
-		"1D08044464D3EC4B3B5A5BBC" = {
-			"isa" = "XCBuildConfiguration";
-			"buildSettings" = {
-				"GENERATE_INFOPLIST_FILE" = "YES";
-				"ONLY_ACTIVE_ARCH" = "YES";
-				"CODE_SIGNING_ALLOWED" = "NO";
-				"DEBUG_INFORMATION_FORMAT" = "dwarf";
-				"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "$(inherited) DEBUG DECODER_CLI";
-				"PRODUCT_BUNDLE_IDENTIFIER" = "com.B00kerLouis.DolbyEDecoderCLI";
-				"MACOSX_DEPLOYMENT_TARGET" = "14.0";
-				"SWIFT_OPTIMIZATION_LEVEL" = "-Onone";
-				"ENABLE_TESTABILITY" = "YES";
-				"SWIFT_VERSION" = "6.0";
-				"PRODUCT_NAME" = "dolbye-decode";
+		1D08044464D3EC4B3B5A5BBC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.B00kerLouis.DolbyEDecoderCLI;
+				PRODUCT_NAME = "dolbye-decode";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG DECODER_CLI";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
 			};
-			"name" = "Debug";
+			name = Debug;
 		};
-		"8E8EFE0279718748F054CE92" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "E8363F0F88BA6EEA094720AC";
-		};
-		"606D6B2D46660A973CCB89E5" = {
-			"path" = "Swift_Dolby_E/CLI/Encoder/main.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"398ED8DA279F6B24E639391D" = {
-			"fileRef" = "D8F48443A2176C960EF28935";
-			"isa" = "PBXBuildFile";
-		};
-		"87798DF6F9C433438F7610C1" = {
-			"path" = "Swift_Dolby_E/Shared/DolbyEMediaWriter.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"9BACDE023A33FEA2BACEF218" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "318FA5AF13C66C0DAEB69ACB";
-		};
-		"438056F266D2D54E340CBB0C" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "52D99E204355EF9C585555B0";
-		};
-		"5A7E31A324668F3598350D46" = {
-			"isa" = "PBXGroup";
-			"name" = "Decoder";
-			"children" = (
-				"13B25A98E04EBBB83C72FD91",
-				"79541D5F221367DF78475C94",
-				"9148DA6E00D019925431E376",
-				"D2E3C2B85E8105233F244A59",
-				"C8A0488C3D9DA5DE16A38815",
-				"6749CA17202A1A44AE16B932",
-				"02DA401D88699907F4B93D8A",
-				"B5400E053780D9AA0280E3E4",
-				"623BDF79798A4AC662691790",
-				"3CC53C088B63A3B067BCB43B",
-				"7066F10B3781F7FC236D5AA2",
-				"A9B32B63C746832409DE993E",
-				"C56B84A4B38E71F94774FCA6",
-				"3806608C26A137C786382421",
-				"1E0E181F640288428DB79BF3",
-				"62C5B42E1764E48DC21D5960",
-				"53E140D53A64CE1151217E19",
-				"E1B3233B74409C0A482386C6",
-				"BA0815157B5F17FBFD29E88D",
-				"29E4F4B5F2C4F024ABED29D2",
-				"C9E01E33E7EC6C96DF802A0C",
-			);
-			"sourceTree" = "<group>";
-		};
-		"13FCD69AF3912F7146A22A0C" = {
-			"isa" = "PBXTargetDependency";
-			"target" = "4D6EB8A46CE8C76DBFA0A2FA";
-			"targetProxy" = "31B67D89DB894EF07E9007C2";
-		};
-		"787477C10B8BBB8C84BF2026" = {
-			"path" = "Swift_Dolby_E/CLI/Decoder/GUI/PlayerAppMain.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"4D6EB8A46CE8C76DBFA0A2FA" = {
-			"buildConfigurationList" = "377E87D3156390DE3454A92B";
-			"productReference" = "9216A565C4C0935B9156A12D";
-			"productType" = "com.apple.product-type.framework";
-			"productName" = "DolbyEEncoder.framework";
-			"isa" = "PBXNativeTarget";
-			"buildPhases" = (
-				"A0CDAA2446A9E070E312AA05",
-				"5DC4B3B16ED571D3AD398B06",
-			);
-			"dependencies" = (
-			);
-			"name" = "DolbyEEncoder";
-			"buildRules" = (
-			);
-		};
-		"0F908E60DA0408D175BFA622" = {
-			"path" = "Swift_Dolby_E/Shared/DolbyED2PresentationRenderer.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"55A8901225634D6779AD8E8B" = {
-			"fileRef" = "7ABE30866B9140708771CA47";
-			"isa" = "PBXBuildFile";
-		};
-		"9A6875D95DD3323BF34BACDB" = {
-			"path" = "Swift_Dolby_E/Shared/BinaryIO.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"D1D99B58A6F72A37E39D8DE7" = {
-			"isa" = "XCBuildConfiguration";
-			"buildSettings" = {
-				"GENERATE_INFOPLIST_FILE" = "YES";
-				"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "$(inherited) DECODER_CLI";
-				"CODE_SIGNING_ALLOWED" = "NO";
-				"DEBUG_INFORMATION_FORMAT" = "dwarf-with-dsym";
-				"SWIFT_COMPILATION_MODE" = "wholemodule";
-				"PRODUCT_BUNDLE_IDENTIFIER" = "com.B00kerLouis.DolbyEDecoderCLI";
-				"MACOSX_DEPLOYMENT_TARGET" = "14.0";
-				"SWIFT_OPTIMIZATION_LEVEL" = "-O";
-				"SWIFT_VERSION" = "6.0";
-				"PRODUCT_NAME" = "dolbye-decode";
+		2091694C69D88A06DF6C75DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.B00kerLouis.DolbyEDecoder;
+				PRODUCT_NAME = DolbyEDecoder;
+				SKIP_INSTALL = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
 			};
-			"name" = "Release";
+			name = Release;
 		};
-		"9276D8340985055A35708C9A" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "DAB43D39BB7809153DBD03BA";
-		};
-		"12355117779889FB08B3D6FC" = {
-			"fileRef" = "BF04AEA69A9DCA1649D2D088";
-			"isa" = "PBXBuildFile";
-		};
-		"1CCEC4A5794600684697A5CC" = {
-			"fileRef" = "9A6875D95DD3323BF34BACDB";
-			"isa" = "PBXBuildFile";
-		};
-		"E8363F0F88BA6EEA094720AC" = {
-			"path" = "Swift_Dolby_E/Shared/DolbyED2Metadata.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"359581C1511987E992A9DD38" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "CFC887C7F0D938AD421DDD38";
-		};
-		"60A328D3B5AF214D9E1E279A" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "886815B68B20D6BD2D372A43";
-		};
-		"1BBDCB4696763CEC16E96A68" = {
-			"fileRef" = "9E60A376FE5D9C6082DFEE02";
-			"isa" = "PBXBuildFile";
-		};
-		"7975E28F65A8E39A82BB1813" = {
-			"fileRef" = "B1B5C6720AAD068A7E4F1BF7";
-			"isa" = "PBXBuildFile";
-		};
-		"13B25A98E04EBBB83C72FD91" = {
-			"path" = "Swift_Dolby_E/Decoder/DolbyED2DecodeFile.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"56C931C9259F8ABEE48288BB" = {
-			"fileRef" = "20E5849631AC3CA80E9F6C9E";
-			"isa" = "PBXBuildFile";
-		};
-		"191C030AB0932BA6F77D22AF" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "9148DA6E00D019925431E376";
-		};
-		"AC5D793EE429B84BCCA7608B" = {
-			"fileRef" = "53E140D53A64CE1151217E19";
-			"isa" = "PBXBuildFile";
-		};
-		"31B67D89DB894EF07E9007C2" = {
-			"isa" = "PBXContainerItemProxy";
-			"containerPortal" = "244210E48437B6556980A702";
-			"remoteGlobalIDString" = "4D6EB8A46CE8C76DBFA0A2FA";
-			"remoteInfo" = "DolbyEEncoder";
-			"proxyType" = "1";
-		};
-		"CB20E235B7F4A8CBE4ED0FD4" = {
-			"isa" = "PBXTargetDependency";
-			"target" = "ED5C76D0F720978EB9C4CAF3";
-			"targetProxy" = "DF431CECEFACCA563C9E81EC";
-		};
-		"7BA0958DD199777E222A3FB3" = {
-			"path" = "Swift_Dolby_E/Shared/Models.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"18A5CE4786382F45EC7D66D6" = {
-			"fileRef" = "25B548B0DD79B51544E9B647";
-			"isa" = "PBXBuildFile";
-		};
-		"FFB658BAFC73894234D3C865" = {
-			"path" = "Swift_Dolby_E/Encoder/DolbyERealtimeEncoder.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"30464E270B8F5A93CB94CC8E" = {
-			"fileRef" = "B1B5C6720AAD068A7E4F1BF7";
-			"isa" = "PBXBuildFile";
-		};
-		"9216A565C4C0935B9156A12D" = {
-			"path" = "DolbyEEncoder.framework";
-			"isa" = "PBXFileReference";
-			"includeInIndex" = "0";
-			"explicitFileType" = "wrapper.framework";
-			"sourceTree" = "BUILT_PRODUCTS_DIR";
-		};
-		"2BEB8923D6E7E4114121806C" = {
-			"path" = "Dolby E QC.app";
-			"isa" = "PBXFileReference";
-			"includeInIndex" = "0";
-			"explicitFileType" = "wrapper.application";
-			"sourceTree" = "BUILT_PRODUCTS_DIR";
-		};
-		"403A7241EA37619619CB8259" = {
-			"buildActionMask" = "2147483647";
-			"isa" = "PBXSourcesBuildPhase";
-			"files" = (
-				"618890FC54583E68A165C661",
-				"5F28D6422815FB41FFE24D4F",
-			);
-			"runOnlyForDeploymentPostprocessing" = "0";
-		};
-		"5DC4B3B16ED571D3AD398B06" = {
-			"buildActionMask" = "2147483647";
-			"isa" = "PBXFrameworksBuildPhase";
-			"files" = (
-			);
-			"runOnlyForDeploymentPostprocessing" = "0";
-		};
-		"76D4AEB4EE11589FD04C0627" = {
-			"isa" = "PBXGroup";
-			"name" = "Encoder";
-			"children" = (
-				"3C2C87B973C997D7FC8B8EE7",
-				"66FCF7D2C9BA2D36FAE5A2B3",
-				"FFB658BAFC73894234D3C865",
-				"D7547F89D43306444D62BB0C",
-				"7D2C17DEAFCABCBDEB465931",
-				"318FA5AF13C66C0DAEB69ACB",
-				"52D99E204355EF9C585555B0",
-				"6B4B8766E4AD8F9E13C69817",
-				"DBBB055C973E129272A29AD5",
-				"20E5849631AC3CA80E9F6C9E",
-				"7E209D8146C6B82E2C009475",
-				"CA4DC11AB91007184D72FA72",
-				"0DACAE2CF5358798F72EFCEC",
-				"4FFF8F4586951C649B75B7BE",
-				"D78C34629B23F420EBCE28E5",
-				"246F5AA5D579E86BF8BE2C85",
-				"CABF9639F4D4CFBAD9CD9628",
-				"4A1AC0DBB72A653305EFB155",
-				"249B88B73AF3AF80152956EA",
-				"B4FCEFC35A2BD92982DD4445",
-				"9E60A376FE5D9C6082DFEE02",
-				"25B548B0DD79B51544E9B647",
-				"951697AB42EB42A08D6ADB8E",
-				"EC722F6191B6E6132F270DDB",
-				"7ABE30866B9140708771CA47",
-				"AE3A20F7834051A0958E52A5",
-				"552282153AB33BC14D1A76B4",
-			);
-			"sourceTree" = "<group>";
-		};
-		"DC86242237F431FF9314EEA9" = {
-			"fileRef" = "8EFD64B27E900C395BA1348D";
-			"isa" = "PBXBuildFile";
-		};
-		"5F28D6422815FB41FFE24D4F" = {
-			"fileRef" = "606D6B2D46660A973CCB89E5";
-			"isa" = "PBXBuildFile";
-		};
-		"0030D115DBBA18574A762F2D" = {
-			"fileRef" = "623BDF79798A4AC662691790";
-			"isa" = "PBXBuildFile";
-		};
-		"66FCF7D2C9BA2D36FAE5A2B3" = {
-			"path" = "Swift_Dolby_E/Encoder/DolbyESpectralProfiler.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"246F61142F8AB5A6FA165E8C" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "8C146798CB5445A652D001DF";
-		};
-		"1F81FD2137540D66204CF89C" = {
-			"fileRef" = "7066F10B3781F7FC236D5AA2";
-			"isa" = "PBXBuildFile";
-		};
-		"0C38AA68993FC8E037412CB1" = {
-			"fileRef" = "501E5574A568022567C7053F";
-			"isa" = "PBXBuildFile";
-		};
-		"45D349EA7C39A80FA9809F54" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "79541D5F221367DF78475C94";
-		};
-		"F4B6338916845D5A8692932F" = {
-			"fileRef" = "505D5CA76C3E52F1839930FD";
-			"isa" = "PBXBuildFile";
-		};
-		"951697AB42EB42A08D6ADB8E" = {
-			"path" = "Swift_Dolby_E/Encoder/DolbyECAFReader.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"20E5849631AC3CA80E9F6C9E" = {
-			"path" = "Swift_Dolby_E/Encoder/DolbyEAnalysisTables.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"D8F48443A2176C960EF28935" = {
-			"path" = "Swift_Dolby_E/Shared/DolbyEFileJobs.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"A0CDAA2446A9E070E312AA05" = {
-			"buildActionMask" = "2147483647";
-			"isa" = "PBXSourcesBuildPhase";
-			"files" = (
-				"82D7015C9A9F94D2A038FFE7",
-				"359581C1511987E992A9DD38",
-				"C9F13335A9F729D2D294E104",
-				"938153D472F476E5DC4C6D71",
-				"EF15EFA3E62C7784E2585995",
-				"9399452230FA8915BF493556",
-				"B7F8E8B810EF05859C32B035",
-				"227E95968243CB7A91AF2032",
-				"253DFF2E4731DB2240990948",
-				"E3790366C87362D7C46835F2",
-				"362B7B0BA153B941021E7C9E",
-				"1A1F673EAE6EFB5A7EF529FB",
-				"E33E9998D3A10F2178D4C141",
-				"9BACDE023A33FEA2BACEF218",
-				"438056F266D2D54E340CBB0C",
-				"D7BAF09398DC05D72E12FAB3",
-				"246F61142F8AB5A6FA165E8C",
-				"8E8EFE0279718748F054CE92",
-				"8CFB179649A6A9322583ABEC",
-				"56C931C9259F8ABEE48288BB",
-				"F78E455657997523444E4E06",
-				"FCCDCEEF76A18F8C474463B8",
-				"61C6B55D49E50C58E2D6738C",
-				"587BA38786A69D00AB582C95",
-				"C903142B2BF4E539D9D536FD",
-				"66AEFDB0819479702AB3E1D3",
-				"E385C48A974D19A466CF0A6D",
-				"37457D035D0BA7D43FBD01FF",
-				"8613A51B02295670D68F8898",
-				"5608CD8785BAD16146713B40",
-				"2325FF0C68E4784D926ECC7F",
-				"CCAB466F6A05ECAD34CC32E9",
-				"398ED8DA279F6B24E639391D",
-				"0156F50AEA939DDF07046F3C",
-				"F08ABD5DA99B71D9904833BD",
-				"03401E5AAFB454C4E43AD6E3",
-				"73700B67A6EBA1B67FA02F5A",
-				"06F27964869B3870CC5CD4A9",
-				"E79B42D7ABAF578D721B94ED",
-				"58C04C4419ADDBE72B064BD4",
-				"A98942A341B58A2EBB6CB2A5",
-				"F7E573AC96F2ACB7F7F00CF2",
-				"198419B3B031B0F083379E33",
-				"18404880D0EBFB953DBF016E",
-				"FAF6134A874BA3F56DD06E51",
-				"43723A8B53FA1808FAF5D9DA",
-				"9E5641945FE5B3910E9E028C",
-				"552BB967097813E1BF8B12D2",
-				"1BBDCB4696763CEC16E96A68",
-				"18A5CE4786382F45EC7D66D6",
-				"A388862FCCA07B2F3A2EFC8D",
-				"A2E92B8A01918940A10B3AA7",
-				"55A8901225634D6779AD8E8B",
-				"AB1A193ACA6A3FDCDA3740FB",
-				"8B39A348F880AE5588D2F087",
-				"30464E270B8F5A93CB94CC8E",
-				"314E550B63FF2F6E610D8DA7",
-				"984A07F29D6069D2B32AD4B3",
-			);
-			"runOnlyForDeploymentPostprocessing" = "0";
-		};
-		"4928AFA9E7178473E1E1F382" = {
-			"path" = "Swift_Dolby_E/Shared/WavePCMReader.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"8F43664A32CB5566FF6BA330" = {
-			"fileRef" = "4928AFA9E7178473E1E1F382";
-			"isa" = "PBXBuildFile";
-		};
-		"F7E573AC96F2ACB7F7F00CF2" = {
-			"fileRef" = "2616CFA4EDBB00056B9E7523";
-			"isa" = "PBXBuildFile";
-		};
-		"184B519F8E1416CCE38CFFD7" = {
-			"isa" = "XCBuildConfiguration";
-			"buildSettings" = {
-				"ONLY_ACTIVE_ARCH" = "YES";
-				"DEBUG_INFORMATION_FORMAT" = "dwarf";
-				"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "$(inherited) DEBUG";
-				"CLANG_ENABLE_MODULES" = "YES";
-				"GCC_WARN_UNUSED_VARIABLE" = "YES";
-				"MACOSX_DEPLOYMENT_TARGET" = "14.0";
-				"CODE_SIGNING_ALLOWED" = "NO";
-				"ENABLE_TESTABILITY" = "YES";
-				"ENABLE_USER_SCRIPT_SANDBOXING" = "YES";
-				"SWIFT_OPTIMIZATION_LEVEL" = "-Onone";
-				"ALWAYS_SEARCH_USER_PATHS" = "NO";
-				"SWIFT_STRICT_CONCURRENCY" = "complete";
-				"SDKROOT" = "macosx";
-				"SWIFT_VERSION" = "6.0";
-				"SWIFT_TREAT_WARNINGS_AS_ERRORS" = "YES";
+		24307D249BA43EB13D41A392 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.B00kerLouis.DolbyEEncoder;
+				PRODUCT_NAME = DolbyEEncoder;
+				SKIP_INSTALL = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
 			};
-			"name" = "Debug";
+			name = Release;
 		};
-		"A4E7680246045A76659F79F2" = {
-			"fileRef" = "29E4F4B5F2C4F024ABED29D2";
-			"isa" = "PBXBuildFile";
-		};
-		"EC722F6191B6E6132F270DDB" = {
-			"path" = "Swift_Dolby_E/Encoder/DolbyEInputSource.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"F78E455657997523444E4E06" = {
-			"fileRef" = "7E209D8146C6B82E2C009475";
-			"isa" = "PBXBuildFile";
-		};
-		"B4FCEFC35A2BD92982DD4445" = {
-			"path" = "Swift_Dolby_E/Encoder/DolbyEPrimaryMetadata.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"618890FC54583E68A165C661" = {
-			"fileRef" = "70DCFCEA9EDB7FB6C5213577";
-			"isa" = "PBXBuildFile";
-		};
-		"2325FF0C68E4784D926ECC7F" = {
-			"fileRef" = "9A6875D95DD3323BF34BACDB";
-			"isa" = "PBXBuildFile";
-		};
-		"4FFF8F4586951C649B75B7BE" = {
-			"path" = "Swift_Dolby_E/Encoder/DolbyEChannelAnalysis.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"62C5B42E1764E48DC21D5960" = {
-			"path" = "Swift_Dolby_E/Decoder/DolbyESynthesisTables.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"253DFF2E4731DB2240990948" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "D7547F89D43306444D62BB0C";
-		};
-		"E385C48A974D19A466CF0A6D" = {
-			"fileRef" = "CABF9639F4D4CFBAD9CD9628";
-			"isa" = "PBXBuildFile";
-		};
-		"BF04AEA69A9DCA1649D2D088" = {
-			"path" = "DolbyEDecoder.framework";
-			"isa" = "PBXFileReference";
-			"includeInIndex" = "0";
-			"explicitFileType" = "wrapper.framework";
-			"sourceTree" = "BUILT_PRODUCTS_DIR";
-		};
-		"249B88B73AF3AF80152956EA" = {
-			"path" = "Swift_Dolby_E/Encoder/DolbyEPCMRouter.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"453738472D256B4034178D9A" = {
-			"isa" = "XCBuildConfiguration";
-			"buildSettings" = {
-				"ONLY_ACTIVE_ARCH" = "YES";
-				"DEBUG_INFORMATION_FORMAT" = "dwarf";
-				"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "$(inherited) DEBUG";
-				"SWIFT_INSTALL_OBJC_HEADER" = "YES";
-				"DEFINES_MODULE" = "YES";
-				"SKIP_INSTALL" = "NO";
-				"DYLIB_COMPATIBILITY_VERSION" = "1";
-				"INSTALL_PATH" = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				"CODE_SIGNING_ALLOWED" = "NO";
-				"MACOSX_DEPLOYMENT_TARGET" = "14.0";
-				"GENERATE_INFOPLIST_FILE" = "YES";
-				"ENABLE_TESTABILITY" = "YES";
-				"BUILD_LIBRARY_FOR_DISTRIBUTION" = "YES";
-				"SWIFT_OPTIMIZATION_LEVEL" = "-O";
-				"PRODUCT_NAME" = "DolbyEDecoder";
-				"MACH_O_TYPE" = "staticlib";
-				"DYLIB_CURRENT_VERSION" = "1";
-				"PRODUCT_BUNDLE_IDENTIFIER" = "com.B00kerLouis.DolbyEDecoder";
-				"SWIFT_VERSION" = "6.0";
+		24E08A35EDA0473ABC03688E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
 			};
-			"name" = "Debug";
+			name = Debug;
 		};
-		"246F5AA5D579E86BF8BE2C85" = {
-			"path" = "Swift_Dolby_E/Encoder/DolbyEEncoder.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"967BD22296AC4A397B62684C" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "CFC887C7F0D938AD421DDD38";
-		};
-		"25B548B0DD79B51544E9B647" = {
-			"path" = "Swift_Dolby_E/Encoder/DolbyEAtmosScene.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"66AEFDB0819479702AB3E1D3" = {
-			"fileRef" = "246F5AA5D579E86BF8BE2C85";
-			"isa" = "PBXBuildFile";
-		};
-		"192DE4228F7B4201BCDC7E88" = {
-			"isa" = "XCBuildConfiguration";
-			"buildSettings" = {
-				"GENERATE_INFOPLIST_FILE" = "YES";
-				"ONLY_ACTIVE_ARCH" = "YES";
-				"CODE_SIGNING_ALLOWED" = "NO";
-				"DEBUG_INFORMATION_FORMAT" = "dwarf";
-				"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "$(inherited) DEBUG ENCODER_CLI";
-				"PRODUCT_BUNDLE_IDENTIFIER" = "com.B00kerLouis.DolbyEEncoderCLI";
-				"MACOSX_DEPLOYMENT_TARGET" = "14.0";
-				"SWIFT_OPTIMIZATION_LEVEL" = "-Onone";
-				"ENABLE_TESTABILITY" = "YES";
-				"SWIFT_VERSION" = "6.0";
-				"PRODUCT_NAME" = "dolbye-encode";
+		446750BDD74C804560740FE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Dynamic";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				MACH_O_TYPE = mh_dylib;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.B00kerLouis.DolbyEDecoderDynamic;
+				PRODUCT_MODULE_NAME = DolbyEDecoderDynamic;
+				PRODUCT_NAME = DolbyEDecoderDynamic;
+				SKIP_INSTALL = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
 			};
-			"name" = "Debug";
+			name = Release;
 		};
-		"362B7B0BA153B941021E7C9E" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "50549124B22635A7DA9B40F2";
-		};
-		"CCAB466F6A05ECAD34CC32E9" = {
-			"fileRef" = "4D07CA2E3347DF039514D85B";
-			"isa" = "PBXBuildFile";
-		};
-		"2091694C69D88A06DF6C75DA" = {
-			"isa" = "XCBuildConfiguration";
-			"buildSettings" = {
-				"DEBUG_INFORMATION_FORMAT" = "dwarf-with-dsym";
-				"SWIFT_INSTALL_OBJC_HEADER" = "YES";
-				"DEFINES_MODULE" = "YES";
-				"SKIP_INSTALL" = "NO";
-				"DYLIB_COMPATIBILITY_VERSION" = "1";
-				"MACOSX_DEPLOYMENT_TARGET" = "14.0";
-				"CODE_SIGNING_ALLOWED" = "NO";
-				"INSTALL_PATH" = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				"GENERATE_INFOPLIST_FILE" = "YES";
-				"BUILD_LIBRARY_FOR_DISTRIBUTION" = "YES";
-				"SWIFT_COMPILATION_MODE" = "wholemodule";
-				"SWIFT_OPTIMIZATION_LEVEL" = "-O";
-				"PRODUCT_NAME" = "DolbyEDecoder";
-				"MACH_O_TYPE" = "staticlib";
-				"DYLIB_CURRENT_VERSION" = "1";
-				"PRODUCT_BUNDLE_IDENTIFIER" = "com.B00kerLouis.DolbyEDecoder";
-				"SWIFT_VERSION" = "6.0";
+		453738472D256B4034178D9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				ENABLE_TESTABILITY = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.B00kerLouis.DolbyEDecoder;
+				PRODUCT_NAME = DolbyEDecoder;
+				SKIP_INSTALL = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
 			};
-			"name" = "Release";
+			name = Debug;
 		};
-		"2616CFA4EDBB00056B9E7523" = {
-			"path" = "Swift_Dolby_E/Shared/MasterProbe.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"D2E3C2B85E8105233F244A59" = {
-			"path" = "Swift_Dolby_E/Decoder/DolbyED2CarrierReader.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"DAB43D39BB7809153DBD03BA" = {
-			"path" = "Swift_Dolby_E/Shared/DolbyELoudnessMeter.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"198419B3B031B0F083379E33" = {
-			"fileRef" = "7BA0958DD199777E222A3FB3";
-			"isa" = "PBXBuildFile";
-		};
-		"A388862FCCA07B2F3A2EFC8D" = {
-			"fileRef" = "951697AB42EB42A08D6ADB8E";
-			"isa" = "PBXBuildFile";
-		};
-		"8C146798CB5445A652D001DF" = {
-			"path" = "Swift_Dolby_E/Shared/DolbyED2MediaWriter.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"18B380750B890871AAA7495C" = {
-			"isa" = "PBXGroup";
-			"name" = "CLI";
-			"children" = (
-				"70DCFCEA9EDB7FB6C5213577",
-				"7F1029451EF1C2E6E1F51038",
-				"606D6B2D46660A973CCB89E5",
-				"EAC76D40D2A93089EBF3ECD6",
-				"787477C10B8BBB8C84BF2026",
-			);
-			"sourceTree" = "<group>";
-		};
-		"82D7015C9A9F94D2A038FFE7" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "3C2C87B973C997D7FC8B8EE7";
-		};
-		"29E4F4B5F2C4F024ABED29D2" = {
-			"path" = "Swift_Dolby_E/Decoder/DolbyEPlayback.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"DCF88805280BB58E8798B7CB" = {
-			"isa" = "XCBuildConfiguration";
-			"buildSettings" = {
-				"DEBUG_INFORMATION_FORMAT" = "dwarf-with-dsym";
-				"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "$(inherited) DECODER_CLI PLAYER_APP";
-				"SKIP_INSTALL" = "NO";
-				"MACOSX_DEPLOYMENT_TARGET" = "14.0";
-				"CODE_SIGNING_ALLOWED" = "NO";
-				"GENERATE_INFOPLIST_FILE" = "YES";
-				"SWIFT_COMPILATION_MODE" = "wholemodule";
-				"SWIFT_OPTIMIZATION_LEVEL" = "-O";
-				"INFOPLIST_KEY_CFBundleDisplayName" = "Dolby E QC";
-				"INFOPLIST_KEY_NSPrincipalClass" = "NSApplication";
-				"PRODUCT_NAME" = "Dolby E QC";
-				"SWIFT_VERSION" = "6.0";
-				"INFOPLIST_KEY_LSApplicationCategoryType" = "public.app-category.music";
-				"PRODUCT_BUNDLE_IDENTIFIER" = "com.B00kerLouis.SwiftDolbyE.QC";
-				"INFOPLIST_KEY_NSHighResolutionCapable" = "YES";
+		48499D7DC44A555A5ACDE07C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
 			};
-			"name" = "Release";
+			name = Release;
 		};
-		"E318BE547C55ED10B80F0CAF" = {
-			"fileRef" = "D8F48443A2176C960EF28935";
-			"isa" = "PBXBuildFile";
-		};
-		"314E550B63FF2F6E610D8DA7" = {
-			"fileRef" = "3E98862D09E97A4AF7B8BA88";
-			"isa" = "PBXBuildFile";
-		};
-		"1BC0270735C9BDB4CEF5300A" = {
-			"fileRef" = "E1B3233B74409C0A482386C6";
-			"isa" = "PBXBuildFile";
-		};
-		"C9F13335A9F729D2D294E104" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "0F908E60DA0408D175BFA622";
-		};
-		"4A1AC0DBB72A653305EFB155" = {
-			"path" = "Swift_Dolby_E/Encoder/DolbyEPCMFrameEncoder.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"AE3A20F7834051A0958E52A5" = {
-			"path" = "Swift_Dolby_E/Encoder/DolbyEIABReader.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"B5400E053780D9AA0280E3E4" = {
-			"path" = "Swift_Dolby_E/Decoder/DolbyEChannelSynthesis.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"EB9783D952EBBB8A8FABFF20" = {
-			"fileRef" = "AB83363AC24B2871E234849D";
-			"isa" = "PBXBuildFile";
-		};
-		"9F6B1A7BCFF26D263B843F95" = {
-			"defaultConfigurationIsVisible" = "0";
-			"defaultConfigurationName" = "Release";
-			"isa" = "XCConfigurationList";
-			"buildConfigurations" = (
-				"184B519F8E1416CCE38CFFD7",
-				"A824290273A346217D9BE6F4",
-			);
-		};
-		"7ABE30866B9140708771CA47" = {
-			"path" = "Swift_Dolby_E/Encoder/DolbyEIABFrame.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"505D5CA76C3E52F1839930FD" = {
-			"path" = "Swift_Dolby_E/Shared/DolbyEMeterCoding.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"434299EF4C0202748091C33F" = {
-			"path" = "Swift_Dolby_E/Shared/DolbyEMXFPropertyLabels.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"9E5641945FE5B3910E9E028C" = {
-			"fileRef" = "434299EF4C0202748091C33F";
-			"isa" = "PBXBuildFile";
-		};
-		"B1B5C6720AAD068A7E4F1BF7" = {
-			"path" = "Swift_Dolby_E/Shared/DolbyEAC3Metadata.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"EF15EFA3E62C7784E2585995" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "DAB43D39BB7809153DBD03BA";
-		};
-		"6733564A652BB0F7DBC7E458" = {
-			"fileRef" = "A9B32B63C746832409DE993E";
-			"isa" = "PBXBuildFile";
-		};
-		"EDB5332A9A71AE111BC8B3B2" = {
-			"fileRef" = "72737C881DBCBCC23CAA52A7";
-			"isa" = "PBXBuildFile";
-		};
-		"9BE57CA97F4C312D537C238D" = {
-			"isa" = "PBXTargetDependency";
-			"target" = "ED5C76D0F720978EB9C4CAF3";
-			"targetProxy" = "C04F714938E7D5EE33DF7E0D";
-		};
-		"4F33C7AA71BB5AE017FA5697" = {
-			"path" = "dolbye-decode";
-			"isa" = "PBXFileReference";
-			"includeInIndex" = "0";
-			"explicitFileType" = "compiled.mach-o.executable";
-			"sourceTree" = "BUILT_PRODUCTS_DIR";
-		};
-		"9775C303148FB637C44AAFCE" = {
-			"defaultConfigurationIsVisible" = "0";
-			"defaultConfigurationName" = "Release";
-			"isa" = "XCConfigurationList";
-			"buildConfigurations" = (
-				"453738472D256B4034178D9A",
-				"2091694C69D88A06DF6C75DA",
-			);
-		};
-		"97132595A9FE14A049993F68" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "3E98862D09E97A4AF7B8BA88";
-		};
-		"B2C97AA9C7F9A171535D6C6C" = {
-			"fileRef" = "BF04AEA69A9DCA1649D2D088";
-			"isa" = "PBXBuildFile";
-		};
-		"B87E03B9D002F234CC26503D" = {
-			"path" = "Swift_Dolby_E/Shared/DolbyEIntegrity.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"3C6BD80C1D56E0F1B76BAE66" = {
-			"isa" = "XCBuildConfiguration";
-			"buildSettings" = {
-				"ONLY_ACTIVE_ARCH" = "YES";
-				"DEBUG_INFORMATION_FORMAT" = "dwarf";
-				"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "$(inherited) DEBUG DECODER_CLI PLAYER_APP";
-				"SKIP_INSTALL" = "NO";
-				"MACOSX_DEPLOYMENT_TARGET" = "14.0";
-				"CODE_SIGNING_ALLOWED" = "NO";
-				"ENABLE_TESTABILITY" = "YES";
-				"GENERATE_INFOPLIST_FILE" = "YES";
-				"SWIFT_OPTIMIZATION_LEVEL" = "-Onone";
-				"INFOPLIST_KEY_CFBundleDisplayName" = "Dolby E QC";
-				"INFOPLIST_KEY_NSPrincipalClass" = "NSApplication";
-				"PRODUCT_NAME" = "Dolby E QC";
-				"SWIFT_VERSION" = "6.0";
-				"INFOPLIST_KEY_LSApplicationCategoryType" = "public.app-category.music";
-				"PRODUCT_BUNDLE_IDENTIFIER" = "com.B00kerLouis.SwiftDolbyE.QC";
-				"INFOPLIST_KEY_NSHighResolutionCapable" = "YES";
+		6BF12F143185AA7FC9B0B36F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Dynamic";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				MACH_O_TYPE = mh_dylib;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.B00kerLouis.DolbyEEncoderDynamic;
+				PRODUCT_MODULE_NAME = DolbyEEncoderDynamic;
+				PRODUCT_NAME = DolbyEEncoderDynamic;
+				SKIP_INSTALL = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
 			};
-			"name" = "Debug";
-		};
-		"06F27964869B3870CC5CD4A9" = {
-			"fileRef" = "8EFD64B27E900C395BA1348D";
-			"isa" = "PBXBuildFile";
-		};
-		"F08ABD5DA99B71D9904833BD" = {
-			"fileRef" = "B87E03B9D002F234CC26503D";
-			"isa" = "PBXBuildFile";
-		};
-		"72737C881DBCBCC23CAA52A7" = {
-			"path" = "Swift_Dolby_E/Shared/DolbyEMetadataStream.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"6B4B8766E4AD8F9E13C69817" = {
-			"path" = "Swift_Dolby_E/Encoder/DolbyED2SceneRouter.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"31A5DDD40CB2C5F316E51954" = {
-			"buildActionMask" = "2147483647";
-			"isa" = "PBXFrameworksBuildPhase";
-			"files" = (
-			);
-			"runOnlyForDeploymentPostprocessing" = "0";
-		};
-		"DDDDDF743B25717C0F7048BC" = {
-			"fileRef" = "C56B84A4B38E71F94774FCA6";
-			"isa" = "PBXBuildFile";
-		};
-		"53E140D53A64CE1151217E19" = {
-			"path" = "Swift_Dolby_E/Decoder/DolbyEWaveCarrierReader.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"D78C34629B23F420EBCE28E5" = {
-			"path" = "Swift_Dolby_E/Encoder/DolbyEEncodeFile.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"49F98F86B972BFB27FF7A51E" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "13B25A98E04EBBB83C72FD91";
-		};
-		"552282153AB33BC14D1A76B4" = {
-			"path" = "Swift_Dolby_E/Encoder/DolbyESpatialProcessing.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"75A4CF039BA0541FCF144DB8" = {
-			"fileRef" = "3CC53C088B63A3B067BCB43B";
-			"isa" = "PBXBuildFile";
-		};
-		"A9B32B63C746832409DE993E" = {
-			"path" = "Swift_Dolby_E/Decoder/DolbyEPCMFrameDecoder.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"FE9AFBF34E9D91805416F889" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "0F908E60DA0408D175BFA622";
-		};
-		"52D99E204355EF9C585555B0" = {
-			"path" = "Swift_Dolby_E/Encoder/DolbyED2PCMFrameEncoder.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"BF3CD727FE219820EB831F88" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "8C146798CB5445A652D001DF";
-		};
-		"938153D472F476E5DC4C6D71" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "886815B68B20D6BD2D372A43";
-		};
-		"7E209D8146C6B82E2C009475" = {
-			"path" = "Swift_Dolby_E/Encoder/DolbyEAnalysisTransform.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"B18E9C774F5C27FF71C7D715" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "D2E3C2B85E8105233F244A59";
-		};
-		"AE7805B56D1DCAFAA071416F" = {
-			"isa" = "PBXGroup";
-			"name" = "Products";
-			"children" = (
-				"9216A565C4C0935B9156A12D",
-				"BF04AEA69A9DCA1649D2D088",
-				"46408B820AB3EF498A52CE4D",
-				"4F33C7AA71BB5AE017FA5697",
-				"2BEB8923D6E7E4114121806C",
-			);
-			"sourceTree" = "<group>";
-		};
-		"9E60A376FE5D9C6082DFEE02" = {
-			"path" = "Swift_Dolby_E/Encoder/DolbyEAtmosMetadata.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"318FA5AF13C66C0DAEB69ACB" = {
-			"path" = "Swift_Dolby_E/Encoder/DolbyED2EncodeFile.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"9399452230FA8915BF493556" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "A95A8D968C998AC3EB380729";
-		};
-		"E33E9998D3A10F2178D4C141" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "7D2C17DEAFCABCBDEB465931";
-		};
-		"18404880D0EBFB953DBF016E" = {
-			"fileRef" = "4928AFA9E7178473E1E1F382";
-			"isa" = "PBXBuildFile";
-		};
-		"ABEFD009F4301A09536DBC48" = {
-			"fileRef" = "C8A0488C3D9DA5DE16A38815";
-			"isa" = "PBXBuildFile";
-		};
-		"1E0E181F640288428DB79BF3" = {
-			"path" = "Swift_Dolby_E/Decoder/DolbyESynthesisResampler.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"EAC76D40D2A93089EBF3ECD6" = {
-			"path" = "Swift_Dolby_E/CLI/Decoder/PlayerWindow.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"AB1A193ACA6A3FDCDA3740FB" = {
-			"fileRef" = "AE3A20F7834051A0958E52A5";
-			"isa" = "PBXBuildFile";
-		};
-		"623BDF79798A4AC662691790" = {
-			"path" = "Swift_Dolby_E/Decoder/DolbyEDecodeFile.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"A2C9D5435744B0EC9E2A1AD4" = {
-			"buildActionMask" = "2147483647";
-			"isa" = "PBXFrameworksBuildPhase";
-			"files" = (
-				"12355117779889FB08B3D6FC",
-			);
-			"runOnlyForDeploymentPostprocessing" = "0";
-		};
-		"99721A8575D9B73080BEC4CD" = {
-			"fileRef" = "6749CA17202A1A44AE16B932";
-			"isa" = "PBXBuildFile";
-		};
-		"EB87953A8F705648D53796CF" = {
-			"buildActionMask" = "2147483647";
-			"isa" = "PBXSourcesBuildPhase";
-			"files" = (
-				"D1C62690DFE144D193BB45A2",
-				"BFB93F652CC386A4CFC57C95",
-				"6BADEF94C0A2B95F27AFE97E",
-			);
-			"runOnlyForDeploymentPostprocessing" = "0";
-		};
-		"D7BAF09398DC05D72E12FAB3" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "6B4B8766E4AD8F9E13C69817";
-		};
-		"1A1F673EAE6EFB5A7EF529FB" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "797A5109A32F29CD1DE4B059";
-		};
-		"0DACAE2CF5358798F72EFCEC" = {
-			"path" = "Swift_Dolby_E/Encoder/DolbyEBitWriter.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"46B90A56FFC1777533A0935C" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "797A5109A32F29CD1DE4B059";
-		};
-		"FCCDCEEF76A18F8C474463B8" = {
-			"fileRef" = "CA4DC11AB91007184D72FA72";
-			"isa" = "PBXBuildFile";
-		};
-		"A2E92B8A01918940A10B3AA7" = {
-			"fileRef" = "EC722F6191B6E6132F270DDB";
-			"isa" = "PBXBuildFile";
-		};
-		"797A5109A32F29CD1DE4B059" = {
-			"path" = "Swift_Dolby_E/Shared/DolbyED2WavePairWriter.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"B8C3B364E0C91E85ED2FD824" = {
-			"fileRef" = "4D07CA2E3347DF039514D85B";
-			"isa" = "PBXBuildFile";
-		};
-		"E7B0AE717425E6678C18F2C4" = {
-			"buildActionMask" = "2147483647";
-			"isa" = "PBXSourcesBuildPhase";
-			"files" = (
-				"609A1EC4BCD8100826A6D171",
-				"8346F259E441EB4C91143945",
-				"1B955246395BD8753A1AA58B",
-			);
-			"runOnlyForDeploymentPostprocessing" = "0";
-		};
-		"8913A8193B79B16FEE51A4D7" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "A95A8D968C998AC3EB380729";
-		};
-		"2690768405887ECA15F9A10D" = {
-			"fileRef" = "7BA0958DD199777E222A3FB3";
-			"isa" = "PBXBuildFile";
-		};
-		"984A07F29D6069D2B32AD4B3" = {
-			"fileRef" = "72737C881DBCBCC23CAA52A7";
-			"isa" = "PBXBuildFile";
-		};
-		"C9E01E33E7EC6C96DF802A0C" = {
-			"path" = "Swift_Dolby_E/Decoder/DolbyEPlaybackRouting.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"B029C0EE314F1E08681318BF" = {
-			"path" = "Swift_Dolby_E/Shared/DolbyEResamplingTables.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"348BDBF12029018986FA2C1E" = {
-			"defaultConfigurationIsVisible" = "0";
-			"defaultConfigurationName" = "Release";
-			"isa" = "XCConfigurationList";
-			"buildConfigurations" = (
-				"3C6BD80C1D56E0F1B76BAE66",
-				"DCF88805280BB58E8798B7CB",
-			);
-		};
-		"1D64981FFCF659A6F0C1BD4A" = {
-			"buildActionMask" = "2147483647";
-			"isa" = "PBXFrameworksBuildPhase";
-			"files" = (
-				"B2C97AA9C7F9A171535D6C6C",
-			);
-			"runOnlyForDeploymentPostprocessing" = "0";
-		};
-		"AB83363AC24B2871E234849D" = {
-			"path" = "Swift_Dolby_E/Shared/DolbyEMaskingTables.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"1B955246395BD8753A1AA58B" = {
-			"fileRef" = "787477C10B8BBB8C84BF2026";
-			"isa" = "PBXBuildFile";
-		};
-		"43723A8B53FA1808FAF5D9DA" = {
-			"fileRef" = "B221AC056B08D51D690B59B1";
-			"isa" = "PBXBuildFile";
-		};
-		"02DA401D88699907F4B93D8A" = {
-			"path" = "Swift_Dolby_E/Decoder/DolbyECarrierFrame.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"ED5C76D0F720978EB9C4CAF3" = {
-			"buildConfigurationList" = "9775C303148FB637C44AAFCE";
-			"productReference" = "BF04AEA69A9DCA1649D2D088";
-			"productType" = "com.apple.product-type.framework";
-			"productName" = "DolbyEDecoder.framework";
-			"isa" = "PBXNativeTarget";
-			"buildPhases" = (
-				"5F0BCFA1FBCA4B9E72F3740B",
-				"31A5DDD40CB2C5F316E51954",
-			);
-			"dependencies" = (
-			);
-			"name" = "DolbyEDecoder";
-			"buildRules" = (
-			);
-		};
-		"876996C1E0EBB7FC219F4227" = {
-			"fileRef" = "B87E03B9D002F234CC26503D";
-			"isa" = "PBXBuildFile";
-		};
-		"C5E3DB3AC98CBC65D9559B49" = {
-			"fileRef" = "9216A565C4C0935B9156A12D";
-			"isa" = "PBXBuildFile";
-		};
-		"8613A51B02295670D68F8898" = {
-			"fileRef" = "249B88B73AF3AF80152956EA";
-			"isa" = "PBXBuildFile";
-		};
-		"58C04C4419ADDBE72B064BD4" = {
-			"fileRef" = "7A43BBA087A6596BE72C9C66";
-			"isa" = "PBXBuildFile";
-		};
-		"7F1029451EF1C2E6E1F51038" = {
-			"path" = "Swift_Dolby_E/CLI/Decoder/main.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"DF431CECEFACCA563C9E81EC" = {
-			"isa" = "PBXContainerItemProxy";
-			"containerPortal" = "244210E48437B6556980A702";
-			"remoteGlobalIDString" = "ED5C76D0F720978EB9C4CAF3";
-			"remoteInfo" = "DolbyEDecoder";
-			"proxyType" = "1";
-		};
-		"52AB4CF9FCDA1F954D7E1F56" = {
-			"defaultConfigurationIsVisible" = "0";
-			"defaultConfigurationName" = "Release";
-			"isa" = "XCConfigurationList";
-			"buildConfigurations" = (
-				"1D08044464D3EC4B3B5A5BBC",
-				"D1D99B58A6F72A37E39D8DE7",
-			);
-		};
-		"552BB967097813E1BF8B12D2" = {
-			"fileRef" = "87798DF6F9C433438F7610C1";
-			"isa" = "PBXBuildFile";
-		};
-		"E79B42D7ABAF578D721B94ED" = {
-			"fileRef" = "B029C0EE314F1E08681318BF";
-			"isa" = "PBXBuildFile";
-		};
-		"C8A0488C3D9DA5DE16A38815" = {
-			"path" = "Swift_Dolby_E/Decoder/DolbyEAudioSegmentDecoder.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"BE82936476F2375F9AF53422" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "53B06A3F26A54A8FDFB15305";
-		};
-		"59445E1E469A2B811C6E1622" = {
-			"fileRef" = "B029C0EE314F1E08681318BF";
-			"isa" = "PBXBuildFile";
-		};
-		"E4E5A80A726FE34B472642C8" = {
-			"fileRef" = "3CAC3309D68E5D2E8E51E7B3";
-			"isa" = "PBXBuildFile";
-		};
-		"79541D5F221367DF78475C94" = {
-			"path" = "Swift_Dolby_E/Decoder/DolbyED2SceneWriter.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"6749CA17202A1A44AE16B932" = {
-			"path" = "Swift_Dolby_E/Decoder/DolbyEBitReader.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"73700B67A6EBA1B67FA02F5A" = {
-			"fileRef" = "505D5CA76C3E52F1839930FD";
-			"isa" = "PBXBuildFile";
-		};
-		"A824290273A346217D9BE6F4" = {
-			"isa" = "XCBuildConfiguration";
-			"buildSettings" = {
-				"DEBUG_INFORMATION_FORMAT" = "dwarf-with-dsym";
-				"CLANG_ENABLE_MODULES" = "YES";
-				"GCC_WARN_UNUSED_VARIABLE" = "YES";
-				"MACOSX_DEPLOYMENT_TARGET" = "14.0";
-				"CODE_SIGNING_ALLOWED" = "NO";
-				"SWIFT_COMPILATION_MODE" = "wholemodule";
-				"ENABLE_USER_SCRIPT_SANDBOXING" = "YES";
-				"SWIFT_OPTIMIZATION_LEVEL" = "-O";
-				"ALWAYS_SEARCH_USER_PATHS" = "NO";
-				"SWIFT_STRICT_CONCURRENCY" = "complete";
-				"SDKROOT" = "macosx";
-				"SWIFT_VERSION" = "6.0";
-				"SWIFT_TREAT_WARNINGS_AS_ERRORS" = "YES";
+			name = Release;
+		};
+		75DE6B7DFB73CBE9BE5E1C7E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				ENABLE_TESTABILITY = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.B00kerLouis.DolbyEEncoder;
+				PRODUCT_NAME = DolbyEEncoder;
+				SKIP_INSTALL = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
 			};
-			"name" = "Release";
+			name = Debug;
 		};
-		"A98942A341B58A2EBB6CB2A5" = {
-			"fileRef" = "3CAC3309D68E5D2E8E51E7B3";
-			"isa" = "PBXBuildFile";
-		};
-		"8EFD64B27E900C395BA1348D" = {
-			"path" = "Swift_Dolby_E/Shared/DolbyEResampler.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"8EF5BF97BDD9DE9D47D39889" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "50549124B22635A7DA9B40F2";
-		};
-		"9148DA6E00D019925431E376" = {
-			"path" = "Swift_Dolby_E/Decoder/DolbyED2PCMFrameDecoder.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"D7547F89D43306444D62BB0C" = {
-			"path" = "Swift_Dolby_E/Encoder/DolbyEAdaptiveMantissa.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"B7F8E8B810EF05859C32B035" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "66FCF7D2C9BA2D36FAE5A2B3";
-		};
-		"C56B84A4B38E71F94774FCA6" = {
-			"path" = "Swift_Dolby_E/Decoder/DolbyESynthesisBank.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"D359DAD184A9F3EB90F51B68" = {
-			"fileRef" = "7A43BBA087A6596BE72C9C66";
-			"isa" = "PBXBuildFile";
-		};
-		"53B06A3F26A54A8FDFB15305" = {
-			"path" = "Swift_Dolby_E/Shared/DolbyEMantissaCodingTables.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"E27B34F490B43BE2C25B98CB" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "E8363F0F88BA6EEA094720AC";
-		};
-		"8B39A348F880AE5588D2F087" = {
-			"fileRef" = "552282153AB33BC14D1A76B4";
-			"isa" = "PBXBuildFile";
-		};
-		"C04F714938E7D5EE33DF7E0D" = {
-			"isa" = "PBXContainerItemProxy";
-			"containerPortal" = "244210E48437B6556980A702";
-			"remoteGlobalIDString" = "ED5C76D0F720978EB9C4CAF3";
-			"remoteInfo" = "DolbyEDecoder";
-			"proxyType" = "1";
-		};
-		"4D07CA2E3347DF039514D85B" = {
-			"path" = "Swift_Dolby_E/Shared/DolbyECodecBands.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"CA4DC11AB91007184D72FA72" = {
-			"path" = "Swift_Dolby_E/Encoder/DolbyEAudioSegment.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"378DA871F5242896306632B0" = {
-			"fileRef" = "87798DF6F9C433438F7610C1";
-			"isa" = "PBXBuildFile";
-		};
-		"50549124B22635A7DA9B40F2" = {
-			"path" = "Swift_Dolby_E/Shared/DolbyESpeakerLayout.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"3CC53C088B63A3B067BCB43B" = {
-			"path" = "Swift_Dolby_E/Decoder/DolbyEDecodingRateTables.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"03401E5AAFB454C4E43AD6E3" = {
-			"fileRef" = "AB83363AC24B2871E234849D";
-			"isa" = "PBXBuildFile";
-		};
-		"0156F50AEA939DDF07046F3C" = {
-			"fileRef" = "577DAC3D47EA49B88DE1F581";
-			"isa" = "PBXBuildFile";
-		};
-		"FAF6134A874BA3F56DD06E51" = {
-			"fileRef" = "501E5574A568022567C7053F";
-			"isa" = "PBXBuildFile";
-		};
-		"20A39239033F276C8101FDFD" = {
-			"fileRef" = "C9E01E33E7EC6C96DF802A0C";
-			"isa" = "PBXBuildFile";
-		};
-		"7A43BBA087A6596BE72C9C66" = {
-			"path" = "Swift_Dolby_E/Shared/DolbyESpectralAllocation.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"8957995191EEE30B7A186E0E" = {
-			"fileRef" = "B5400E053780D9AA0280E3E4";
-			"isa" = "PBXBuildFile";
-		};
-		"C473F165BA5BA0C7B9711E19" = {
-			"buildConfigurationList" = "91B091F2E31DA353916830D9";
-			"productReference" = "46408B820AB3EF498A52CE4D";
-			"productType" = "com.apple.product-type.tool";
-			"productName" = "dolbye-encode";
-			"isa" = "PBXNativeTarget";
-			"buildPhases" = (
-				"403A7241EA37619619CB8259",
-				"8C09A4E05A280CC975E9895A",
-			);
-			"dependencies" = (
-				"13FCD69AF3912F7146A22A0C",
-			);
-			"name" = "DolbyEEncoderCLI";
-			"buildRules" = (
-			);
-		};
-		"70DCFCEA9EDB7FB6C5213577" = {
-			"path" = "Swift_Dolby_E/CLI/CommandLineOptions.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"75DE6B7DFB73CBE9BE5E1C7E" = {
-			"isa" = "XCBuildConfiguration";
-			"buildSettings" = {
-				"ONLY_ACTIVE_ARCH" = "YES";
-				"DEBUG_INFORMATION_FORMAT" = "dwarf";
-				"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "$(inherited) DEBUG";
-				"SWIFT_INSTALL_OBJC_HEADER" = "YES";
-				"DEFINES_MODULE" = "YES";
-				"SKIP_INSTALL" = "NO";
-				"DYLIB_COMPATIBILITY_VERSION" = "1";
-				"INSTALL_PATH" = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				"CODE_SIGNING_ALLOWED" = "NO";
-				"MACOSX_DEPLOYMENT_TARGET" = "14.0";
-				"GENERATE_INFOPLIST_FILE" = "YES";
-				"ENABLE_TESTABILITY" = "YES";
-				"BUILD_LIBRARY_FOR_DISTRIBUTION" = "YES";
-				"SWIFT_OPTIMIZATION_LEVEL" = "-O";
-				"PRODUCT_NAME" = "DolbyEEncoder";
-				"MACH_O_TYPE" = "staticlib";
-				"DYLIB_CURRENT_VERSION" = "1";
-				"PRODUCT_BUNDLE_IDENTIFIER" = "com.B00kerLouis.DolbyEEncoder";
-				"SWIFT_VERSION" = "6.0";
+		78CDF3435424DA9282EA7930 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Dynamic";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_TESTABILITY = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				MACH_O_TYPE = mh_dylib;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.B00kerLouis.DolbyEEncoderDynamic;
+				PRODUCT_MODULE_NAME = DolbyEEncoderDynamic;
+				PRODUCT_NAME = DolbyEEncoderDynamic;
+				SKIP_INSTALL = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
 			};
-			"name" = "Debug";
+			name = Debug;
 		};
-		"CABF9639F4D4CFBAD9CD9628" = {
-			"path" = "Swift_Dolby_E/Encoder/DolbyEFrameEncoder.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
+		A824290273A346217D9BE6F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					arm64,
+					x86_64,
+				);
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
 		};
-		"610307E2D45DC7676177BBE6" = {
-			"fileRef" = "2616CFA4EDBB00056B9E7523";
-			"isa" = "PBXBuildFile";
+		D1D99B58A6F72A37E39D8DE7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.B00kerLouis.DolbyEDecoderCLI;
+				PRODUCT_NAME = "dolbye-decode";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DECODER_CLI";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
 		};
-		"897BA171436B0D2E47188461" = {
-			"buildConfigurationList" = "348BDBF12029018986FA2C1E";
-			"productReference" = "2BEB8923D6E7E4114121806C";
-			"productType" = "com.apple.product-type.application";
-			"productName" = "Dolby E QC";
-			"isa" = "PBXNativeTarget";
-			"buildPhases" = (
-				"E7B0AE717425E6678C18F2C4",
-				"1D64981FFCF659A6F0C1BD4A",
+		D25DED527CEB729E09AE0BA3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.B00kerLouis.DolbyEEncoderCLI;
+				PRODUCT_NAME = "dolbye-encode";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ENCODER_CLI";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		EDF1C496AD6F690390B22D95 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Dynamic";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_TESTABILITY = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				MACH_O_TYPE = mh_dylib;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.B00kerLouis.DolbyEDecoderDynamic;
+				PRODUCT_MODULE_NAME = DolbyEDecoderDynamic;
+				PRODUCT_NAME = DolbyEDecoderDynamic;
+				SKIP_INSTALL = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0485562E944D36F3DA50BBEF /* Build configuration list for PBXNativeTarget "DolbyEEncoderDynamic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				78CDF3435424DA9282EA7930 /* Debug */,
+				6BF12F143185AA7FC9B0B36F /* Release */,
 			);
-			"dependencies" = (
-				"CB20E235B7F4A8CBE4ED0FD4",
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		377E87D3156390DE3454A92B /* Build configuration list for PBXNativeTarget "DolbyEEncoder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				75DE6B7DFB73CBE9BE5E1C7E /* Debug */,
+				24307D249BA43EB13D41A392 /* Release */,
 			);
-			"name" = "DolbyEPlayer";
-			"buildRules" = (
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52AB4CF9FCDA1F954D7E1F56 /* Build configuration list for PBXNativeTarget "DolbyEDecoderCLI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D08044464D3EC4B3B5A5BBC /* Debug */,
+				D1D99B58A6F72A37E39D8DE7 /* Release */,
 			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		"8C09A4E05A280CC975E9895A" = {
-			"buildActionMask" = "2147483647";
-			"isa" = "PBXFrameworksBuildPhase";
-			"files" = (
-				"C5E3DB3AC98CBC65D9559B49",
+		730D088F3C2BBEDD80E38265 /* Build configuration list for PBXAggregateTarget "Build ALL" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24E08A35EDA0473ABC03688E /* Debug */,
+				48499D7DC44A555A5ACDE07C /* Release */,
 			);
-			"runOnlyForDeploymentPostprocessing" = "0";
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		"37457D035D0BA7D43FBD01FF" = {
-			"fileRef" = "4A1AC0DBB72A653305EFB155";
-			"isa" = "PBXBuildFile";
-		};
-		"7D2C17DEAFCABCBDEB465931" = {
-			"path" = "Swift_Dolby_E/Encoder/DolbyED2MetadataClock.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"886815B68B20D6BD2D372A43" = {
-			"path" = "Swift_Dolby_E/Shared/DolbyEProgrammeLoudness.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"C7FF872AE6BA33E569990122" = {
-			"fileRef" = "62C5B42E1764E48DC21D5960";
-			"isa" = "PBXBuildFile";
-		};
-		"6BADEF94C0A2B95F27AFE97E" = {
-			"fileRef" = "EAC76D40D2A93089EBF3ECD6";
-			"isa" = "PBXBuildFile";
-		};
-		"5F0BCFA1FBCA4B9E72F3740B" = {
-			"buildActionMask" = "2147483647";
-			"isa" = "PBXSourcesBuildPhase";
-			"files" = (
-				"967BD22296AC4A397B62684C",
-				"60A328D3B5AF214D9E1E279A",
-				"9276D8340985055A35708C9A",
-				"8913A8193B79B16FEE51A4D7",
-				"BE82936476F2375F9AF53422",
-				"8EF5BF97BDD9DE9D47D39889",
-				"97132595A9FE14A049993F68",
-				"46B90A56FFC1777533A0935C",
-				"FE9AFBF34E9D91805416F889",
-				"49F98F86B972BFB27FF7A51E",
-				"45D349EA7C39A80FA9809F54",
-				"191C030AB0932BA6F77D22AF",
-				"B18E9C774F5C27FF71C7D715",
-				"BF3CD727FE219820EB831F88",
-				"E27B34F490B43BE2C25B98CB",
-				"ABEFD009F4301A09536DBC48",
-				"99721A8575D9B73080BEC4CD",
-				"F1642422A54B529202A8D374",
-				"8957995191EEE30B7A186E0E",
-				"0030D115DBBA18574A762F2D",
-				"75A4CF039BA0541FCF144DB8",
-				"1F81FD2137540D66204CF89C",
-				"6733564A652BB0F7DBC7E458",
-				"DDDDDF743B25717C0F7048BC",
-				"F1C9A13AE1E962203AF5F255",
-				"0899CEE966FEAF11B39C8ADB",
-				"C7FF872AE6BA33E569990122",
-				"AC5D793EE429B84BCCA7608B",
-				"1CCEC4A5794600684697A5CC",
-				"B8C3B364E0C91E85ED2FD824",
-				"E318BE547C55ED10B80F0CAF",
-				"B51DFEEC6A748128BA312F68",
-				"876996C1E0EBB7FC219F4227",
-				"EB9783D952EBBB8A8FABFF20",
-				"F4B6338916845D5A8692932F",
-				"DC86242237F431FF9314EEA9",
-				"59445E1E469A2B811C6E1622",
-				"D359DAD184A9F3EB90F51B68",
-				"E4E5A80A726FE34B472642C8",
-				"610307E2D45DC7676177BBE6",
-				"2690768405887ECA15F9A10D",
-				"8F43664A32CB5566FF6BA330",
-				"0C38AA68993FC8E037412CB1",
-				"30185C12EEFEE25C68525F78",
-				"0B2035252597C91EEE042DBD",
-				"378DA871F5242896306632B0",
-				"1BC0270735C9BDB4CEF5300A",
-				"7975E28F65A8E39A82BB1813",
-				"D80B54C9BB842FB44525AC06",
-				"A4E7680246045A76659F79F2",
-				"20A39239033F276C8101FDFD",
-				"EDB5332A9A71AE111BC8B3B2",
+		8B5D91C74C39E4F34905AA94 /* Build configuration list for PBXNativeTarget "DolbyEDecoderDynamic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDF1C496AD6F690390B22D95 /* Debug */,
+				446750BDD74C804560740FE6 /* Release */,
 			);
-			"runOnlyForDeploymentPostprocessing" = "0";
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		"91B091F2E31DA353916830D9" = {
-			"defaultConfigurationIsVisible" = "0";
-			"defaultConfigurationName" = "Release";
-			"isa" = "XCConfigurationList";
-			"buildConfigurations" = (
-				"192DE4228F7B4201BCDC7E88",
-				"D25DED527CEB729E09AE0BA3",
+		91B091F2E31DA353916830D9 /* Build configuration list for PBXNativeTarget "DolbyEEncoderCLI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				192DE4228F7B4201BCDC7E88 /* Debug */,
+				D25DED527CEB729E09AE0BA3 /* Release */,
 			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		"8CFB179649A6A9322583ABEC" = {
-			"fileRef" = "DBBB055C973E129272A29AD5";
-			"isa" = "PBXBuildFile";
+		9775C303148FB637C44AAFCE /* Build configuration list for PBXNativeTarget "DolbyEDecoder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				453738472D256B4034178D9A /* Debug */,
+				2091694C69D88A06DF6C75DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		"BA0815157B5F17FBFD29E88D" = {
-			"path" = "Swift_Dolby_E/Decoder/DolbyEAudioDevices.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
+		9F6B1A7BCFF26D263B843F95 /* Build configuration list for PBXProject "Swift_Dolby_E" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				184B519F8E1416CCE38CFFD7 /* Debug */,
+				A824290273A346217D9BE6F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		"A95A8D968C998AC3EB380729" = {
-			"path" = "Swift_Dolby_E/Shared/DolbyEParallelWork.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"BFB93F652CC386A4CFC57C95" = {
-			"fileRef" = "7F1029451EF1C2E6E1F51038";
-			"isa" = "PBXBuildFile";
-		};
-		"E1B3233B74409C0A482386C6" = {
-			"path" = "Swift_Dolby_E/Decoder/DolbyEAC3MetadataReader.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"30185C12EEFEE25C68525F78" = {
-			"fileRef" = "B221AC056B08D51D690B59B1";
-			"isa" = "PBXBuildFile";
-		};
-		"D1C62690DFE144D193BB45A2" = {
-			"fileRef" = "70DCFCEA9EDB7FB6C5213577";
-			"isa" = "PBXBuildFile";
-		};
-		"3E98862D09E97A4AF7B8BA88" = {
-			"path" = "Swift_Dolby_E/Shared/DolbyETruePeakLimiter.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"577DAC3D47EA49B88DE1F581" = {
-			"path" = "Swift_Dolby_E/Shared/DolbyEFrameAllocation.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"7066F10B3781F7FC236D5AA2" = {
-			"path" = "Swift_Dolby_E/Decoder/DolbyEMantissaTables.swift";
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"sourceTree" = "<group>";
-		};
-		"46408B820AB3EF498A52CE4D" = {
-			"path" = "dolbye-encode";
-			"isa" = "PBXFileReference";
-			"includeInIndex" = "0";
-			"explicitFileType" = "compiled.mach-o.executable";
-			"sourceTree" = "BUILT_PRODUCTS_DIR";
-		};
+/* End XCConfigurationList section */
 	};
-	"rootObject" = "244210E48437B6556980A702";
+	rootObject = 244210E48437B6556980A702 /* Project object */;
 }

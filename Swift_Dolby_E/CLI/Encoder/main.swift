@@ -3,12 +3,15 @@
 import Foundation
 import DolbyEEncoder
 
+configureCLIDiagnostics()
+let encodingProgress = DolbyECLIEncodingProgress()
+
 if CommandLine.arguments.count == 1 || CommandLine.arguments.dropFirst().contains("--help") {
     print("""
     dolbye-encode -i INPUT -o OUTPUT -f pcm|mxf-op1a|mxf-opatom -p 5.1+2|7.1-scrn
       --encode-vision e|ed2             codec generation (default e)
-        ED2 WAV writes OUTPUT.AES1.wav and OUTPUT.AES2.wav when -o OUTPUT.AES1.wav is selected.
-        ED2 OP-1A has two sound tracks; OP-Atom writes two companion files.
+        ED2 WAV: -o OUTPUT.wav writes OUTPUT_AES1.wav (pri) and OUTPUT_AES2.wav (exp).
+        ED2 OP-Atom uses the same _AES1/_AES2 naming; OP-1A keeps one output file.
       --dialogue-source none|bed-c      extract bed C into one ED2 Dialogue Object
       --frame-rate 24000/1001|24|25|30000/1001|30   (default: master rate; PCM WAVE 25)
       --input-layout auto|5.1|5.1.2|7.1|7.1-scrn|5.1+2
@@ -23,6 +26,7 @@ if CommandLine.arguments.count == 1 || CommandLine.arguments.dropFirst().contain
       --rf-profile "film standard"     film standard|film light|music light|music standard
       --downmix-mode ltrt|loro          generated Stereo matrix (default ltrt)
       --line-profile "film standard"   none|film standard|film light|music standard|music light|speech
+      --json                          print the final encoding result as JSON
       --workers 0                     0 bounded automatic,1 serial,2...16 worker budget
       --loudness off|measure|normalize programme-relative measurement/correction (default off)
       --loudness-target -23            target LUFS; E programmes measured separately
@@ -50,10 +54,12 @@ do {
         if options.plan {
             try printJSON(DolbyEEncoding.prepare(request))
         } else {
-            try await printJSON(DolbyEEncoding.encode(request))
+            let result = try await DolbyEEncoding.encode(request) { encodingProgress.update($0) }
+            if options.jsonResult { try printJSON(result) }
         }
     }
 } catch {
+    encodingProgress.endLine()
     reportFailure(error)
     exit(1)
 }

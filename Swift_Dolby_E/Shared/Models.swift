@@ -1,6 +1,7 @@
 // Copyright © 2026 B00kerLouis.
 // SPDX-License-Identifier: LGPL-3.0-or-later
 import Foundation
+import Darwin
 
 public enum DolbyEError: Error, LocalizedError, Sendable {
     case invalidArgument(String)
@@ -75,10 +76,37 @@ public enum DolbyEDialogueSource: String, Codable, Sendable {
     case none, bedCenter = "bed-c"
 }
 
-/// A paired file keeps the requested primary filename. Explicit AES1 suffixes
-/// are replaced, so OUTPUT.AES1.wav has the companion OUTPUT.AES2.wav.
+/// Paired ED2 outputs share a base name and explicit primary/expansion suffixes.
+/// Existing suffixes are normalized so selecting an AES1 path is idempotent.
 public enum DolbyED2CompanionFile {
+    public static func primaryURL(for output: URL) -> URL {
+        named(output, suffix: "_AES1")
+    }
+
     public static func url(for primary: URL) -> URL {
+        named(primary, suffix: "_AES2")
+    }
+
+    /// Read older pairs using their matching spelling before trying a canonical
+    /// peer. This avoids mixing old and new pairs that share the same base name.
+    public static func existingURL(for primary: URL) -> URL? {
+        [legacyURL(for: primary), url(for: primary)].first {
+            $0.standardizedFileURL.resolvingSymlinksInPath() != primary.standardizedFileURL.resolvingSymlinksInPath()
+                && FileManager.default.fileExists(atPath: $0.path)
+        }
+    }
+
+    private static func named(_ output: URL, suffix: String) -> URL {
+        let stem = output.deletingPathExtension().lastPathComponent
+        let lower = stem.lowercased()
+        let markers = ["_aes1", "_aes2", ".aes1", ".aes2", "-aes1", "-aes2"]
+        let marker = markers.first { lower.hasSuffix($0) && stem.count > $0.count }
+        let name = marker.map { String(stem.dropLast($0.count)) } ?? stem
+        let base = output.deletingLastPathComponent().appendingPathComponent(name + suffix)
+        return output.pathExtension.isEmpty ? base : base.appendingPathExtension(output.pathExtension)
+    }
+
+    static func legacyURL(for primary: URL) -> URL {
         let stem = primary.deletingPathExtension().lastPathComponent
         let lower = stem.lowercased()
         let marked = [".aes1", "_aes1", "-aes1"].contains { lower.hasSuffix($0) } || lower == "aes1"
@@ -276,5 +304,19 @@ public struct DolbyERequest: Sendable {
         self.decodeLayout = decodeLayout
         self.maximumParallelism = maximumParallelism
         self.loudness = loudness
+    }
+}
+
+/// A continuous monotonic nanosecond clock available on the deployment floor.
+/// Wall-clock adjustments never change codec scheduling or playback watchdogs.
+enum DolbyEMonotonicTime {
+    static var now: UInt64 { clock_gettime_nsec_np(CLOCK_MONOTONIC_RAW) }
+    static func sleep(until deadline: UInt64) async throws {
+        while true {
+            try Task.checkCancellation()
+            let current = now
+            if current >= deadline { return }
+            try await Task.sleep(nanoseconds: deadline - current)
+        }
     }
 }

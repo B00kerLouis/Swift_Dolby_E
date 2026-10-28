@@ -43,6 +43,26 @@ public struct DolbyEProgramPCM: Sendable {
 /// layouts retain their own slots even when the current Dolby E program has
 /// no height content. No ED2 elements or object positions are fabricated.
 public enum DolbyEPlaybackRouting {
+    /// Renderer lane N is driver lane N. Extra driver lanes are zero-filled;
+    /// speaker labels never reorder or reject discrete virtual audio endpoints.
+    public static func direct(_ pcm: [Float], inputChannels: Int, outputChannels: Int,
+                              solo: Int? = nil) throws -> [Float] {
+        guard (1...16).contains(inputChannels), (1...16).contains(outputChannels),
+              pcm.count % inputChannels == 0, pcm.count <= 8192 * inputChannels,
+              pcm.allSatisfy(\.isFinite), solo == nil || (0..<inputChannels).contains(solo!) else {
+            throw DolbyEError.invalidArgument("invalid discrete playback PCM")
+        }
+        if inputChannels == outputChannels, solo == nil { return pcm }
+        let frames = pcm.count / inputChannels
+        var output = [Float](repeating: 0, count: frames * outputChannels)
+        for frame in 0..<frames {
+            for channel in 0..<min(inputChannels, outputChannels) where solo == nil || channel == solo {
+                output[frame * outputChannels + channel] = pcm[frame * inputChannels + channel]
+            }
+        }
+        return output
+    }
+
     public static func selectProgram(_ pcm: [Double], configuration: DolbyEProgram, index: Int) throws -> DolbyEProgramPCM {
         guard pcm.count % 8 == 0, pcm.count <= 8192 * 8, pcm.allSatisfy(\.isFinite),
               configuration.programChannelCounts.indices.contains(index) else { throw DolbyEError.invalidArgument("the Dolby E stream does not contain that program") }

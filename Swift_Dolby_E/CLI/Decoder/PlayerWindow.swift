@@ -2,36 +2,40 @@
 // SPDX-License-Identifier: LGPL-3.0-or-later
 import AppKit
 import SwiftUI
-import Observation
+import Combine
 import UniformTypeIdentifiers
 import DolbyEDecoder
 
-@MainActor @Observable
-final class DolbyEPlayerModel {
+@MainActor
+final class DolbyEPlayerModel: ObservableObject {
     let session = DolbyEPlaybackSession()
-    var snapshot: DolbyEPlaybackSnapshot?
-    var devices: [DolbyEAudioDevice] = []
-    var layout: DolbyEPlaybackLayout = .fiveOne
-    var mainLayout: DolbyEPlaybackLayout = .fiveOne
-    var program = 0
-    var deviceID: UInt32 = DolbyEAudioDevices.defaultOutput() ?? 0
-    var endpointLayout = "auto"
-    var normalized = false
-    var downmixMode: DolbyEDownmixMode = .ltrt
-    var monitorMode: DolbyEMonitorMode = .direct
-    var mute = false
-    var monitorDB: Float = 0
-    var solo: Int?
-    var error: String?
-    var inputMode: DolbyEEncodeVision = .e
-    var primaryInput: URL?
-    var expansionInput: URL?
-    var opening = false
-    var requestedSeek: Double?
+    let meterDisplay = DolbyEMeterDisplayModel()
+    @Published var snapshot: DolbyEPlaybackSnapshot?
+    @Published var devices: [DolbyEAudioDevice] = []
+    @Published var layout: DolbyEPlaybackLayout = .fiveOne
+    @Published var mainLayout: DolbyEPlaybackLayout = .fiveOne
+    @Published var program = 0
+    @Published var deviceID: UInt32 = DolbyEAudioDevices.defaultOutput() ?? 0
+    @Published var endpointLayout = "auto"
+    @Published var normalized = false
+    @Published var downmixMode: DolbyEDownmixMode = .ltrt
+    @Published var monitorMode: DolbyEMonitorMode = .direct
+    @Published var mute = false
+    @Published var monitorDB: Float = 0
+    @Published var solo: Int?
+    @Published var error: String?
+    @Published var inputMode: DolbyEEncodeVision = .e
+    @Published var primaryInput: URL?
+    @Published var expansionInput: URL?
+    @Published var opening = false
+    @Published var requestedSeek: Double?
     private var seekTask: Task<Void, Never>?
     private var seekID = UUID()
     private var polling: Task<Void, Never>?
-    private var openPanel: NSOpenPanel?
+    private var meterUpdates: Task<Void, Never>?
+    private var pendingClose: Task<Void, Never>?
+    private var sourceGeneration = UUID()
+    @Published private var openPanel: NSOpenPanel?
     private var filePanelTask: Task<Void, Never>?
     private var lastDirectory: URL?
     var choosingFile: Bool { openPanel != nil }
@@ -45,13 +49,18 @@ final class DolbyEPlayerModel {
         self.inputMode = secondaryURL == nil ? .e : .ed2
         self.monitorMode = monitorMode
         self.devices = (try? DolbyEAudioDevices.outputs()) ?? []
+        meterDisplay.reset(channels: self.layout.speakers.count)
         polling = Task { [weak self] in
             while !Task.isCancelled {
                 guard let self else { return }
                 // A file sheet owns native navigation. Avoid repeatedly
                 // rebuilding its presenting view while it is open.
-                if !choosingFile { self.snapshot = await session.snapshot() }
-                try? await Task.sleep(for: .milliseconds(50))
+                if !choosingFile && !opening {
+                    let generation = sourceGeneration
+                    let current = await session.snapshot()
+                    if generation == sourceGeneration && !opening { self.snapshot = current }
+                }
+                try? await Task.sleep(nanoseconds: 250_000_000)
             }
         }
         Task {
@@ -63,9 +72,17 @@ final class DolbyEPlayerModel {
     func open(_ url: URL, secondaryURL: URL? = nil) async {
         guard !opening else { return }
         opening = true
-        defer { opening = false }
+        sourceGeneration = UUID()
+        let generation = sourceGeneration
+        meterUpdates?.cancel(); meterUpdates = nil
+        seekTask?.cancel(); seekTask = nil; seekID = UUID(); requestedSeek = nil
+        meterDisplay.reset(channels: layout.speakers.count)
+        snapshot = nil
+        defer { if generation == sourceGeneration { opening = false } }
         do {
+            await pendingClose?.value; pendingClose = nil
             error = nil; try await session.open(url, secondaryURL: secondaryURL)
+            guard generation == sourceGeneration else { return }
             let opened = await session.snapshot()
             snapshot = opened
             inputMode = opened.encodeVision
@@ -75,11 +92,41 @@ final class DolbyEPlayerModel {
             mainLayout = initialLayout ?? (opened.encodeVision == .ed2 ? .nineOneSix : (opened.program == .sevenOneScreen ? .sevenOneScreen : .fiveOne))
             nativeProgramLayout()
             solo = nil; await configure()
+            startMeterUpdates(generation: generation)
         }
-        catch { self.error = error.localizedDescription }
+        catch is CancellationError { }
+        catch { if generation == sourceGeneration { self.error = error.localizedDescription } }
+    }
+    private func startMeterUpdates(generation: UUID) {
+        meterUpdates?.cancel()
+        meterUpdates = Task { [weak self, session] in
+            let stream = await session.meterUpdates()
+            for await update in stream {
+                guard !Task.isCancelled, let self, generation == self.sourceGeneration else { return }
+                if update.layout == self.layout { self.meterDisplay.receive(update) }
+                if update.playing != self.snapshot?.playing {
+                    let current = await session.snapshot()
+                    if generation == self.sourceGeneration && !self.opening { self.snapshot = current }
+                }
+            }
+        }
+    }
+    func clearInputs() {
+        sourceGeneration = UUID()
+        let generation = sourceGeneration
+        seekTask?.cancel(); seekTask = nil; seekID = UUID(); requestedSeek = nil
+        meterUpdates?.cancel(); meterUpdates = nil
+        primaryInput = nil; expansionInput = nil; snapshot = nil; error = nil
+        meterDisplay.reset(channels: layout.speakers.count)
+        opening = true
+        pendingClose = Task { [weak self, session] in
+            await session.close()
+            if self?.sourceGeneration == generation { self?.opening = false }
+        }
     }
     func nativeProgramLayout() {
         layout = program == 1 ? .stereo : mainLayout
+        meterDisplay.reset(channels: layout.speakers.count)
     }
     func chooseFile(expansion: Bool = false) {
         guard !opening, openPanel == nil else { return }
@@ -116,55 +163,69 @@ final class DolbyEPlayerModel {
         }
         // A multiplexed two-track MXF already contains both AES substreams.
         // Separate files retain explicit paths or the reader's companion lookup.
-        Task { await open(primaryInput, secondaryURL: expansionInput) }
+        let generation = sourceGeneration, expansion = expansionInput
+        Task {
+            guard generation == sourceGeneration else { return }
+            await open(primaryInput, secondaryURL: expansion)
+        }
     }
     func togglePlayback() {
+        let generation = sourceGeneration
         Task {
+            guard generation == sourceGeneration else { return }
             do {
                 error = nil
                 if snapshot?.playbackRequested == true { await session.pause() }
                 else { try await session.play() }
             } catch is CancellationError { }
-            catch { self.error = error.localizedDescription }
-            snapshot = await session.snapshot()
+            catch { if generation == sourceGeneration { self.error = error.localizedDescription } }
+            let current = await session.snapshot()
+            if generation == sourceGeneration { snapshot = current }
         }
     }
     func seek(_ seconds: Double, coalescing: Bool = false) {
         seekTask?.cancel()
-        let request = UUID(); seekID = request; requestedSeek = seconds
+        let request = UUID(), generation = sourceGeneration
+        seekID = request; requestedSeek = seconds
         seekTask = Task {
             do {
-                if coalescing { try await Task.sleep(for: .milliseconds(50)) }
+                if coalescing { try await Task.sleep(nanoseconds: 50_000_000) }
                 try Task.checkCancellation()
+                guard generation == sourceGeneration else { return }
                 error = nil
                 try await session.seek(seconds: seconds)
                 try Task.checkCancellation()
                 let current = await session.snapshot()
-                guard seekID == request else { return }
+                guard seekID == request, generation == sourceGeneration else { return }
                 snapshot = current; requestedSeek = nil
             } catch is CancellationError { }
-            catch { if seekID == request { self.error = error.localizedDescription; requestedSeek = nil } }
+            catch { if seekID == request && generation == sourceGeneration { self.error = error.localizedDescription; requestedSeek = nil } }
         }
     }
     func configure() async {
+        let generation = sourceGeneration
+        if meterDisplay.frame.target.count != layout.speakers.count { meterDisplay.reset(channels: layout.speakers.count) }
         do {
             if snapshot?.encodeVision == .ed2, program == 1 { layout = .stereo }
             try await session.configure(layout: layout, programIndex: program, deviceID: deviceID == 0 ? nil : deviceID,
-                normalized: normalized, solo: solo, deviceSpeakers: DolbyEPlaybackLayout(rawValue: endpointLayout)?.physicalOrder,
+                normalized: normalized, solo: solo, deviceSpeakers: monitorMode == .downmix ? DolbyEPlaybackLayout(rawValue: endpointLayout)?.physicalOrder : nil,
                 downmixMode: downmixMode, monitorMode: monitorMode)
         }
-        catch { self.error = error.localizedDescription }
+        catch is CancellationError { }
+        catch { if generation == sourceGeneration { self.error = error.localizedDescription } }
     }
     func monitor() { Task { await session.monitor(db: monitorDB, muted: mute) } }
     func toggleSolo(_ channel: Int) { solo = solo == channel ? nil : channel; Task { await configure() } }
     func shutdown() async {
         openPanel?.cancel(nil); filePanelTask?.cancel(); seekTask?.cancel()
-        polling?.cancel(); polling = nil; await session.close()
+        polling?.cancel(); polling = nil; meterUpdates?.cancel(); meterUpdates = nil
+        await pendingClose?.value; pendingClose = nil
+        await session.close(); meterDisplay.reset(channels: layout.speakers.count)
     }
 }
 
 private struct DolbyEPlayerView: View {
-    @Bindable var model: DolbyEPlayerModel
+    @ObservedObject var model: DolbyEPlayerModel
     private func time(_ value: Double) -> String {
         let seconds = max(0, Int(value))
         return String(format: "%02d:%02d:%02d", seconds / 3600, (seconds / 60) % 60, seconds % 60)
@@ -219,8 +280,8 @@ private struct DolbyEPlayerView: View {
             if model.inputMode == .ed2 {
                 HStack(spacing: 8) {
                     inputPath("Expansion", url: model.expansionInput) { model.chooseFile(expansion: true) }
-                    Button("Clear") { model.expansionInput = nil }
-                        .disabled(model.expansionInput == nil).help("Clear expansion file selection")
+                    Button("Clear Pair", action: model.clearInputs)
+                        .disabled(model.primaryInput == nil && model.expansionInput == nil).help("Unload both ED2 inputs and stop playback")
                 }
             }
         }.disabled(model.opening || model.choosingFile)
@@ -237,24 +298,15 @@ private struct DolbyEPlayerView: View {
         }
     }
     private var meters: some View {
-        HStack(alignment: .bottom, spacing: 8) {
-            ForEach(Array(model.layout.speakers.enumerated()), id: \.offset) { index, speaker in
-                let level = model.snapshot?.meters.indices.contains(index) == true ? model.snapshot!.meters[index] : -96
-                VStack(spacing: 7) {
-                    Text(level > -95 ? String(format: "%.1f", level) : "−∞").font(.system(.caption2, design: .monospaced)).foregroundStyle(level > 0 ? Color.red : Color.secondary)
-                    GeometryReader { geometry in
-                        ZStack(alignment: .bottom) {
-                            RoundedRectangle(cornerRadius: 4).fill(Color.white.opacity(0.05))
-                            LinearGradient(colors: [.green, .green, .yellow, .red], startPoint: .bottom, endPoint: .top)
-                                .mask(alignment: .bottom) {
-                                    Rectangle().frame(height: geometry.size.height * CGFloat(max(0, min(1, (level + 60) / 60))))
-                                }
-                        }
-                    }.frame(height: 190)
+        VStack(spacing: 7) {
+            DolbyEMeterCanvas(model: model.meterDisplay)
+            HStack(spacing: 8) {
+                ForEach(Array(model.layout.speakers.enumerated()), id: \.offset) { index, speaker in
                     Button(speaker.monitorName(in: model.layout.speakers)) { model.toggleSolo(index) }
                         .buttonStyle(.bordered).tint(model.solo == index ? .orange : .gray)
                         .help("Solo \(speaker.monitorName(in: model.layout.speakers))")
-                }.frame(maxWidth: .infinity)
+                        .frame(maxWidth: .infinity)
+                }
             }
         }.padding(14).background(.black.opacity(0.2), in: RoundedRectangle(cornerRadius: 12))
     }
@@ -273,8 +325,8 @@ private struct DolbyEPlayerView: View {
             Button(action: model.togglePlayback) { Label(model.snapshot?.playbackRequested == true ? "Pause" : "Play", systemImage: model.snapshot?.playbackRequested == true ? "pause.fill" : "play.fill") }
                 .keyboardShortcut(.space, modifiers: []).disabled(model.snapshot?.file == nil)
             Spacer()
-            Toggle("Mute monitor", isOn: $model.mute).onChange(of: model.mute) { _, _ in model.monitor() }
-            Slider(value: $model.monitorDB, in: -60...6).frame(width: 130).onChange(of: model.monitorDB) { _, _ in model.monitor() }
+            Toggle("Mute monitor", isOn: $model.mute).onChange(of: model.mute) { _ in model.monitor() }
+            Slider(value: $model.monitorDB, in: -60...6).frame(width: 130).onChange(of: model.monitorDB) { _ in model.monitor() }
             Text(String(format: "%+.1f dB", model.monitorDB)).font(.system(.caption, design: .monospaced)).frame(width: 65)
     }
     }
@@ -286,7 +338,7 @@ private struct DolbyEPlayerView: View {
                 Picker("Render layout", selection: $model.layout) {
                     ForEach(DolbyEPlaybackLayout.allCases, id: \.self) { Text($0.rawValue).tag($0) }
                 }.labelsHidden().frame(width: 140).disabled(model.snapshot?.encodeVision == .ed2 && model.program == 1)
-                    .onChange(of: model.layout) { _, _ in
+                    .onChange(of: model.layout) { _ in
                         if model.program == 0 { model.mainLayout = model.layout }
                         Task { model.solo = nil; await model.configure() }
                     }
@@ -296,19 +348,19 @@ private struct DolbyEPlayerView: View {
                 Picker("Program", selection: $model.program) {
                     Text(model.snapshot?.encodeVision == .ed2 ? "1 · Main + Objects" : (model.snapshot?.program == .sevenOneScreen ? "1 · 7.1 Scrn" : "1 · 5.1 Main")).tag(0)
                     if model.snapshot?.program == .fiveOnePlusTwo || model.snapshot?.encodeVision == .ed2 { Text("2 · Stereo").tag(1) }
-                }.labelsHidden().frame(width: 145).onChange(of: model.program) { _, _ in Task { model.nativeProgramLayout(); await model.configure() } }
+                }.labelsHidden().frame(width: 145).onChange(of: model.program) { _ in Task { model.nativeProgramLayout(); await model.configure() } }
             }
             VStack(alignment: .leading) {
                 Text("Monitoring").font(.caption).foregroundStyle(.secondary)
                 Picker("Monitoring", selection: $model.monitorMode) {
                     ForEach(DolbyEMonitorMode.allCases, id: \.self) { Text($0.displayName).tag($0) }
-                }.labelsHidden().frame(width: 160).onChange(of: model.monitorMode) { _, _ in Task { await model.configure() } }
+                }.labelsHidden().frame(width: 160).onChange(of: model.monitorMode) { _ in Task { await model.configure() } }
             }
             VStack(alignment: .leading) {
                 Text("CoreAudio output").font(.caption).foregroundStyle(.secondary)
                 Picker("CoreAudio output", selection: $model.deviceID) {
-                    ForEach(model.devices) { device in Text(device.name + (device.usable ? "" : " · unknown channel labels")).tag(device.id) }
-                }.labelsHidden().frame(minWidth: 160).disabled(model.monitorMode == .meters).onChange(of: model.deviceID) { _, _ in Task { await model.configure() } }
+                    ForEach(model.devices) { device in Text(device.name + " · \(device.outputChannels) ch").tag(device.id) }
+                }.labelsHidden().frame(minWidth: 160).disabled(model.monitorMode == .meters).onChange(of: model.deviceID) { _ in Task { await model.configure() } }
             }
           }
           HStack(alignment: .top, spacing: 14) {
@@ -316,21 +368,21 @@ private struct DolbyEPlayerView: View {
                 Text("Monitor levels").font(.caption).foregroundStyle(.secondary)
                 Picker("Monitor levels", selection: $model.normalized) {
                     Text("Encoded PCM").tag(false); Text("Dialogue-normalized").tag(true)
-                }.labelsHidden().onChange(of: model.normalized) { _, _ in Task { await model.configure() } }
+                }.labelsHidden().onChange(of: model.normalized) { _ in Task { await model.configure() } }
             }
-            VStack(alignment: .leading) {
-                Text("Physical channel order").font(.caption).foregroundStyle(.secondary)
-                Picker("Physical channel order", selection: $model.endpointLayout) {
-                    Text("Automatic labels").tag("auto")
+            if model.monitorMode == .downmix { VStack(alignment: .leading) {
+                Text("Downmix output layout").font(.caption).foregroundStyle(.secondary)
+                Picker("Downmix output layout", selection: $model.endpointLayout) {
+                    Text("Device layout / Stereo").tag("auto")
                     ForEach(DolbyEPlaybackLayout.allCases, id: \.self) { Text($0.rawValue + " · WAVE order").tag($0.rawValue) }
-                }.labelsHidden().frame(width: 165).onChange(of: model.endpointLayout) { _, _ in Task { await model.configure() } }
-            }
+                }.labelsHidden().frame(width: 165).onChange(of: model.endpointLayout) { _ in Task { await model.configure() } }
+            } }
             if model.snapshot?.encodeVision == .ed2 {
                 VStack(alignment: .leading) {
                     Text("Stereo matrix").font(.caption).foregroundStyle(.secondary)
                     Picker("Stereo matrix", selection: $model.downmixMode) {
                         Text("Lt/Rt").tag(DolbyEDownmixMode.ltrt); Text("Lo/Ro").tag(DolbyEDownmixMode.loro)
-                    }.labelsHidden().frame(width: 85).onChange(of: model.downmixMode) { _, _ in Task { await model.configure() } }
+                    }.labelsHidden().frame(width: 85).onChange(of: model.downmixMode) { _ in Task { await model.configure() } }
                 }
             }
           }
@@ -343,7 +395,14 @@ private struct DolbyEPlayerView: View {
             Spacer()
             if model.snapshot?.clipping == true { Text("PCM clipping detected").font(.caption).foregroundStyle(.red) }
             if model.monitorMode == .meters { Text("QC clock · no audio output").font(.caption2).foregroundStyle(.secondary) }
-            else if let device = model.snapshot?.device { Text("Physical: \(device.speakers.map { $0.monitorName(in: device.speakers) }.joined(separator: " "))").font(.caption2).foregroundStyle(.secondary) }
+            else if let device = model.snapshot?.device {
+                if model.monitorMode == .direct {
+                    Text("Renderer 1–\(min(model.layout.speakers.count, device.outputChannels)) → Output 1–\(min(model.layout.speakers.count, device.outputChannels))")
+                        .font(.caption2).foregroundStyle(.secondary)
+                } else {
+                    Text("Downmix: \(device.speakers.map { $0.monitorName(in: device.speakers) }.joined(separator: " "))").font(.caption2).foregroundStyle(.secondary)
+                }
+            }
     }
     }
     private var metadataView: some View {
@@ -374,16 +433,16 @@ private struct DolbyEPlayerView: View {
 private final class DolbyEPlayerController: NSObject, NSApplicationDelegate, NSWindowDelegate {
     let model: DolbyEPlayerModel
     var window: NSWindow?
-    private var launchFiles: [URL]
     init(input: URL?, muted: Bool, layout: DolbyEPlaybackLayout?, selection: DolbyEDecodeSelection, secondaryURL: URL?, monitorMode: DolbyEMonitorMode) {
         model = DolbyEPlayerModel(input: input, muted: muted, layout: layout, selection: selection, secondaryURL: secondaryURL, monitorMode: monitorMode)
-        launchFiles = input.map { [$0] + (secondaryURL.map { [$0] } ?? []) } ?? []
     }
     func applicationDidFinishLaunching(_ notification: Notification) {
         let window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 1120, height: 790), styleMask: [.titled, .closable, .miniaturizable, .resizable], backing: .buffered, defer: false)
         window.title = "Dolby E / ED2 QC"; window.delegate = self
         window.contentView = NSHostingView(rootView: DolbyEPlayerView(model: model))
-        window.center(); window.makeKeyAndOrderFront(nil); NSApplication.shared.activate(); self.window = window
+        window.center(); window.makeKeyAndOrderFront(nil); self.window = window
+        if #available(macOS 14, *) { NSApplication.shared.activate() }
+        else { NSApplication.shared.activate(ignoringOtherApps: true) }
         let menu = NSMenu()
         let item = NSMenuItem(); menu.addItem(item)
         let appMenu = NSMenu(); appMenu.addItem(withTitle: "Quit Dolby E QC", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
@@ -397,11 +456,6 @@ private final class DolbyEPlayerController: NSObject, NSApplicationDelegate, NSW
         return .terminateLater
     }
     func application(_ application: NSApplication, open urls: [URL]) {
-        // LaunchServices delivers the same files as document-open events to
-        // grant native file access. The launch task already owns these paths.
-        if !launchFiles.isEmpty, urls.map(\.standardizedFileURL) == launchFiles.map(\.standardizedFileURL) {
-            launchFiles = []; return
-        }
         guard urls.count <= 2 else { model.error = "Select one carrier or two ED2 substreams."; return }
         if let url = urls.first {
             let second = urls.count > 1 ? urls[1] : nil
@@ -417,33 +471,4 @@ func runDolbyEPlayer(input: URL?, muted: Bool, layout: DolbyEPlaybackLayout?, se
     let controller = DolbyEPlayerController(input: input, muted: muted, layout: layout, selection: selection, secondaryURL: secondaryURL, monitorMode: monitorMode)
     app.setActivationPolicy(.regular); app.delegate = controller
     withExtendedLifetime(controller) { app.run() }
-}
-
-@MainActor
-func launchDolbyEPlayer(input: URL?, muted: Bool, layout: DolbyEPlaybackLayout?, selection: DolbyEDecodeSelection, secondaryURL: URL? = nil,
-                       monitorMode: DolbyEMonitorMode = .direct) async throws {
-    let product = URL(fileURLWithPath: CommandLine.arguments[0]).standardizedFileURL.deletingLastPathComponent()
-        .appendingPathComponent("Dolby E QC.app", isDirectory: true)
-    guard FileManager.default.fileExists(atPath: product.path) else {
-        throw DolbyEError.unsupported("Dolby E QC.app is missing beside the CLI; build the DolbyEDecoderCLI scheme with its player dependency")
-    }
-        let configuration = NSWorkspace.OpenConfiguration()
-        configuration.createsNewApplicationInstance = true
-        var arguments = ["--play", "--presentation", selection.rawValue, "--monitor", monitorMode.rawValue]
-        if let input {
-            if let secondaryURL { arguments += ["--input-pri", input.path, "--input-exp", secondaryURL.path] }
-            else { arguments += ["--input", input.path] }
-        }
-        if let layout { arguments += ["--layout", layout.rawValue] }
-        if muted { arguments.append("--mute") }
-        configuration.arguments = arguments
-        if let input {
-            // Send both document URLs through LaunchServices as well as the
-            // explicit role arguments. File paths alone do not convey the
-            // user's document-open access to an independently launched app.
-            _ = try await NSWorkspace.shared.open([input] + (secondaryURL.map { [$0] } ?? []),
-                withApplicationAt: product, configuration: configuration)
-        } else {
-            _ = try await NSWorkspace.shared.openApplication(at: product, configuration: configuration)
-        }
 }

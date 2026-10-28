@@ -3,12 +3,7 @@
 import Foundation
 import DolbyEDecoder
 
-#if PLAYER_APP
-if CommandLine.arguments.count == 1 {
-    runDolbyEPlayer(input: nil, muted: false, layout: nil, selection: .main)
-    exit(0)
-}
-#endif
+configureCLIDiagnostics()
 
 if CommandLine.arguments.count == 1 || CommandLine.arguments.dropFirst().contains("--help") {
     print("""
@@ -36,13 +31,13 @@ do {
     if options.play {
         let layout = options.playbackLayout == "auto" ? nil : DolbyEPlaybackLayout(rawValue: options.playbackLayout)
         guard options.playbackLayout == "auto" || layout != nil else { throw DolbyEError.invalidArgument("unknown playback layout") }
-        try await launchDolbyEPlayer(input: options.input, muted: options.muted, layout: layout,
+        runDolbyEPlayer(input: options.input, muted: options.muted, layout: layout,
             selection: options.decodeSelection, secondaryURL: options.secondaryInput, monitorMode: DolbyEMonitorMode(rawValue: options.monitorMode)!)
     } else if options.probe {
         guard let input = options.input else { throw DolbyEError.invalidArgument("--input or --input-pri/--input-exp is required") }
         let first = try DolbyECarrierProbe(url: input)
         if options.secondaryInput != nil || (first.encodeVision == .ed2 && (first.carrier.channelCount == 4
-            || FileManager.default.fileExists(atPath: DolbyED2CompanionFile.url(for: input).path))) {
+            || DolbyED2CompanionFile.existingURL(for: input) != nil)) {
             try printJSON(DolbyED2CarrierProbe(url: input, secondaryURL: options.secondaryInput))
         } else { try printJSON(first) }
     } else {
@@ -52,7 +47,18 @@ do {
                                    program: options.program, frameRate: options.rate, decodeSelection: options.decodeSelection,
                                    secondaryInputURL: options.secondaryInput,
                                    decodeLayout: options.playbackLayout == "auto" ? nil : DolbyEPlaybackLayout(rawValue: options.playbackLayout))
-        try await printJSON(DolbyEDecoding.decode(request))
+        // File decoding owns asynchronous workers; playback enters AppKit
+        // synchronously above so its event loop stays on the process main thread.
+        Task {
+            do {
+                try await printJSON(DolbyEDecoding.decode(request))
+                exit(0)
+            } catch {
+                reportFailure(error)
+                exit(1)
+            }
+        }
+        dispatchMain()
     }
 } catch {
     reportFailure(error)

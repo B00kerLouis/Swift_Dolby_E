@@ -33,9 +33,14 @@ public enum DolbyEEncoding {
             let rate = request.frameRate ?? opened.embeddedFrameRate ?? .fps25
             let router = DolbyED2SceneRouter(dialogueSource: request.dialogueSource, inputLayout: request.inputLayout)
             _ = try opened.peekED2(maxFrames: 256, router: router)
+            let paired = request.format == .mxfOPAtom || request.format == .pcm
+            let output = paired ? DolbyED2CompanionFile.primaryURL(for: output) : output
+            let outputs = [output] + (paired ? [DolbyED2CompanionFile.url(for: output)] : [])
+            guard !outputs.contains(where: { $0.standardizedFileURL.resolvingSymlinksInPath() == input }) else {
+                throw DolbyEError.invalidArgument("input and output must be different files")
+            }
             var pending: [String] = []
             if FileManager.default.fileExists(atPath: output.path) { pending.append("output already exists") }
-            let paired = request.format == .mxfOPAtom || request.format == .pcm
             let companion = DolbyED2CompanionFile.url(for: output)
             if paired, FileManager.default.fileExists(atPath: companion.path) {
                 pending.append("AES2 companion already exists")

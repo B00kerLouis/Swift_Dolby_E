@@ -36,12 +36,11 @@ jobs:
           xcodebuild -version
           test "$(xcodebuild -version | head -n 1)" = "Xcode 26.3"
           xcrun swift Scripts/CI/CheckRepository.swift
-      - name: Build frameworks, command-line tools and QC
+      - name: Build all static and dynamic frameworks and CLI tools
         run: |
           set -euo pipefail
-          for scheme in DolbyEEncoder DolbyEDecoder DolbyEEncoderCLI DolbyEDecoderCLI DolbyEPlayer; do
-            xcodebuild -project Swift_Dolby_E.xcodeproj -scheme "$scheme" \
-              -configuration Release -derivedDataPath Build \
-              CODE_SIGNING_ALLOWED=NO SWIFT_TREAT_WARNINGS_AS_ERRORS=YES GCC_TREAT_WARNINGS_AS_ERRORS=YES \
-              build
-          done
+          xcodebuild -project Swift_Dolby_E.xcodeproj -scheme "Build ALL" \
+            -configuration Release -derivedDataPath Build \
+            CODE_SIGNING_ALLOWED=NO SWIFT_TREAT_WARNINGS_AS_ERRORS=YES GCC_TREAT_WARNINGS_AS_ERRORS=YES \
+            build
+          xcrun swift Scripts/CI/CheckProducts.swift Build/Products/Release

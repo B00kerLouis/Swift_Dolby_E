@@ -2,7 +2,7 @@
 <!-- SPDX-License-Identifier: LGPL-3.0-or-later -->
 # Programme loudness and offline correction
 
-Owner: B00kerLouis. Native Swift6/macOS14+, exported by both self-contained static Frameworks for measurement and by DolbyEEncoder for file correction.
+Owner: B00kerLouis. Native Swift6/macOS12+, exported by both self-contained static Frameworks for measurement and by DolbyEEncoder for file correction.
 
 ```swift
 import Foundation
@@ -34,7 +34,7 @@ The ED2measurement layout defaults to5.1 in both CLI and Framework. Explicit9.1.
 
 The workflow measures full-programme relative-gated loudness. It does not substitute a level gate for speech detection. Dolby E5.1+2 programmes are measured/corrected independently and receive measured programme dialnorm. ED2 measures the selected discrete Main render; its two AES pairs receive linked programme gain. Other target renders such as Stereo have separate measurements and are not implicitly certified at the same target. Per-signal mono instructions are not assigned a rendered Main loudness. `result.loudness` reports actual before/after values, layout, fixed gain and target status.
 
-Correction uses a fixed whole-programme gain and smooth linked peak protection, followed by complete remeasurement. It never normalizes from a first silent frame or resets gain at frame boundaries. Corrected PCM is spectrally profiled with bounded state during the same completed analysis pass, so encoding can reuse its fixed shifts rather than reread/render the source for another profile. Completed old analysis plans without shifts retain the safe profiling pass. Source/sidecar identity and all DSP/energy/writer checkpoints are retained in SwiftData; energy records remain beside the destination. No source PCM is staged.
+Correction uses a fixed whole-programme gain and smooth linked peak protection, followed by complete remeasurement. It never normalizes from a first silent frame or resets gain at frame boundaries. Corrected PCM is spectrally profiled with bounded state during the same completed analysis pass, so encoding can reuse its fixed shifts rather than reread/render the source for another profile. Completed old analysis plans without shifts retain the safe profiling pass. Source/sidecar identity and all DSP/energy/writer checkpoints are retained in SwiftData on macOS14+ or the Core Data compatibility store on macOS12/13; energy records remain beside the destination. No source PCM is staged.
 
 `maximumParallelism` is a maximum budget, not a promise to occupy all threads in every stage. Channel measurement, spectral analysis and codec allocation/assembly use bounded independent workers with ordered commits. Real-window benchmarking rejected parallel full-speaker object buffers as slower; object rendering remains ordered/in-place. Assign budgets across simultaneous jobs instead of giving each process all cores. Same PCM/settings produce the same carrier words across tested serial/parallel execution.
 

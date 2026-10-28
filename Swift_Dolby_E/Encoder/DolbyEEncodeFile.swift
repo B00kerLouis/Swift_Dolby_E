@@ -17,10 +17,11 @@ struct EncodingCheckpoint: Codable {
 }
 
 actor DolbyEEncodeFileWorker {
-    func run(_ request: DolbyERequest, stateDirectory: URL? = nil) async throws -> DolbyEFileResult {
+    func run(_ request: DolbyERequest, stateDirectory: URL? = nil, progress: DolbyEEncodingProgressHandler? = nil) async throws -> DolbyEFileResult {
         _ = try DolbyEEncoderWork.limit(request.maximumParallelism)
         try request.loudness?.validate()
-        if request.encodeVision == .ed2 { return try await DolbyED2EncodeFileWorker().run(request, stateDirectory: stateDirectory) }
+        if request.encodeVision == .ed2 { return try await DolbyED2EncodeFileWorker().run(request, stateDirectory: stateDirectory, progress: progress) }
+        let reporter = DolbyEEncodingProgressReporter(request: request, handler: progress)
         let store = try DolbyEFileJobStore(operation: "encode", directory: stateDirectory)
         let signature = DolbyEFileJobStore.signature(request, operation: "encode")
         let candidate = try store.active(output: request.outputURL)
@@ -44,13 +45,13 @@ actor DolbyEEncodeFileWorker {
             guard existing == nil || existing?.sourceIdentity == identity else {
                 throw DolbyEError.invalidArgument("source identity changed; the saved codec state cannot be resumed against it")
             }
-            let active: DolbyEFileJob
+            let active: DolbyEFileJobRecord
             if let existing { active = existing }
             else {
                 guard !FileManager.default.fileExists(atPath: outputURL.path) else {
                     throw DolbyEError.invalidArgument("output already exists")
                 }
-                active = DolbyEFileJob(signature: signature, input: request.inputURL, output: request.outputURL,
+                active = DolbyEFileJobRecord(signature: signature, input: request.inputURL, output: request.outputURL,
                     sourceIdentity: identity, sourceFrames: source.info.frameCount)
                 active.sourceBookmarkBytes = inputAccess.bookmark
                 active.outputBookmarkBytes = outputAccess.bookmark
@@ -66,7 +67,7 @@ actor DolbyEEncodeFileWorker {
             } else {
                 try FileManager.default.createDirectory(at: outputAccess.url, withIntermediateDirectories: true)
             }
-            let loudnessPlan=try DolbyEOfflineLoudnessPreparation.run(request,sourceURL:inputAccess.url,outputURL:outputURL,directory:store.directory)
+            let loudnessPlan=try DolbyEOfflineLoudnessPreparation.run(request,sourceURL:inputAccess.url,outputURL:outputURL,directory:store.directory,progress:reporter)
             let effectiveRequest=try loudnessPlan?.ordinaryRequest(request) ?? request
             var programmeProcessor=try saved?.loudnessProcessor ?? (loudnessPlan?.settings.mode == .normalize ? loudnessPlan?.processor(request:request):nil)
             var router = try saved?.router ?? DolbyEEncodingRouter(source: source, request: request)
@@ -89,6 +90,7 @@ actor DolbyEEncodeFileWorker {
                     throw DolbyEError.malformed("finalized output no longer matches the saved job")
                 }
                 try store.update(active, status: "completed")
+                reporter.emit(.completed, processed: source.info.frameCount, total: source.info.frameCount)
                 var result=DolbyEFileResult(outputURL: outputURL, jobID: active.id.uuidString, program: request.program,
                     frameRate: rate, inputFrames: source.info.frameCount, outputFrames: info.frameCount,
                     videoFrames: frames, resumed: true)
@@ -115,6 +117,7 @@ actor DolbyEEncodeFileWorker {
                     profiling: profiling, spectralPeaks: spectralPeaks,loudnessProcessor:programmeProcessor), job: active, complete: complete, phase: profiling ? "profiling" : "processing")
             }
             if profiling {
+                reporter.emit(.profiling, processed: source.position, total: source.info.frameCount)
                 while source.position < source.info.frameCount || tail > 0 {
                     try autoreleasepool {
                         try Task.checkCancellation()
@@ -128,6 +131,7 @@ actor DolbyEEncodeFileWorker {
                         }
                         spectralPeaks = zip(spectralPeaks, try codec.measureSpectralPeaks(routed,maximumParallelism:request.maximumParallelism)).map(max)
                         frames += 1
+                        reporter.emit(.profiling, processed: source.position, total: source.info.frameCount)
                         if frames % 25 == 0 { try checkpoint(complete: false) }
                     }
                 }
@@ -141,6 +145,7 @@ actor DolbyEEncodeFileWorker {
                 frames = 0; tail = 1; profiling = false
                 try checkpoint(complete: false)
             }
+            reporter.emit(.encoding, processed: source.position, total: source.info.frameCount)
             if saved?.complete != true {
                 while source.position < source.info.frameCount || tail > 0 {
                     try autoreleasepool {
@@ -157,6 +162,7 @@ actor DolbyEEncodeFileWorker {
                         let carrier = try codec.encode(routed,maximumParallelism:request.maximumParallelism)
                         try writer.appendCarrier(carrier)
                         frames += 1
+                        reporter.emit(.encoding, processed: source.position, total: source.info.frameCount)
                         if frames % 25 == 0 {
                             try checkpoint(complete: false)
                         }
@@ -165,6 +171,7 @@ actor DolbyEEncodeFileWorker {
                 try checkpoint(complete: true)
             }
             guard try source.identity() == identity else { throw DolbyEError.invalidArgument("source or Atmos sidecar changed during encoding") }
+            reporter.emit(.finalizing, processed: source.info.frameCount, total: source.info.frameCount)
             try writer.finish()
             try store.update(active, status: "ready")
             let verified = try DolbyEMediaWriter.inspect(partial, format: request.format)
@@ -173,6 +180,7 @@ actor DolbyEEncodeFileWorker {
             }
             try FileManager.default.moveItem(at: partial, to: outputURL)
             try store.update(active, status: "completed")
+            reporter.emit(.completed, processed: source.info.frameCount, total: source.info.frameCount)
             var result=DolbyEFileResult(outputURL: outputURL, jobID: active.id.uuidString, program: request.program,
                 frameRate: rate, inputFrames: source.info.frameCount, outputFrames: verified.frameCount,
                 videoFrames: frames, resumed: saved != nil)
@@ -192,5 +200,11 @@ extension DolbyEEncoding {
     /// Runs the file pipeline off the caller's actor and retains durable processing state.
     public static func encode(_ request: DolbyERequest) async throws -> DolbyEFileResult {
         try await DolbyEEncodeFileWorker().run(request)
+    }
+
+    /// Reports bounded, monotonic file progress, including preflight and publication.
+    public static func encode(_ request: DolbyERequest,
+                              progress: @escaping DolbyEEncodingProgressHandler) async throws -> DolbyEFileResult {
+        try await DolbyEEncodeFileWorker().run(request, progress: progress)
     }
 }

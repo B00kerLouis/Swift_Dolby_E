@@ -11,8 +11,9 @@ public struct DolbyEAudioDevice: Identifiable, Sendable {
     public let physicalChannels: Int
     public let sampleRate: Double
     public let channelIndices: [Int]
-    public var outputChannels: Int { min(16, physicalChannels) }
-    public var usable: Bool { !speakers.isEmpty && speakers.count == channelIndices.count }
+    public var outputChannels: Int { max(0, min(16, physicalChannels)) }
+    public var usable: Bool { outputChannels > 0 }
+    public var hasSpeakerLabels: Bool { !speakers.isEmpty && speakers.count == channelIndices.count }
     public func assigning(speakers: [DolbyESpeaker], channelIndices: [Int]? = nil) throws -> DolbyEAudioDevice {
         let indices = channelIndices ?? Array(speakers.indices)
         guard !speakers.isEmpty, speakers.count <= 16, Set(speakers).count == speakers.count,
@@ -103,8 +104,8 @@ public enum DolbyEAudioDevices {
                 }
             }
         }
-        // A labelled preferred stereo pair is sufficient for a stereo endpoint;
-        // multichannel topology is never inferred from channel count alone.
+        // Speaker metadata is used only for explicit downmix monitoring.
+        // Discrete direct playback depends solely on the available output count.
         if speakers.isEmpty, channels == 2 {
             address.mSelector = kAudioDevicePropertyPreferredChannelsForStereo
             var pair: [UInt32] = [0, 0]; size = 8

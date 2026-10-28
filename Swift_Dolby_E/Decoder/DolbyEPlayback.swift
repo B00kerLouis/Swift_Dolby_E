@@ -44,6 +44,18 @@ public struct DolbyEPlaybackSnapshot: Sendable {
     public let playbackRequested: Bool
 }
 
+/// Latest rendered-frame meter data. This value feed is independent of the
+/// larger transport/metadata snapshot and never contains PCM or audio handles.
+public struct DolbyEPlaybackMeterSnapshot: Sendable {
+    public let generation: UUID
+    public let sequence: UInt64
+    public let playing: Bool
+    public let layout: DolbyEPlaybackLayout
+    public let levels: [Float]
+    public let sourceSeconds: Double
+    public let hostSeconds: Double
+}
+
 public struct DolbyEPlaybackBufferTiming: Codable, Sendable {
     public let sourceSeconds: Double
     public let frames: Int
@@ -59,6 +71,7 @@ public struct DolbyEPlaybackDiagnostics: Codable, Sendable {
     public var renderedBuffers: [DolbyEPlaybackRenderTiming] = []
     public var depletedQueues = 0
     public var lookaheadCacheHits = 0
+    public var outputChannelMap: [Int32] = []
 }
 public struct DolbyEPlaybackRenderTiming: Codable, Sendable {
     public let sourceEndSeconds: Double
@@ -140,6 +153,9 @@ public actor DolbyEPlaybackSession {
     private var endpointIndices: [Int]?
     private var monitorLimiter: DolbyETruePeakLimiter?
     private var audioStartupToken: UUID?
+    private var meterContinuation: AsyncStream<DolbyEPlaybackMeterSnapshot>.Continuation?
+    private var meterSubscription: UUID?
+    private var meterSequence: UInt64 = 0
     private var diagnosticsEnabled = false
     private var runtimeDiagnostics = DolbyEPlaybackDiagnostics()
     private struct ED2Lookahead {
@@ -163,8 +179,35 @@ public actor DolbyEPlaybackSession {
     private var ed2Lookahead: ED2Lookahead?
 
     public init() {}
+    /// One newest-value subscription per session. Replacing a subscriber
+    /// finishes the old stream; slow consumers cannot build a display backlog.
+    public func meterUpdates() -> AsyncStream<DolbyEPlaybackMeterSnapshot> {
+        meterContinuation?.finish()
+        let id = UUID()
+        meterSubscription = id
+        return AsyncStream(bufferingPolicy: .bufferingNewest(1)) { continuation in
+            meterContinuation = continuation
+            continuation.onTermination = { [weak self] _ in
+                Task { await self?.endMeterUpdates(id) }
+            }
+            publishMeters()
+        }
+    }
+    private func endMeterUpdates(_ id: UUID) {
+        guard meterSubscription == id else { return }
+        meterContinuation = nil; meterSubscription = nil
+    }
+    private func publishMeters() {
+        guard let meterContinuation else { return }
+        if meterSequence < UInt64.max { meterSequence += 1 }
+        meterContinuation.yield(.init(generation: generation, sequence: meterSequence, playing: running,
+            layout: layout, levels: running ? meters : Array(repeating: -96, count: layout.speakers.count),
+            sourceSeconds: Double(playedSamples) / 48000, hostSeconds: ProcessInfo.processInfo.systemUptime))
+    }
     public func enableDiagnostics(_ enabled: Bool) {
+        let channelMap = runtimeDiagnostics.outputChannelMap
         diagnosticsEnabled = enabled; runtimeDiagnostics = DolbyEPlaybackDiagnostics()
+        runtimeDiagnostics.outputChannelMap = channelMap
     }
     public func diagnostics() -> DolbyEPlaybackDiagnostics { runtimeDiagnostics }
     private func recordBufferTiming(start: Double, decoded: Double, pcm: [Double], prefill: Bool) {
@@ -240,6 +283,7 @@ public actor DolbyEPlaybackSession {
             self.playbackFailure = nil; self.replayTarget = nil
             self.checkpoints = [try captureCheckpoint()]
             self.checkpointStride = 25; self.status = "Ready · \(encodeVision == .ed2 ? "ED2" : first.program.rawValue) · \(first.frameRate.rawValue) fps"
+            publishMeters()
         } catch {
             for access in openedAccesses { access.stop() }
             accesses = []; source = nil; codec = nil; ed2Source = nil; ed2Codec = nil; ed2Renderer = nil
@@ -269,6 +313,7 @@ public actor DolbyEPlaybackSession {
         let token = generation
         if monitorMode == .meters {
             running = true; status = "Playing · QC meters only"
+            publishMeters()
             task = Task { await self.pumpMeters(token) }
             return
         }
@@ -319,6 +364,7 @@ public actor DolbyEPlaybackSession {
             throw error
         }
         running = true; status = "Playing"
+        publishMeters()
         task = Task { await self.pump(token) }
     }
     public func pause() {
@@ -328,6 +374,7 @@ public actor DolbyEPlaybackSession {
     private func suspendPlayback() {
         running = false; task?.cancel(); task = nil; player?.pause(); status = "Paused"
         meters = Array(repeating: -96, count: layout.speakers.count)
+        publishMeters()
     }
     public func stop() async throws {
         pause(); try await seekInternal(seconds: 0); status = "Stopped"
@@ -339,6 +386,7 @@ public actor DolbyEPlaybackSession {
         sourceURLs = []; sourceIdentity = ""; url = nil; status = "Closed"
         metadata = []; initialMetadata = []; duration = 0; decodedSamples = 0; playedSamples = 0
         playbackFailure = nil; replayTarget = nil
+        publishMeters(); meterContinuation?.finish(); meterContinuation = nil; meterSubscription = nil
     }
     public func seek(seconds: Double) async throws {
         try await seekInternal(seconds: seconds)
@@ -365,6 +413,7 @@ public actor DolbyEPlaybackSession {
         self.monitorMode = monitorMode
         self.normalized = normalized; self.solo = solo.flatMap { layout.speakers.indices.contains($0) ? $0 : nil }
         self.meters = Array(repeating: -96, count: layout.speakers.count)
+        publishMeters()
         if monitorChanged || deviceID != nil && deviceID != device?.id || mappingChanged {
             engine?.stop(); engine = nil; player = nil; outputFormat = nil; outputLock = nil
             if monitorMode != .meters { try configureAudio(deviceID: deviceID ?? device?.id ?? DolbyEAudioDevices.defaultOutput()) }
@@ -394,6 +443,7 @@ public actor DolbyEPlaybackSession {
         pausedRenderedSamples = 0; pausedRenderedLevels = nil
         audioStartupToken = nil
         ed2Lookahead = nil
+        publishMeters()
     }
     /// Cancellation can land between the two AES reads or during prefill.
     /// Both cursors and codec histories must be reconstructed together before
@@ -406,6 +456,7 @@ public actor DolbyEPlaybackSession {
         pausedRenderedSamples = 0; pausedRenderedLevels = nil; status = "Paused"
         audioStartupToken = nil
         ed2Lookahead = nil
+        publishMeters()
     }
     private func recoverAudioOutput(_ reason: String, token: UUID) {
         guard generation == token else { return }
@@ -416,16 +467,16 @@ public actor DolbyEPlaybackSession {
         replayTarget = position; status = reason
     }
     private func waitForAudioClock(_ token: UUID) async throws {
-        let clock = ContinuousClock(), deadline = clock.now.advanced(by: .seconds(2))
+        let deadline = DolbyEMonotonicTime.now + 2_000_000_000
         var marker = DolbyEAudioRenderClock()
-        while clock.now < deadline {
+        while DolbyEMonotonicTime.now < deadline {
             try Task.checkCancellation()
             guard generation == token, playbackRequested else { throw CancellationError() }
             guard let engine, engine.isRunning, let player else {
                 throw DolbyEError.outputUnavailable("CoreAudio stopped before playback")
             }
             if marker.advanced(player.lastRenderTime) { return }
-            try await Task.sleep(for: .milliseconds(5))
+            try await Task.sleep(nanoseconds: 5_000_000)
         }
         try Task.checkCancellation()
         guard generation == token, playbackRequested else { throw CancellationError() }
@@ -435,6 +486,7 @@ public actor DolbyEPlaybackSession {
         let stem = file.deletingPathExtension(), name = stem.lastPathComponent
         let ext = file.pathExtension
         var candidates = [DolbyED2CompanionFile.url(for: file), stem.appendingPathExtension("AES2.\(ext)")]
+        if let existing = DolbyED2CompanionFile.existingURL(for: file) { candidates.insert(existing, at: 0) }
         if name.lowercased().hasSuffix(".aes2") {
             candidates.insert(stem.deletingLastPathComponent().appendingPathComponent(String(name.dropLast(5))).appendingPathExtension(ext), at: 0)
         } else if name.range(of: "AES1", options: .caseInsensitive) != nil {
@@ -477,9 +529,14 @@ public actor DolbyEPlaybackSession {
         guard let id = deviceID, let discovered = try DolbyEAudioDevices.outputs().first(where: { $0.id == id }) else {
             throw DolbyEError.outputUnavailable("CoreAudio device is unavailable")
         }
-        let selected = try endpointSpeakers.map { try discovered.assigning(speakers: $0, channelIndices: endpointIndices) } ?? discovered
-        guard selected.usable else {
-            throw DolbyEError.unsupported("select an output with labelled CoreAudio speakers or a preferred stereo pair")
+        guard discovered.usable else { throw DolbyEError.outputUnavailable("CoreAudio device has no output channels") }
+        let selected: DolbyEAudioDevice
+        if monitorMode == .direct { selected = discovered }
+        else if let endpointSpeakers { selected = try discovered.assigning(speakers: endpointSpeakers, channelIndices: endpointIndices) }
+        else if discovered.hasSpeakerLabels { selected = discovered }
+        else {
+            guard discovered.outputChannels >= 2 else { throw DolbyEError.unsupported("stereo downmix requires two output channels") }
+            selected = try discovered.assigning(speakers: [.left, .right])
         }
         let directory = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
             .appendingPathComponent("SwiftDolbyE/Playback", isDirectory: true)
@@ -501,6 +558,23 @@ public actor DolbyEPlaybackSession {
         let hardwareFormat = AVAudioFormat(commonFormat: .pcmFormatFloat32, sampleRate: selected.sampleRate,
             interleaved: false, channelLayout: channelLayout)
         engine.connect(engine.mainMixerNode, to: engine.outputNode, format: hardwareFormat)
+        // HAL output channel-map destinations are physical driver lanes.
+        // Keep all lanes above the supported first sixteen explicitly silent.
+        guard let unit = engine.outputNode.audioUnit else { throw DolbyEError.outputUnavailable("CoreAudio output unit is unavailable") }
+        var channelMap = (0..<selected.physicalChannels).map { $0 < selected.outputChannels ? Int32($0) : -1 }
+        let mapBytes = UInt32(channelMap.count * MemoryLayout<Int32>.size)
+        let mapStatus = channelMap.withUnsafeMutableBytes {
+            AudioUnitSetProperty(unit, kAudioOutputUnitProperty_ChannelMap, kAudioUnitScope_Input, 0, $0.baseAddress!, mapBytes)
+        }
+        guard mapStatus == noErr else { throw DolbyEError.outputUnavailable("CoreAudio channel map failed (\(mapStatus))") }
+        var confirmed = [Int32](repeating: -1, count: channelMap.count), confirmedBytes = mapBytes
+        let readStatus = confirmed.withUnsafeMutableBytes {
+            AudioUnitGetProperty(unit, kAudioOutputUnitProperty_ChannelMap, kAudioUnitScope_Input, 0, $0.baseAddress!, &confirmedBytes)
+        }
+        guard readStatus == noErr, confirmedBytes == mapBytes, confirmed == channelMap else {
+            throw DolbyEError.outputUnavailable("CoreAudio did not retain the discrete output channel map")
+        }
+        runtimeDiagnostics.outputChannelMap = confirmed
         engine.prepare()
         node.volume = mute ? 0 : pow(10, monitorDB / 20)
         self.device = selected; self.outputLock = lock; self.engine = engine; self.player = node; self.outputFormat = format
@@ -583,6 +657,7 @@ public actor DolbyEPlaybackSession {
         generation = UUID(); task?.cancel(); task = nil; player?.stop(); queued = 0; eof = false; pending = nil; meterPending = nil
         try resetMonitorLimiter()
         pausedRenderedSamples = 0; pausedRenderedLevels = nil
+        publishMeters()
         let wanted = UInt64(max(0, min(duration, seconds)) * 48000)
         guard let saved = checkpoints.last(where: { $0.sample <= wanted }) else { throw DolbyEError.malformed("missing initial decoder checkpoint") }
         let fast = wanted - saved.sample > 8 * 2002 ? try primeSeek(near: wanted) : false
@@ -667,23 +742,22 @@ public actor DolbyEPlaybackSession {
         return pcm
     }
     private func pump(_ token: UUID) async {
-        let clock = ContinuousClock()
         var marker = DolbyEAudioRenderClock()
         _ = marker.advanced(player?.lastRenderTime)
-        var deadline = clock.now.advanced(by: .seconds(2))
+        var deadline = DolbyEMonotonicTime.now + 2_000_000_000
         while running, generation == token, !Task.isCancelled {
             guard engine?.isRunning == true else {
                 recoverAudioOutput("Audio output stopped; retry or select an available output",token: token); return
             }
             if marker.advanced(player?.lastRenderTime) {
-                deadline = clock.now.advanced(by: .seconds(2))
-            } else if clock.now >= deadline {
+                deadline = DolbyEMonotonicTime.now + 2_000_000_000
+            } else if DolbyEMonotonicTime.now >= deadline {
                 recoverAudioOutput("CoreAudio I/O clock stopped; retry or select an available output",token: token); return
             }
             // Keep the output-clock watchdog alive while the final scheduled
             // buffers drain. EOF alone does not mean hardware rendered them.
-            if eof { try? await Task.sleep(for: .milliseconds(5)); continue }
-            if queued >= 8 { try? await Task.sleep(for: .milliseconds(5)); continue }
+            if eof { try? await Task.sleep(nanoseconds: 5_000_000); continue }
+            if queued >= 8 { try? await Task.sleep(nanoseconds: 5_000_000); continue }
             do {
                 let scheduled = try autoreleasepool { () throws -> Bool in
                     let start = diagnosticsEnabled ? ProcessInfo.processInfo.systemUptime : 0
@@ -695,7 +769,7 @@ public actor DolbyEPlaybackSession {
                 }
                 if !scheduled {
                     eof = true
-                    if queued == 0 { running = false; playbackRequested = false; status = "Completed"; duration = Double(decodedSamples) / 48000; meters = Array(repeating: -96, count: layout.speakers.count) }
+                    if queued == 0 { running = false; playbackRequested = false; status = "Completed"; duration = Double(decodedSamples) / 48000; meters = Array(repeating: -96, count: layout.speakers.count); publishMeters() }
                     if queued == 0 { break }
                 }
             } catch {
@@ -704,7 +778,7 @@ public actor DolbyEPlaybackSession {
                     cancelPendingPlayback(token); return
                 }
                 running = false; playbackRequested = false; playbackFailure = error.localizedDescription
-                status = error.localizedDescription; player?.pause(); break
+                status = error.localizedDescription; player?.pause(); publishMeters(); break
             }
             await Task.yield()
         }
@@ -713,8 +787,7 @@ public actor DolbyEPlaybackSession {
     /// opening or locking an audio output device. Cancellation/seek invalidates the
     /// generation before the suspended task can publish stale meters or time.
     private func pumpMeters(_ token: UUID) async {
-        let clock = ContinuousClock()
-        var deadline = clock.now
+        var deadline = DolbyEMonotonicTime.now
         while running, generation == token, !Task.isCancelled {
             do {
                 guard let prepared = try autoreleasepool(invoking: { () throws -> PreparedPCM? in
@@ -725,18 +798,20 @@ public actor DolbyEPlaybackSession {
                     eof = true; running = false; playbackRequested = false; status = "Completed"
                     duration = Double(decodedSamples) / 48000
                     meters = Array(repeating: -96, count: layout.speakers.count)
+                    publishMeters()
                     return
                 }
                 meterPending = prepared
-                deadline += .seconds(Double(prepared.frames) / 48000)
-                try await clock.sleep(until: deadline)
+                deadline += UInt64(prepared.frames) * 1_000_000_000 / 48000
+                try await DolbyEMonotonicTime.sleep(until: deadline)
                 guard running, generation == token, !Task.isCancelled else { return }
                 meterPending = nil
                 playedSamples += UInt64(prepared.frames); meters = prepared.levels
+                publishMeters()
             } catch is CancellationError { return }
             catch {
                 guard generation == token else { return }
-                running = false; playbackRequested = false; playbackFailure = error.localizedDescription; status = error.localizedDescription; return
+                running = false; playbackRequested = false; playbackFailure = error.localizedDescription; status = error.localizedDescription; publishMeters(); return
             }
         }
     }
@@ -778,6 +853,10 @@ public actor DolbyEPlaybackSession {
     }
     private func routeMonitor(_ prepared: PreparedPCM, device: DolbyEAudioDevice) throws -> [Double] {
         let frames = prepared.frames, channels = layout.speakers.count
+        if monitorMode == .direct {
+            return try DolbyEPlaybackRouting.direct(prepared.samples, inputChannels: channels,
+                outputChannels: device.outputChannels, solo: solo).map(Double.init)
+        }
         var monitored = prepared.samples.map(Double.init)
         if let solo { for frame in 0..<frames { for channel in 0..<channels where channel != solo { monitored[frame * channels + channel] = 0 } } }
         return try DolbyEPlaybackRouting.render(monitored, source: layout.speakers, destination: device.speakers,
@@ -838,7 +917,13 @@ public actor DolbyEPlaybackSession {
         let prepared = try prepare(pcm)
         let frames = prepared.frames
         let levels = prepared.levels
-        var physical = try routeMonitor(prepared, device: device)
+        let direct = monitorMode == .direct
+        var directPCM: [Float] = []
+        var physical: [Double] = []
+        if direct {
+            directPCM = try DolbyEPlaybackRouting.direct(prepared.samples, inputChannels: layout.speakers.count,
+                outputChannels: device.outputChannels, solo: solo)
+        } else { physical = try routeMonitor(prepared, device: device) }
         if var limiter = monitorLimiter {
             let count = physical.count
             // A seek can leave fewer than six samples before EOF. Detector
@@ -849,14 +934,20 @@ public actor DolbyEPlaybackSession {
             if physical.count != count { physical = Array(physical.prefix(count)) }
             monitorLimiter = limiter
         }
-        if physical.contains(where: { abs($0) > 1 }) { clipping = true }
+        if direct ? directPCM.contains(where: { abs($0) > 1 }) : physical.contains(where: { abs($0) > 1 }) { clipping = true }
         guard let buffer = AVAudioPCMBuffer(pcmFormat: format, frameCapacity: AVAudioFrameCount(frames)), let pointers = buffer.floatChannelData else {
             throw DolbyEError.unsupported("CoreAudio PCM buffer allocation")
         }
         buffer.frameLength = AVAudioFrameCount(frames)
-        for channel in 0..<device.outputChannels { pointers[channel].initialize(repeating: 0, count: frames) }
-        for (index, physicalIndex) in device.channelIndices.enumerated() {
-            for frame in 0..<frames { pointers[physicalIndex][frame] = Float(physical[frame * device.speakers.count + index]) }
+        if direct {
+            for channel in 0..<device.outputChannels {
+                for frame in 0..<frames { pointers[channel][frame] = directPCM[frame * device.outputChannels + channel] }
+            }
+        } else {
+            for channel in 0..<device.outputChannels { pointers[channel].initialize(repeating: 0, count: frames) }
+            for (index, physicalIndex) in device.channelIndices.enumerated() {
+                for frame in 0..<frames { pointers[physicalIndex][frame] = Float(physical[frame * device.speakers.count + index]) }
+            }
         }
         queued += 1
         let meterValues = levels
@@ -887,6 +978,7 @@ public actor DolbyEPlaybackSession {
             return
         }
         playedSamples += UInt64(frames); meters = levels
-        if eof, queued == 0 { running = false; playbackRequested = false; status = "Completed"; duration = Double(decodedSamples) / 48000; meters = Array(repeating: -96, count: layout.speakers.count) }
+        publishMeters()
+        if eof, queued == 0 { running = false; playbackRequested = false; status = "Completed"; duration = Double(decodedSamples) / 48000; meters = Array(repeating: -96, count: layout.speakers.count); publishMeters() }
     }
 }

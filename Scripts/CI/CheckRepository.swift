@@ -36,3 +36,4 @@ print("Reviewed \(files.count) tracked files: source-only inventory and owned-so
 
 let project = try String(contentsOfFile: "Swift_Dolby_E.xcodeproj/project.pbxproj", encoding: .utf8)
 guard !project.contains("com.apple.product-type.bundle.unit-test") else { fatalError("local verification target included in published project") }
+guard !project.contains("com.apple.product-type.application") else { fatalError("unexpected application target; QC belongs in the decoder CLI") }

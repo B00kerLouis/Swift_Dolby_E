@@ -290,6 +290,19 @@ public struct DolbyED2PresentationRenderer: Codable, Sendable {
         /// order, cone directions and per-sample positions remain unchanged.
         func weights(position: SIMD3<Double>, size: Double, snap: Bool, into result: inout [Double],
                      scratch: inout [Double], powers: inout [Double]) {
+            // Establish unique buffers once per spatial update. The inner cone
+            // kernel then writes bounded rows without per-tap Array COW checks.
+            result.withUnsafeMutableBufferPointer { output in
+                scratch.withUnsafeMutableBufferPointer { cone in
+                    powers.withUnsafeMutableBufferPointer { energy in
+                        weights(position: position, size: size, snap: snap, result: output, scratch: cone, powers: energy)
+                    }
+                }
+            }
+        }
+        private func weights(position: SIMD3<Double>, size: Double, snap: Bool,
+                             result: UnsafeMutableBufferPointer<Double>, scratch: UnsafeMutableBufferPointer<Double>,
+                             powers: UnsafeMutableBufferPointer<Double>) {
             for channel in result.indices { result[channel] = 0 }
             if snap && size == 0 {
                 let indices = speakers.indices.filter { speakers[$0] != .lfe }
@@ -298,7 +311,7 @@ public struct DolbyED2PresentationRenderer: Codable, Sendable {
                 }) { result[nearest] = 1 }
                 return
             }
-            if size == 0 { point(position, into: &result); return }
+            if size == 0 { point(position, into: result); return }
             let norm = sqrt(lengthSquared(position))
             let axis = norm > 1e-12 ? position / norm : SIMD3<Double>(0, 1, 0)
             let seed = abs(axis.z) < 0.9 ? SIMD3<Double>(0, 0, 1) : SIMD3<Double>(0, 1, 0)
@@ -323,39 +336,34 @@ public struct DolbyED2PresentationRenderer: Codable, Sendable {
                 // One scratch row serves all32solid-angle samples. Repeated
                 // cone integration must not allocate32arrays per PCM sample.
                 for channel in scratch.indices { scratch[channel] = 0 }
-                point((direction / radius) * extentRadius, into: &scratch)
+                point((direction / radius) * extentRadius, into: scratch)
                 for channel in powers.indices { powers[channel] += scratch[channel] * scratch[channel] / Double(count) }
             }
             for channel in result.indices { result[channel] = sqrt(powers[channel]) }
         }
-        private func point(_ position: SIMD3<Double>) -> [Double] {
-            var result = [Double](repeating: 0, count: speakers.count)
-            point(position, into: &result)
-            return result
-        }
-        private func point(_ position: SIMD3<Double>, into result: inout [Double]) {
+        @inline(__always) private func point(_ position: SIMD3<Double>, into result: UnsafeMutableBufferPointer<Double>) {
             guard let low = planes.first, let high = planes.last else { return }
             let height = max(0, min(1, position.z))
-            if planes.count == 1 { rowWeights(plane: low, position: position, gain: 1, into: &result) }
+            if planes.count == 1 { rowWeights(plane: low, position: position, gain: 1, into: result) }
             else {
                 let angle = height * .pi / 2
-                rowWeights(plane: low, position: position, gain: cos(angle), into: &result)
-                rowWeights(plane: high, position: position, gain: sin(angle), into: &result)
+                rowWeights(plane: low, position: position, gain: cos(angle), into: result)
+                rowWeights(plane: high, position: position, gain: sin(angle), into: result)
             }
         }
-        private func rowWeights(plane: Plane, position: SIMD3<Double>, gain: Double, into result: inout [Double]) {
+        @inline(__always) private func rowWeights(plane: Plane, position: SIMD3<Double>, gain: Double, into result: UnsafeMutableBufferPointer<Double>) {
             guard gain != 0, let first = plane.rows.first, let last = plane.rows.last else { return }
-            if position.y <= first.y { lateral(row: first, x: position.x, gain: gain, into: &result); return }
-            if position.y >= last.y { lateral(row: last, x: position.x, gain: gain, into: &result); return }
+            if position.y <= first.y { lateral(row: first, x: position.x, gain: gain, into: result); return }
+            if position.y >= last.y { lateral(row: last, x: position.x, gain: gain, into: result); return }
             for index in 0..<(plane.rows.count - 1) where position.y >= plane.rows[index].y && position.y <= plane.rows[index + 1].y {
                 let a = plane.rows[index], b = plane.rows[index + 1]
                 let angle = (position.y - a.y) / (b.y - a.y) * .pi / 2
-                lateral(row: a, x: position.x, gain: gain * cos(angle), into: &result)
-                lateral(row: b, x: position.x, gain: gain * sin(angle), into: &result)
+                lateral(row: a, x: position.x, gain: gain * cos(angle), into: result)
+                lateral(row: b, x: position.x, gain: gain * sin(angle), into: result)
                 return
             }
         }
-        private func lateral(row: Row, x: Double, gain: Double, into result: inout [Double]) {
+        @inline(__always) private func lateral(row: Row, x: Double, gain: Double, into result: UnsafeMutableBufferPointer<Double>) {
             guard let first = row.channels.first, let last = row.channels.last else { return }
             if row.channels.count == 1 || x <= row.x[0] { result[first] += gain; return }
             if x >= row.x[row.x.count - 1] { result[last] += gain; return }
@@ -368,8 +376,8 @@ public struct DolbyED2PresentationRenderer: Codable, Sendable {
                 }
             }
         }
-        private func lengthSquared(_ value: SIMD3<Double>) -> Double { value.x * value.x + value.y * value.y + value.z * value.z }
-        private func cross(_ a: SIMD3<Double>, _ b: SIMD3<Double>) -> SIMD3<Double> {
+        @inline(__always) private func lengthSquared(_ value: SIMD3<Double>) -> Double { value.x * value.x + value.y * value.y + value.z * value.z }
+        @inline(__always) private func cross(_ a: SIMD3<Double>, _ b: SIMD3<Double>) -> SIMD3<Double> {
             SIMD3(a.y * b.z - a.z * b.y, a.z * b.x - a.x * b.z, a.x * b.y - a.y * b.x)
         }
     }
